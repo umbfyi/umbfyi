@@ -22,5 +22,17 @@
         "sources": [
             "https://www.youtube.com/channel/UCF_Ene5-58a3Z55aw8O6Djg"
         ]
+    },
+    {
+        "alias": "mattbrailsford",
+        "name": "Matt Brailsford",
+        "description": "Umbraco Commerce Technical Team Lead @ Umbraco HQ | Co-founder of CODECABIN | Creator of UMB.FYI",
+        "url": "https://mattbrailsford.dev/",
+        "avatar": "https://avatars.githubusercontent.com/u/527305",
+        "sources": [
+            "https://mattbrailsford.dev/",
+            "https://dev.to/@mattbrailsford",
+            "https://umbracocommunity.social/@matt"
+        ]
     }
 ]
