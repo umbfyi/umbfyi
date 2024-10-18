@@ -34,5 +34,28 @@
             "https://dev.to/@mattbrailsford",
             "https://umbracocommunity.social/@matt"
         ]
+    },
+    {
+        "alias": "lottepitcher",
+        "name": "Lotte Pitcher",
+        "description": "Developer Relations @ Umbraco HQ | Microsoft MVP in Developer Relations",
+        "url": "https://lotte.dev",
+        "avatar": "https://avatars.githubusercontent.com/u/4716542",
+        "sources": [
+            "https://lotte.dev",
+            "https://dev.to/@lottepitcher",
+            "https://umbracocommunity.social/@lotte"
+        ]
+    },
+    {
+        "alias": "candidcontributions",
+        "name": "Candid Contributions",
+        "description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
+        "url": "https://candidcontributions.com",
+        "avatar": "https://avatars.githubusercontent.com/u/60542078",
+        "sources": [
+            "https://www.spreaker.com/podcast/candid-contributions--4200995",
+            "https://x.com/candidcontribs"
+        ]
     }
 ]
