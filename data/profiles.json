@@ -1,0 +1,26 @@
+[
+    {
+        "alias": "umbraco",
+        "name": "Umbraco",
+        "description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
+        "url": "https://umbraco.com",
+        "avatar": "https://avatars.githubusercontent.com/u/1419552",
+        "sources": [
+            "https://umbraco.com/blog/",
+            "https://github.com/umbraco/",
+            "https://umbracocommunity.social/@umbraco",
+            "https://www.youtube.com/channel/UCcltXlJQ-U553MoOsP9p4wg",
+            "https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA"
+        ]
+    },
+    {
+        "alias": "umbracoffee",
+        "name": "UmbraCoffee",
+        "description": "Every last-Friday, 11:30 UK / 12:30 CET, Marcin and Callum (plus guests!) will drive you through the weekly news and all things Umbraco related. So grab a cuppa, join us LIVE and enjoy!",
+        "url": "https://www.youtube.com/umbracoffee",
+        "avatar": "https://yt3.googleusercontent.com/ytc/AIdro_mVhmzmAMjr9YvZqCI1HSQSnPtmz9EO6kjTI7Qo6af1aw=s160-c-k-c0x00ffffff-no-rj",
+        "sources": [
+            "https://www.youtube.com/channel/UCF_Ene5-58a3Z55aw8O6Djg"
+        ]
+    }
+]
