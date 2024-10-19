@@ -30,7 +30,7 @@ You can follow the same rule of thumb for RSS feeds, but it will effectively be 
 For mastodon, the source will be your mastodon account URL ie `https://umbracocommunity.social/@matt`
 
 #### DEV.to blog
-Fro DEV.to blogs, the source will be your profile URL for you account ie `https://dev.to/@mattbrailsford`
+Fro DEV.to blogs, the source will be your profile URL for you account ie `https://dev.to/mattbrailsford`
 
 #### Hashnode blog
 Fro Hashnode blogs, the source will be your profile URL for you account ie `https://mattbrailsford.hashnode.dev`
