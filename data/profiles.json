@@ -57,5 +57,30 @@
             "https://www.spreaker.com/podcast/candid-contributions--4200995",
             "https://x.com/candidcontribs"
         ]
+    },
+    {
+        "alias": "joeglombek",
+        "name": "Joe Glombek",
+        "description": "Umbraco MVP and umBristol organiser working at Bump Digital",
+        "url": "https://joe.gl/ombek",
+        "avatar": "https://gravatar.com/avatar/7b90e73f4fa372ce679c540bc04e1b4f?size=256",
+        "sources": [
+            "https://joe.gl",
+            "https://umbracocommunity.social/@joe",
+            "https://www.youtube.com/@JoeCodes",
+            "https://www.youtube.com/channel/UCpSOvp1zEp5CE6W9VqdY61Q"
+        ]
+    },
+    {
+        "alias": "umbristol",
+        "name": "umBristol",
+        "description": "The Bristol Umbraco User Group",
+        "url": "https://www.umbristol.co.uk/",
+        "avatar": "https://www.umbristol.co.uk/assets/logo.png",
+        "sources": [
+            "https://www.meetup.com/umbristol",
+            "https://x.com/umbristol",
+            "https://umbracocommunity.social/@umbristol"
+        ]
     }
 ]
