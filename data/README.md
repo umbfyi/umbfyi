@@ -39,4 +39,4 @@ Fro Hashnode blogs, the source will be your profile URL for you account ie `http
 Fro Medium blogs, the source will be your profile URL for you account ie `https://mattbrailsford.medium.com` or `https://medium.com/@mattbrailsford`
 
 #### Fallback
-By default when checking sources we will look for exact matches, but where there isn't an exact match, we will also compare the sources list against the media items URL to see if that URL starts with a given source URL.
+By default when checking sources we will look for exact matches, but where there isn't an exact match, we will also compare the sources list against the media items URL to see if that URL starts with a given source URL. So if you don't know the source URL, but you know all posts for your account will be on a consistent URL like `https://mydomain.com/blog/article-title` then you can add a source for `https://mydomain.com/blog` to capture all articles posted on that URL.
