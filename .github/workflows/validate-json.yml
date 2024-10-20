@@ -1,0 +1,22 @@
+name: json-yaml-validate 
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write # enable write permissions for pull request comments
+
+jobs:
+  json-yaml-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: json-yaml-validate
+        id: json-yaml-validate
+        uses: GrantBirki/json-yaml-validate@vX.X.X # replace with the latest version
+        with:
+          json_schema: schemas/profiles.schema.json
+          files: data/profiles.json
+          comment: "true"
