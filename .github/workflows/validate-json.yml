@@ -12,5 +12,5 @@ jobs:
       - name: Validate Profiles
         uses: nhalstead/validate-json-action@0.1.3
         with:
-          schema: ./schema/profiles.schema.json
-          jsons: ./data/profiles.json
+          schema: /schema/profiles.schema.json
+          jsons: /data/profiles.json
