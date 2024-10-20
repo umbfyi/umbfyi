@@ -83,5 +83,18 @@
             "https://x.com/umbristol",
             "https://umbracocommunity.social/@umbristol"
         ]
+    },
+    {
+        "alias": "leekelleher",
+        "name": "Lee Kelleher",
+        "description": "Lee is a long time Umbraco community collaborator, he works for Umbraco HQ as a Staff Engineer on the CMS team.",
+        "url": "https://leekelleher.com",
+        "avatar": "https://github.com/leekelleher.png",
+        "sources": [
+            "https://leekelleher.com/",
+            "https://dev.to/leekelleher",
+            "https://github.com/leekelleher",
+            "https://umbracocommunity.social/@lee"
+        ]
     }
 ]
