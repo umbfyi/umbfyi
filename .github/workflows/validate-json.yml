@@ -10,10 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Validate Profiles
-        uses: snapcart/json-schema-validator@v1.0.0
+        uses: nhalstead/validate-json-action@0.1.3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json_schema: ./schemas/profiles.schema.json
-          json_path_pattern: ./data/profiles.json
-          send_comment: true
-          clear_comments: true
+          schema: ./schema/profiles.schema.json
+          jsons: ./data/profiles.json
