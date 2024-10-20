@@ -6,7 +6,8 @@
         "type": "object",
         "properties": {
           "alias": {
-            "type": "string"
+            "type": "string",
+            "format": "url_safe"
           },
           "name": {
             "type": "string"
