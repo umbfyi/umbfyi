@@ -3,22 +3,17 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pull-requests: write # enable write permissions for pull request comments
-
 jobs:
-  json-yaml-validate:
+  validate-json:
+    name: Validate JSON
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: json-yaml-validate
-        id: json-yaml-validate
-        uses: GrantBirki/json-yaml-validate@v3.2.1
+      - uses: actions/checkout@v2
+      - name: Validate Profiles
+        uses: snapcart/json-schema-validator@v1.0.0
         with:
-          base_dir: ./data
+          token: ${{ secrets.GITHUB_TOKEN }}
           json_schema: ./schemas/profiles.schema.json
-          files: ./data/profiles.json
-          comment: "true"
-          ajv_strict_mode: "false"
+          json_path_pattern: ./data/profiles.json
+          send_comment: true
+          clear_comments: true
