@@ -6,7 +6,9 @@ UMB.FYI relies on some external data sources to function. In the name of keeping
 
 The `profiles.json` files is what defines the user profile details for content creators featured in UMB.FYI. A profile provides content creators with a dedicated URL that displays an ever updating timeline of all their featured content.
 
-To add your profile submit a PR with an update to `profiles.json` adding a profile entry to the root array. The properties of the profile object are as follows:
+To add your profile submit a PR with an update to `profiles.json` adding a profile entry to the root array. Profiles should be added in alphabetical order by alias so please insert your profile in the appropriate location.
+
+The properties of the profile object are as follows:
 
 | Property | Description |
 | -- | -- |
