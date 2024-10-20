@@ -3,14 +3,21 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write # enable write permissions for pull request comments
+
 jobs:
-  validate-json:
-    name: Validate JSON
+  json-yaml-validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Validate Profiles
-        uses: nhalstead/validate-json-action@0.1.3
+      - uses: actions/checkout@v4
+
+      - name: json-yaml-validate
+        id: json-yaml-validate
+        uses: GrantBirki/json-yaml-validate@v3.2.1
         with:
-          schema: /schema/profiles.schema.json
-          jsons: /data/profiles.json
+          json_schema: /schemas/profiles.schema.json
+          files: /data/profiles.json
+          comment: "true"
+          ajv_strict_mode: "false"
