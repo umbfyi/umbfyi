@@ -1,110 +1,110 @@
 [
-	{
-		"alias": "candidcontributions",
-		"name": "Candid Contributions",
-		"description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
-		"url": "https://candidcontributions.com",
-		"avatar": "https://avatars.githubusercontent.com/u/60542078",
-		"sources": [
-			"https://www.spreaker.com/podcast/candid-contributions--4200995",
-			"https://x.com/candidcontribs"
-		]
-	},
-	{
-		"alias": "joeglombek",
-		"name": "Joe Glombek",
-		"description": "Umbraco MVP and umBristol organiser working at Bump Digital",
-		"url": "https://joe.gl/ombek",
-		"avatar": "https://gravatar.com/avatar/7b90e73f4fa372ce679c540bc04e1b4f?size=256",
-		"sources": [
-			"https://joe.gl",
-			"https://joe.gl/ombek/blog/",
-			"https://joe.gl/ombek/talks/",
-			"https://umbracocommunity.social/@joe",
-			"https://www.youtube.com/channel/UCpSOvp1zEp5CE6W9VqdY61Q"
-		]
-	},
-	{
-		"alias": "leekelleher",
-		"name": "Lee Kelleher",
-		"description": "Lee is a long time Umbraco community collaborator, he works for Umbraco HQ as a Staff Engineer on the CMS team.",
-		"url": "https://leekelleher.com",
-		"avatar": "https://github.com/leekelleher.png",
-		"sources": [
-			"https://leekelleher.com/",
-			"https://dev.to/leekelleher",
-			"https://github.com/leekelleher",
-			"https://umbracocommunity.social/@lee"
-		]
-	},
-	{
-		"alias": "lottepitcher",
-		"name": "Lotte Pitcher",
-		"description": "Developer Relations @ Umbraco HQ | Microsoft MVP in Developer Relations",
-		"url": "https://lotte.dev",
-		"avatar": "https://avatars.githubusercontent.com/u/4716542",
-		"sources": [
-			"https://lotte.dev",
-			"https://dev.to/lottepitcher",
-			"https://umbracocommunity.social/@lotte"
-		]
-	},
-	{
-		"alias": "mattbrailsford",
-		"name": "Matt Brailsford",
-		"description": "Umbraco Commerce Technical Team Lead @ Umbraco HQ | Co-founder of CODECABIN | Creator of UMB.FYI",
-		"url": "https://mattbrailsford.dev",
-		"avatar": "https://avatars.githubusercontent.com/u/527305",
-		"sources": [
-			"https://mattbrailsford.dev",
-			"https://dev.to/mattbrailsford",
-			"https://umbracocommunity.social/@matt"
-		]
-	},
-	{
-		"alias": "skrift",
-		"name": "Skrift",
-		"description": "Skrift Magazine is a community magazine where we publish original articles about developing in Umbraco as well as user experience, design, front-end technologies and broader industry issues.",
-		"url": "https://skrift.io",
-		"avatar": "https://avatars.githubusercontent.com/u/11840713",
-		"sources": [
-			"https://skrift.io"
-		]
-	},
-	{
-		"alias": "umbraco",
-		"name": "Umbraco",
-		"description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
-		"url": "https://umbraco.com",
-		"avatar": "https://avatars.githubusercontent.com/u/1419552",
-		"sources": [
-			"https://umbraco.com/blog/",
-			"https://github.com/umbraco/",
-			"https://umbracocommunity.social/@umbraco",
-			"https://www.youtube.com/channel/UCcltXlJQ-U553MoOsP9p4wg",
-			"https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA"
-		]
-	},
-	{
-		"alias": "umbracoffee",
-		"name": "UmbraCoffee",
-		"description": "Every last-Friday, 11:30 UK / 12:30 CET, Marcin and Callum (plus guests!) will drive you through the weekly news and all things Umbraco related. So grab a cuppa, join us LIVE and enjoy!",
-		"url": "https://www.youtube.com/umbracoffee",
-		"avatar": "https://yt3.googleusercontent.com/ytc/AIdro_mVhmzmAMjr9YvZqCI1HSQSnPtmz9EO6kjTI7Qo6af1aw=s160-c-k-c0x00ffffff-no-rj",
-		"sources": [
-			"https://www.youtube.com/channel/UCF_Ene5-58a3Z55aw8O6Djg"
-		]
-	},
-	{
-		"alias": "umbristol",
-		"name": "umBristol",
-		"description": "The Bristol Umbraco User Group",
-		"url": "https://www.umbristol.co.uk/",
-		"avatar": "https://www.umbristol.co.uk/assets/logo.png",
-		"sources": [
-			"https://www.meetup.com/umbristol",
-			"https://x.com/umbristol",
-			"https://umbracocommunity.social/@umbristol"
-		]
-	}
+  {
+    "alias": "candidcontributions",
+    "name": "Candid Contributions",
+    "description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
+    "url": "https://candidcontributions.com",
+    "avatar": "https://avatars.githubusercontent.com/u/60542078",
+    "sources": [
+      "https://www.spreaker.com/podcast/candid-contributions--4200995",
+      "https://x.com/candidcontribs"
+    ]
+  },
+  {
+    "alias": "joeglombek",
+    "name": "Joe Glombek",
+    "description": "Umbraco MVP and umBristol organiser working at Bump Digital",
+    "url": "https://joe.gl/ombek",
+    "avatar": "https://gravatar.com/avatar/7b90e73f4fa372ce679c540bc04e1b4f?size=256",
+    "sources": [
+      "https://joe.gl",
+      "https://joe.gl/ombek/blog/",
+      "https://joe.gl/ombek/talks/",
+      "https://umbracocommunity.social/@joe",
+      "https://www.youtube.com/channel/UCpSOvp1zEp5CE6W9VqdY61Q"
+    ]
+  },
+  {
+    "alias": "leekelleher",
+    "name": "Lee Kelleher",
+    "description": "Lee is a long time Umbraco community collaborator, he works for Umbraco HQ as a Staff Engineer on the CMS team.",
+    "url": "https://leekelleher.com",
+    "avatar": "https://github.com/leekelleher.png",
+    "sources": [
+      "https://leekelleher.com/",
+      "https://dev.to/leekelleher",
+      "https://github.com/leekelleher",
+      "https://umbracocommunity.social/@lee"
+    ]
+  },
+  {
+    "alias": "lottepitcher",
+    "name": "Lotte Pitcher",
+    "description": "Developer Relations @ Umbraco HQ | Microsoft MVP in Developer Relations",
+    "url": "https://lotte.dev",
+    "avatar": "https://avatars.githubusercontent.com/u/4716542",
+    "sources": [
+      "https://lotte.dev",
+      "https://dev.to/lottepitcher",
+      "https://umbracocommunity.social/@lotte"
+    ]
+  },
+  {
+    "alias": "mattbrailsford",
+    "name": "Matt Brailsford",
+    "description": "Umbraco Commerce Technical Team Lead @ Umbraco HQ | Co-founder of CODECABIN | Creator of UMB.FYI",
+    "url": "https://mattbrailsford.dev",
+    "avatar": "https://avatars.githubusercontent.com/u/527305",
+    "sources": [
+      "https://mattbrailsford.dev",
+      "https://dev.to/mattbrailsford",
+      "https://umbracocommunity.social/@matt"
+    ]
+  },
+  {
+    "alias": "skrift",
+    "name": "Skrift",
+    "description": "Skrift Magazine is a community magazine where we publish original articles about developing in Umbraco as well as user experience, design, front-end technologies and broader industry issues.",
+    "url": "https://skrift.io",
+    "avatar": "https://avatars.githubusercontent.com/u/11840713",
+    "sources": [
+      "https://skrift.io"
+    ]
+  },
+  {
+    "alias": "umbraco",
+    "name": "Umbraco",
+    "description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
+    "url": "https://umbraco.com",
+    "avatar": "https://avatars.githubusercontent.com/u/1419552",
+    "sources": [
+      "https://umbraco.com/blog/",
+      "https://github.com/umbraco/",
+      "https://umbracocommunity.social/@umbraco",
+      "https://www.youtube.com/channel/UCcltXlJQ-U553MoOsP9p4wg",
+      "https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA"
+    ]
+  },
+  {
+    "alias": "umbracoffee",
+    "name": "UmbraCoffee",
+    "description": "Every last-Friday, 11:30 UK / 12:30 CET, Marcin and Callum (plus guests!) will drive you through the weekly news and all things Umbraco related. So grab a cuppa, join us LIVE and enjoy!",
+    "url": "https://www.youtube.com/umbracoffee",
+    "avatar": "https://yt3.googleusercontent.com/ytc/AIdro_mVhmzmAMjr9YvZqCI1HSQSnPtmz9EO6kjTI7Qo6af1aw=s160-c-k-c0x00ffffff-no-rj",
+    "sources": [
+      "https://www.youtube.com/channel/UCF_Ene5-58a3Z55aw8O6Djg"
+    ]
+  },
+  {
+    "alias": "umbristol",
+    "name": "umBristol",
+    "description": "The Bristol Umbraco User Group",
+    "url": "https://www.umbristol.co.uk/",
+    "avatar": "https://www.umbristol.co.uk/assets/logo.png",
+    "sources": [
+      "https://www.meetup.com/umbristol",
+      "https://x.com/umbristol",
+      "https://umbracocommunity.social/@umbristol"
+    ]
+  }
 ]
