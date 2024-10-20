@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "array",
+    "items": [
+      {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "array",
+            "items": [
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "required": [
+          "alias",
+          "name",
+          "sources"
+        ]
+      }
+    ]
+  }
