@@ -10,7 +10,7 @@ To add your profile submit a PR with an update to `profiles.json` adding a profi
 
 | Property | Description |
 | -- | -- |
-| `alias` | A URL safe, all lowercase alias for your profile. This is used to constuctor your profile URL in the format `https://umb.fyi/profile/{alias}`. Please make sure your alias is unique. |
+| `alias` | A URL safe, all lowercase alias for your profile. This is used to constuct your profile URL in the format `https://umb.fyi/profile/{alias}`. Please make sure your alias is unique. |
 | `name` | The display name for you profile. |
 | `description` | A short description / bio for you profile. |
 | `url` | A primary URL to link to from your profile. |
