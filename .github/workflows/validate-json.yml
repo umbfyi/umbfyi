@@ -20,3 +20,4 @@ jobs:
           json_schema: schemas/profiles.schema.json
           files: data/profiles.json
           comment: "true"
+          ajv_strict_mode: "false"
