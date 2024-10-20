@@ -96,5 +96,15 @@
             "https://github.com/leekelleher",
             "https://umbracocommunity.social/@lee"
         ]
+    },
+    {
+        "alias": "skrift",
+        "name": "Skrift",
+        "description" : "Skrift Magazine is a community magazine where we publish original articles about developing in Umbraco as well as user experience, design, front-end technologies and broader industry issues.",
+        "url": "https://skrift.io",
+        "avatar": "https://avatars.githubusercontent.com/u/11840713",
+        "sources": [
+            "https://skrift.io"
+        ]
     }
 ]
