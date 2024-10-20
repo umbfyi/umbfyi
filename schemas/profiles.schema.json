@@ -26,7 +26,8 @@
               {
                 "type": "string"
               }
-            ]
+            ],
+            "minItems": 1
           }
         },
         "required": [
@@ -35,5 +36,6 @@
           "sources"
         ]
       }
-    ]
+    ],
+    "minItems": 1
   }
