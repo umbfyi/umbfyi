@@ -1,4 +1,4 @@
-name: json-yaml-validate 
+name: validate-json
 on:
   pull_request:
   workflow_dispatch:
