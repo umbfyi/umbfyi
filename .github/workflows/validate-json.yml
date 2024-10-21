@@ -25,13 +25,13 @@ jobs:
           ajv_custom_regexp_formats: |
             url_safe=^[a-z0-9\-\_]*$
 
-      - name: Validate Tags
-        id: validate-tags
+      - name: Validate Topics
+        id: validate-topics
         uses: GrantBirki/json-yaml-validate@v3.2.1
         with:
-          json_schema: schemas/tags.schema.json
+          json_schema: schemas/topics.schema.json
           files: |
-            data/tags.json
+            data/topics.json
           comment: "true"
           ajv_strict_mode: "false"
           ajv_custom_regexp_formats: |

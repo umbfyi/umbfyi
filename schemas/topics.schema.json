@@ -5,7 +5,7 @@
       {
         "type": "object",
         "properties": {
-          "tag": {
+          "alias": {
             "type": "string",
             "format": "url_safe"
           },
@@ -17,11 +17,20 @@
           },
           "url": {
             "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": [
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "required": [
           "tag",
-          "name"
+          "name",
+          "tags"
         ]
       }
     ]

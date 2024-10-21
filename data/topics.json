@@ -1,0 +1,10 @@
+[
+    {
+        "tag": "bellissima",
+        "name": "Bellissima",
+        "description": "Bellissima is the code name for the rebuild of the frontend code of the backoffice of Umbraco. Bellissima replaces the old deprecated AngularJS code with Lit, TypeScript and Web Components as well as a flexible extensions API.",
+        "tags": [
+            "bellissima"
+        ]
+    }
+]

@@ -6,13 +6,13 @@ UMB.FYI relies on some external data sources to function. In the name of keeping
 
 The `profiles.json` files is what defines the user profile details for content creators featured in UMB.FYI. A profile provides content creators with a dedicated URL that displays an ever updating timeline of all their featured content.
 
-To add your profile submit a PR with an update to `profiles.json` adding a profile entry to the root array. Profiles should be added in alphabetical order by alias so please insert your profile in the appropriate location.
+To add your profile submit a PR with an update to `profiles.json` file adding a profile entry to the root array. Profiles should be added in alphabetical order by alias so please insert your profile in the appropriate location.
 
 The properties of the profile object are as follows:
 
 | Property | Description |
 | -- | -- |
-| `alias` | A URL safe, all lowercase alias for your profile. This is used to constuct your profile URL in the format `https://umb.fyi/profile/{alias}`. Please make sure your alias is unique. |
+| `alias` | A URL safe, all lowercase alias for your profile. This is used to constuct your profile URL in the format `https://umb.fyi/@{alias}`. Please make sure your alias is unique. |
 | `name` | The display name for you profile. |
 | `description` | A short description / bio for you profile. |
 | `url` | A primary URL to link to from your profile. |
@@ -43,17 +43,18 @@ Fro Medium blogs, the source will be your profile URL for you account ie `https:
 #### Fallback
 By default when checking sources we will look for exact matches, but where there isn't an exact match, we will also compare the sources list against the media items URL to see if that URL starts with a given source URL. So if you don't know the source URL, but you know all posts for your account will be on a consistent URL like `https://mydomain.com/blog/article-title` then you can add a source for `https://mydomain.com/blog` to capture all articles posted on that URL.
 
-## `tags.json`
+## `topics.json`
 
-The `tags.json` files allows providing extra meta data to be displayed alongside tagged content. The aim isn't to expand on every tag, but where there are important topics, this allows us to make more of the tag page and give users a bit information on the subject. 
+The `topics.json` file allows creating topic specific pages made up of articles tagged with connected tags. We can think of these as "super tags" allowing to currate a number of connected tags into a single topic.
 
-To add tag meta data submit a PR with an update to `tags.json` adding a tag entry to the root array. Tags should be added in alphabetical order by tag so please insert your data in the appropriate location.
+To add a topic by submitting a PR with an update to `topics.json` file adding a topics entry to the root array. Topics should be added in alphabetical order by alias so please insert your data in the appropriate location.
 
-The properties of the tag object are as follows:
+The properties of the topics object are as follows:
 
 | Property | Description |
 | -- | -- |
-| `tag` | The tag this entry is linked to. |
-| `name` | The display name for you tag. |
-| `description` | A short description for the tag. |
+| `alias` | A URL safe, all lowercase alias for your profile. This is used to constuct your profile URL in the format `https://umb.fyi/topic/{alias}`. Please make sure your alias is unique. |
+| `name` | The display name for the topic. |
+| `description` | A short description for the topic. |
 | `url` | An optional URL to link to for more information. |
+| `tags` | An array of tags that make up this topic. |
