@@ -62,6 +62,17 @@
     ]
   },
   {
+    "alias": "rickbutterfield",
+    "name": "Rick Butterfield",
+    "description": "Lead Software Engineer & Umbraco MVP",
+    "url": "https://rickbutterfield.dev",
+    "avatar": "https://avatars.githubusercontent.com/u/200450",
+    "sources": [
+      "https://rickbutterfield.dev/blog",
+      "https://umbracocommunity.social/@rickbutterfield"
+    ]
+  },
+  {
     "alias": "skrift",
     "name": "Skrift",
     "description": "Skrift Magazine is a community magazine where we publish original articles about developing in Umbraco as well as user experience, design, front-end technologies and broader industry issues.",
@@ -106,16 +117,5 @@
       "https://x.com/umbristol",
       "https://umbracocommunity.social/@umbristol"
     ]
-  },
-  {
-    "alias": "rickbutterfield",
-    "name": "Rick Butterfield",
-    "description": "Lead Software Engineer & Umbraco MVP",
-    "url": "https://rickbutterfield.dev",
-    "avatar": "https://avatars.githubusercontent.com/u/200450",
-    "sources": [
-      "https://rickbutterfield.dev/blog",
-      "https://umbracocommunity.social/@rickbutterfield"
-    ]
-  },
+  }
 ]
