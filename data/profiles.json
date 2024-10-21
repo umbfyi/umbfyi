@@ -106,5 +106,16 @@
       "https://x.com/umbristol",
       "https://umbracocommunity.social/@umbristol"
     ]
-  }
+  },
+  {
+    "alias": "rickbutterfield",
+    "name": "Rick Butterfield",
+    "description": "Lead Software Engineer & Umbraco MVP",
+    "url": "https://rickbutterfield.dev",
+    "avatar": "https://avatars.githubusercontent.com/u/200450",
+    "sources": [
+      "https://rickbutterfield.dev/blog",
+      "https://umbracocommunity.social/@rickbutterfield"
+    ]
+  },
 ]
