@@ -8,18 +8,30 @@ permissions:
   pull-requests: write # enable write permissions for pull request comments
 
 jobs:
-  json-yaml-validate:
+  validate-json:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: json-yaml-validate
-        id: json-yaml-validate
+      - name: Validate Profiles
+        id: validate-profiles
         uses: GrantBirki/json-yaml-validate@v3.2.1
         with:
           json_schema: schemas/profiles.schema.json
           files: |
             data/profiles.json
+          comment: "true"
+          ajv_strict_mode: "false"
+          ajv_custom_regexp_formats: |
+            url_safe=^[a-z0-9\-\_]*$
+
+      - name: Validate Tags
+        id: validate-tags
+        uses: GrantBirki/json-yaml-validate@v3.2.1
+        with:
+          json_schema: schemas/tags.schema.json
+          files: |
+            data/tags.json
           comment: "true"
           ajv_strict_mode: "false"
           ajv_custom_regexp_formats: |

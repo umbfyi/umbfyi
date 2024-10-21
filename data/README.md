@@ -42,3 +42,18 @@ Fro Medium blogs, the source will be your profile URL for you account ie `https:
 
 #### Fallback
 By default when checking sources we will look for exact matches, but where there isn't an exact match, we will also compare the sources list against the media items URL to see if that URL starts with a given source URL. So if you don't know the source URL, but you know all posts for your account will be on a consistent URL like `https://mydomain.com/blog/article-title` then you can add a source for `https://mydomain.com/blog` to capture all articles posted on that URL.
+
+## `tags.json`
+
+The `tags.json` files allows providing extra meta data to be displayed alongside tagged content. The aim isn't to expand on every tag, but where there are important topics, this allows us to make more of the tag page and give users a bit information on the subject. 
+
+To add tag meta data submit a PR with an update to `tags.json` adding a tag entry to the root array. Tags should be added in alphabetical order by tag so please insert your data in the appropriate location.
+
+The properties of the tag object are as follows:
+
+| Property | Description |
+| -- | -- |
+| `tag` | The tag this entry is linked to. |
+| `name` | The display name for you tag. |
+| `description` | A short description for the tag. |
+| `url` | An optional URL to link to for more information. |
