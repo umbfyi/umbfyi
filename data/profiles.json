@@ -165,6 +165,22 @@
     ]
   },
   {
+    "alias": "umbhost",
+    "name": "UmbHost",
+    "description": "Community Focused, Reliable & Affordable Umbraco Hosting",
+    "url": "https://umbhost.net",
+    "avatar": "https://avatars.githubusercontent.com/u/82342261?s=400&u=d1e1fb97edfba93fcb69cbeda4a1b559b964261e&v=4",
+    "sources": [
+      "https://umbhost.net",
+      "https://github.com/UmbHost",
+      "https://x.com/UmbHost",
+      "https://www.linkedin.com/company/umbhost/",
+      "https://www.facebook.com/UmbHost",
+      "https://marketplace.umbraco.com/search/umbhost",
+      "https://umbracocommunity.social/@umbhost"
+    ]
+  },
+  {
     "alias": "umbraco",
     "name": "Umbraco",
     "description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
