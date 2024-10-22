@@ -74,6 +74,21 @@
     ]
   },
   {
+    "alias": "nikrimington",
+    "name": "Nik Rimington",
+    "description": "Lead Developer @ Moriyama | Package Producer | Umbraco MVP | Class of 2018",
+    "url": "https://justnik.me",
+    "avatar": "https://avatars.githubusercontent.com/u/13313745",
+    "sources": [
+      "https://justnik.me",
+      "https://x.com/HotChilliCode",
+      "https://mastodon.social/@hotchillicode",
+      "https://bsky.app/profile/hotchillicode.bsky.social",
+      "https://github.com/NikRimington",
+      "https://www.linkedin.com/in/nikolas-rimington-19377723/"
+    ]
+  },
+  {
     "alias": "rickbutterfield",
     "name": "Rick Butterfield",
     "description": "Lead Software Engineer & Umbraco MVP",
