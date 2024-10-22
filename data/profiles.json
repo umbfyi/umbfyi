@@ -94,6 +94,19 @@
     ]
   },
   {
+    "alias": "skttl",
+    "name": "Søren Kottal",
+    "description": "Umbraco MVP working at Ecreo, creator of packages like Full Text Search and Impersonator",
+    "url": "https://github.com/skttl",
+    "avatar": "https://avatars.githubusercontent.com/u/3726467",
+    "sources": [
+      "https://dev.to/skttl",
+      "https://umbracocommunity.social/@skttl",
+      "https://github.com/skttl",
+      "https://marketplace.umbraco.com/author/skttl"
+    ]
+  },
+  {
     "alias": "umbraco",
     "name": "Umbraco",
     "description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
