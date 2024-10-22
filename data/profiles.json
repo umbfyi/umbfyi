@@ -65,6 +65,18 @@
     ]
   },
   {
+    "alias": "kjac",
+    "name": "Kenn Jacobsen",
+    "description": "Principal Developer @ Umbraco HQ, blogger, speaker, overly curious",
+    "url": "https://kjac.dev",
+    "avatar": "https://gravatar.com/avatar/5e7ecb4fffc216b7ee96f500d3b25710?size=256",
+    "sources": [
+      "https://kjac.dev",
+      "https://www.linkedin.com/in/kennjacobsen/",
+      "https://github.com/kjac"
+    ]
+  },
+  {
     "alias": "leekelleher",
     "name": "Lee Kelleher",
     "description": "Lee is a long time Umbraco community collaborator, he works for Umbraco HQ as a Staff Engineer on the CMS team.",
