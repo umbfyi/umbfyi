@@ -1,5 +1,16 @@
 [
   {
+    "alias": "adamshallross",
+    "name": "Adam Shallcross",
+    "description": "Long time Umbraco advocate | CMS Specialist | Founder of Cogworks | One Time International Codegarden DJ",
+    "url": "https://www.linkedin.com/in/adamshallcross/",
+    "avatar": "https://gravatar.com/ashallcross",
+    "sources": [
+      "https://www.wearecogworks.com/innerworks",
+      "https://www.linkedin.com/in/adamshallcross/"
+    ]
+  },
+  {
     "alias": "candidcontributions",
     "name": "Candid Contributions",
     "description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
