@@ -1,5 +1,18 @@
 [
   {
+    "alias": "aaronsadleruk",
+    "name": "Aaron Sadler",
+    "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
+    "url": "https://aaronsadler.dev",
+    "avatar": "https://avatars.githubusercontent.com/u/9937803?v=4",
+    "sources": [
+      "https://github.com/AaronSadlerUK",
+      "https://x.com/AaronSadlerUK",
+      "https://www.linkedin.com/in/aaronjamessadler/",
+      "https://aaronsadler.dev"
+    ]
+  },
+  {
     "alias": "adamshallcross",
     "name": "Adam Shallcross",
     "description": "Long time Umbraco advocate | CMS Specialist | Founder of Cogworks | One Time International Codegarden DJ",
