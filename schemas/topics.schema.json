@@ -28,7 +28,7 @@
           }
         },
         "required": [
-          "tag",
+          "alias",
           "name",
           "tags"
         ]
