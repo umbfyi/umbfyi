@@ -22,6 +22,19 @@
       "https://x.com/candidcontribs"
     ]
   },
+   {
+    "alias": "dkumarmj",
+    "name": "Dhanesh Kumar MJ",
+    "description": "Umbraco MVP, Umbraco India Users Group organiser, working at Phases.io",
+    "url": "https://www.linkedin.com/in/its-me-dhanesh-kumar-mj/",
+    "avatar": "https://0.gravatar.com/avatar/b6291625b0f6b61da426830e2516eded45a394cf3f7fc29c3b199efe561e29d6?size=256",
+    "sources": [
+      "https://www.linkedin.com/in/its-me-dhanesh-kumar-mj",
+      "https://github.com/dKumarmj",
+      "https://medium.com/@dev.mjdhanesh",
+      "https://umbracocommunity.social/@dkumarmj"
+    ]
+  },
   {
     "alias": "joeglombek",
     "name": "Joe Glombek",
@@ -158,6 +171,18 @@
       "https://www.meetup.com/umbristol",
       "https://x.com/umbristol",
       "https://umbracocommunity.social/@umbristol"
+    ]
+  },
+  {
+    "alias": "uiug",
+    "name": "Umbraco India User Group",
+    "description": "The official Umbraco India Users Group",
+    "url": "https://www.uiug.in",
+    "avatar": "https://secure.meetupstatic.com/photos/event/6/5/4/clean_522541620.webp",
+    "sources": [
+      "https://www.meetup.com/umbraco-india-users-group",
+      "https://www.youtube.com/channel/UCmggGelTqiq2L3q5BNAKx9w",
+      "https://www.uiug.in"
     ]
   }
 ]
