@@ -4,11 +4,11 @@
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
     "url": "https://aaronsadler.dev",
-    "avatar": "https://avatars.githubusercontent.com/u/9937803?v=4",
+    "avatar": "https://github.com/AaronSadlerUK.png",
     "sources": [
       "https://github.com/AaronSadlerUK",
       "https://x.com/AaronSadlerUK",
-      "https://www.linkedin.com/in/aaronjamessadler/",
+      "https://www.linkedin.com/in/aaronjamessadler",
       "https://aaronsadler.dev",
       "https://umbracocommunity.social/@aaronsadleruk",
       "https://www.facebook.com/aaronjamessadler"
@@ -31,7 +31,7 @@
     "name": "Candid Contributions",
     "description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
     "url": "https://candidcontributions.com",
-    "avatar": "https://avatars.githubusercontent.com/u/60542078",
+    "avatar": "https://github.com/CandidContributions.png",
     "sources": [
       "https://www.spreaker.com/podcast/candid-contributions--4200995",
       "https://x.com/candidcontribs"
@@ -58,8 +58,8 @@
     "avatar": "https://gravatar.com/avatar/7b90e73f4fa372ce679c540bc04e1b4f?size=256",
     "sources": [
       "https://joe.gl",
-      "https://joe.gl/ombek/blog/",
-      "https://joe.gl/ombek/talks/",
+      "https://joe.gl/ombek/blog",
+      "https://joe.gl/ombek/talks",
       "https://umbracocommunity.social/@joe",
       "https://www.youtube.com/channel/UCpSOvp1zEp5CE6W9VqdY61Q"
     ]
@@ -72,7 +72,7 @@
     "avatar": "https://gravatar.com/avatar/5e7ecb4fffc216b7ee96f500d3b25710?size=256",
     "sources": [
       "https://kjac.dev",
-      "https://www.linkedin.com/in/kennjacobsen/",
+      "https://www.linkedin.com/in/kennjacobsen",
       "https://github.com/kjac"
     ]
   },
@@ -83,7 +83,7 @@
     "url": "https://leekelleher.com",
     "avatar": "https://github.com/leekelleher.png",
     "sources": [
-      "https://leekelleher.com/",
+      "https://leekelleher.com",
       "https://dev.to/leekelleher",
       "https://github.com/leekelleher",
       "https://umbracocommunity.social/@lee"
@@ -94,7 +94,7 @@
     "name": "Lotte Pitcher",
     "description": "Developer Relations @ Umbraco HQ | Microsoft MVP in Developer Relations",
     "url": "https://lotte.dev",
-    "avatar": "https://avatars.githubusercontent.com/u/4716542",
+    "avatar": "https://github.com/lottepitcher.png",
     "sources": [
       "https://lotte.dev",
       "https://dev.to/lottepitcher",
@@ -118,7 +118,7 @@
     "name": "Nik Rimington",
     "description": "Lead Developer @ Moriyama | Package Producer | Umbraco MVP | Class of 2018",
     "url": "https://justnik.me",
-    "avatar": "https://avatars.githubusercontent.com/u/13313745",
+    "avatar": "https://github.com/NikRimington.png",
     "sources": [
       "https://justnik.me",
       "https://www.justnik.me",
@@ -126,8 +126,8 @@
       "https://mastodon.social/@hotchillicode",
       "https://bsky.app/profile/hotchillicode.bsky.social",
       "https://github.com/NikRimington",
-      "https://www.linkedin.com/in/nikolas-rimington-19377723/",
-      "https://www.linkedin.com/posts/nikolas-rimington/"
+      "https://www.linkedin.com/in/nikolas-rimington-19377723",
+      "https://www.linkedin.com/posts/nikolas-rimington"
     ]
   },
   {
@@ -135,7 +135,7 @@
     "name": "Rick Butterfield",
     "description": "Lead Software Engineer & Umbraco MVP",
     "url": "https://rickbutterfield.dev",
-    "avatar": "https://avatars.githubusercontent.com/u/200450",
+    "avatar": "https://github.com/rickbutterfield.png",
     "sources": [
       "https://rickbutterfield.dev/blog",
       "https://umbracocommunity.social/@rickbutterfield"
@@ -146,7 +146,7 @@
     "name": "Skrift",
     "description": "Skrift Magazine is a community magazine where we publish original articles about developing in Umbraco as well as user experience, design, front-end technologies and broader industry issues.",
     "url": "https://skrift.io",
-    "avatar": "https://avatars.githubusercontent.com/u/11840713",
+    "avatar": "https://github.com/Skrift.png",
     "sources": [
       "https://skrift.io"
     ]
@@ -156,7 +156,7 @@
     "name": "Søren Kottal",
     "description": "Umbraco MVP working at Ecreo, creator of packages like Full Text Search and Impersonator",
     "url": "https://github.com/skttl",
-    "avatar": "https://avatars.githubusercontent.com/u/3726467",
+    "avatar": "https://github.com/skttl.png",
     "sources": [
       "https://dev.to/skttl",
       "https://umbracocommunity.social/@skttl",
@@ -169,12 +169,12 @@
     "name": "UmbHost",
     "description": "Community Focused, Reliable & Affordable Umbraco Hosting",
     "url": "https://umbhost.net",
-    "avatar": "https://avatars.githubusercontent.com/u/82342261?s=400&u=d1e1fb97edfba93fcb69cbeda4a1b559b964261e&v=4",
+    "avatar": "https://github.com/UmbHost.png",
     "sources": [
       "https://umbhost.net",
       "https://github.com/UmbHost",
       "https://x.com/UmbHost",
-      "https://www.linkedin.com/company/umbhost/",
+      "https://www.linkedin.com/company/umbhost",
       "https://www.facebook.com/UmbHost",
       "https://marketplace.umbraco.com/search/umbhost",
       "https://umbracocommunity.social/@UmbHost"
@@ -185,11 +185,11 @@
     "name": "Umbraco",
     "description": "The official profile for Umbraco - The Friendly OpenSource ASP.NET CMS. Managed by Umbraco HQ.",
     "url": "https://umbraco.com",
-    "avatar": "https://avatars.githubusercontent.com/u/1419552",
+    "avatar": "https://github.com/umbraco.png",
     "sources": [
-      "https://umbraco.com/blog/",
+      "https://umbraco.com/blog",
       "https://training.umbraco.com",
-      "https://github.com/umbraco/",
+      "https://github.com/umbraco",
       "https://umbracocommunity.social/@umbraco",
       "https://www.youtube.com/channel/UCcltXlJQ-U553MoOsP9p4wg",
       "https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA"
