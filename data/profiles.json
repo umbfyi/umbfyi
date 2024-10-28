@@ -265,5 +265,16 @@
       "https://www.youtube.com/channel/UCmggGelTqiq2L3q5BNAKx9w",
       "https://www.uiug.in"
     ]
+  },
+  {
+    "alias": "limbo",
+    "name": "Limbo",
+    "description": "Digital Design Agency located in Vejle, Denmark.",
+    "url": "https://www.limbo.works/",
+    "avatar": "https://avatars.githubusercontent.com/u/59049207?s=512&v=4",
+    "sources": [
+      "https://github.com/limbo-works",
+      "https://packages.limbo.works/lists/umbraco/rss/"
+    ]
   }
 ]
