@@ -51,6 +51,17 @@
     ]
   },
   {
+    "alias": "codesharepaul",
+    "name": "Paul Seal",
+    "description": "Umbraco Master | Umbraco MVP | Umbraco Tech Lead at ClerksWell | YouTube Content Creator",
+    "url": "https://codeshare.co.uk",
+    "avatar": "https://github.com/prjseal.png",
+    "sources": [
+      "https://codeshare.co.uk",
+      "https://www.youtube.com/channel/UCvWcP8GIYl6l2lJ1Z5-s4ew"
+    ]
+  },
+  {
     "alias": "cultiv",
     "name": "Sebastiaan Janssen",
     "description": "Developer Advocate at Umbraco, kayaker, (live) music lover and a bit of a nerd 🤘",
