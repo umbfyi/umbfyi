@@ -10,7 +10,7 @@
             "format": "url_safe"
           },
           "name": {
-            "type": "string"
+            "type": "string",
           },
           "description": {
             "type": "string"
