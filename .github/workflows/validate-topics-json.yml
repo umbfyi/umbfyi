@@ -25,12 +25,16 @@ jobs:
 
       - name: Validate JSON
         run: |
-          npm run validate:topics
+          node scripts/validate-json.mjs topics
 
       - name: Add GitHub Comment
         if: github.event_name == 'pull_request' && failure()
-        uses: peter-evans/create-or-update-comment@v4
+        uses: actions/github-script@v6
         with:
-          issue-number: ${{ github.event.number }}
-          body: |
-            `topics.json` failed validation checks, please check the validation task output for details.
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `\`topics.json\` failed validation, see the validation rule results for more details.`
+            })
