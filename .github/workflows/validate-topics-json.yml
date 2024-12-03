@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate-json:
+  validate-topics-json:
     runs-on: ubuntu-24.04
 
     steps:

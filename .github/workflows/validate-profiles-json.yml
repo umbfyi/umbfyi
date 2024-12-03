@@ -10,8 +10,9 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate-json:
+  validate-profiles-json:
     runs-on: ubuntu-24.04
+
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +33,4 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            Error validating profiles. Please check the output of the validation task for details.
-    
-      - name: Report Success
-        run: echo "profiles.json validation ran successfully!"
+            Error validating `profiles.json`. Please check the validation task output for details.
