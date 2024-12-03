@@ -33,25 +33,24 @@ jobs:
             echo "JSON_VALIDATION_RESULT=$(cat error.log)" >> $GITHUB_ENV
           fi
           
+      - name: Add GitHub Comment 1
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `\`profiles.json\` failed validation with the following output:
 
-      # - name: Add GitHub Comment 1
-      #   if: github.event_name == 'pull_request' && failure()
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         issue_number: context.issue.number,
-      #         body: `\`profiles.json\` failed validation with the following output:
-
-      #           \`\`\`
-      #           ${{ env.JSON_VALIDATION_RESULT }}
-      #           \`\`\`
-      #           `
-      #       })
-      #   env:
-      #     JSON_VALIDATION_RESULT: ${{ env.JSON_VALIDATION_RESULT }}
+                <code>
+                ${{ env.JSON_VALIDATION_RESULT }}
+                </code>
+                `
+            })
+        env:
+          JSON_VALIDATION_RESULT: ${{ env.JSON_VALIDATION_RESULT }}
 
       - name: Add GitHub Comment 2
         if: github.event_name == 'pull_request' && failure()
