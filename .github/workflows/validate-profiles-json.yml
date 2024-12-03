@@ -25,7 +25,7 @@ jobs:
 
       - name: Validate JSON
         run: |
-          npm run validate:profiles
+          node scripts/validate-json.mjs profiles
 
       - name: Add GitHub Comment
         if: github.event_name == 'pull_request' && failure()
