@@ -30,7 +30,7 @@ jobs:
         if: github.event_name == 'pull_request' && failure()
         uses: peter-evans/create-or-update-comment@v4
         with:
-          issue-number: ${{ env.ISSUE_NBR }}
+          issue-number: ${{ github.event.number }}
           body: |
             Error validating topics. Please check the output of the validation task for details.
     
