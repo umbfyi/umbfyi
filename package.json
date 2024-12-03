@@ -1,0 +1,23 @@
+{
+  "name": "umbfyi",
+  "version": "1.0.0",
+  "description": "Issue tracker, discussion board and data repository for UMB.FYI",
+  "scripts": {
+    "validate:profiles": "node scripts/validate-json.mjs profiles",
+    "validate:topics": "node scripts/validate-json.mjs topics"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umbfyi/umbfyi.git"
+  },
+  "author": "Matt Brailsford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/umbfyi/umbfyi/issues"
+  },
+  "homepage": "https://umb.fyi",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "awesome-ajv-errors": "^5.1.0"
+  }
+}
