@@ -27,7 +27,7 @@ jobs:
         run: |
           npm run validate:profiles
 
-      name: Add GitHub Comment
+      - name: Add GitHub Comment
         if: github.event_name == 'pull_request' && failure()
         uses: actions/github-script@v6
         with:
@@ -36,7 +36,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `
-                \`profiles.json\` failed validation, see the validation rule results for more details.
-              `
+              body: `\`profiles.json\` failed validation, see the validation rule results for more details.`
             })
