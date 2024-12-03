@@ -290,5 +290,19 @@
       "https://www.youtube.com/channel/UCmggGelTqiq2L3q5BNAKx9w",
       "https://www.uiug.in"
     ]
+  },
+  {
+    "alias": "warrenbuckley",
+    "name": "Warren Buckley",
+    "description": "Hack Make Do | Umbraco old-timer | Software Engineer who loves to improve DX",
+    "url": "https://blog.hackmakedo.com",
+    "avatar": "https://github.com/warrenbuckley.png",
+    "sources": [
+      "https://hackmakedo.com",
+      "https://blog.hackmakedo.com",
+      "https://umbracocommunity.social/@warrenbuckley",
+      "https://bsky.app/profile/warrenbuckley.bsky.social",
+      "https://www.skrift.io/issues/how-to-create-custom-umbraco-user-permissions-in-belissima"
+    ]
   }
 ]
