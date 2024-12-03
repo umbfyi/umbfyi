@@ -12,6 +12,7 @@ permissions:
 jobs:
   validate-json:
     runs-on: ubuntu-24.04
+
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +33,4 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            Error validating topics. Please check the output of the validation task for details.
-    
-      - name: Report Success
-        run: echo "topics.json validation ran successfully!"
+            Error validating `topics.json`. Please check the validation task output for details.
