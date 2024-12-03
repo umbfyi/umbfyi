@@ -1,4 +1,4 @@
-name: validate-json
+name: validate-profiles-json
 on:
   pull_request:
     paths:

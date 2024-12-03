@@ -1,4 +1,4 @@
-name: validate-json
+name: validate-topics-json
 on:
   pull_request:
     paths:
