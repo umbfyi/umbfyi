@@ -25,12 +25,39 @@ jobs:
 
       - name: Validate JSON
         run: |
-          npm run validate:profiles
+          # Run validation and capture the output
+          npm run validate:profiles > json-validation-result.txt
 
-      - name: Add GitHub Comment
+          # Output the validation result to an environment variable
+          echo "json_validation_result=$(cat json-validation-result.txt)" >> $GITHUB_ENV
+
+      - name: Add GitHub Comment 1
+        if: github.event_name == 'pull_request' && failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `\`profiles.json\` failed validation with the following output:
+              
+                \`\`\`
+                ${{ process.env.json_validation_result }}
+                \`\`\`
+                `
+            })
+        env:
+          json_validation_result: ${{ env.json_validation_result }}
+
+      - name: Add GitHub Comment 2
         if: github.event_name == 'pull_request' && failure()
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            `profiles.json` failed validation checks, please check the validation task output for details.
+            `profiles.json` failed validation with the following output:
+
+            ```
+            ${{ env.json_validation_result }}
+            ```
