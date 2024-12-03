@@ -26,10 +26,13 @@ jobs:
       - name: Validate JSON
         run: |
           # Run validation and capture the output
-          npm run validate:profiles &> json-validation-result.txt
+          npm run validate:profiles 2> json-validation-result.txt
 
           # Output the validation result to an environment variable
-          echo "json_validation_result=$(cat json-validation-result.txt)" >> $GITHUB_ENV
+          if [[ -s json-validation-result.txt ]]; then
+            echo "json_validation_result=$(cat json-validation-result.txt)" >> $GITHUB_ENV
+          fi
+          
 
       - name: Add GitHub Comment 1
         if: github.event_name == 'pull_request' && failure()
@@ -42,9 +45,9 @@ jobs:
               issue_number: context.issue.number,
               body: `\`profiles.json\` failed validation with the following output:
 
-                ```
+                \`\`\`
                 ${{ env.json_validation_result }}
-                ```
+                \`\`\`
                 `
             })
         env:
@@ -60,6 +63,8 @@ jobs:
 
             ```
             ${{ env.json_validation_result }}
+
+            $json_validation_result
             ```
         env:
           json_validation_result: ${{ env.json_validation_result }}
