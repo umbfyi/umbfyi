@@ -33,4 +33,4 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            Error validating `topics.json`. Please check the validation task output for details.
+            `topics.json` failed validation checks, please check the validation task output for details.

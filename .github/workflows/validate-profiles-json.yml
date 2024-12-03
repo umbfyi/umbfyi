@@ -33,4 +33,4 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            Error validating `profiles.json`. Please check the validation task output for details.
+            `profiles.json` failed validation checks, please check the validation task output for details.
