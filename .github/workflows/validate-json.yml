@@ -1,6 +1,8 @@
 name: validate-json
 on:
   pull_request:
+    paths:
+     - '**.json'
   workflow_dispatch:
 
 permissions:
