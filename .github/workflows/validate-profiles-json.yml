@@ -24,7 +24,7 @@ jobs:
 
       - name: Validate JSON
         run: |
-          node scripts/validate-json.mjs profiles
+          npm run validate:profiles
           echo "Exit code: $?"
 
       - name: Add GitHub Comment
