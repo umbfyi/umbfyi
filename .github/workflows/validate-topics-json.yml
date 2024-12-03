@@ -25,6 +25,14 @@ jobs:
       - name: Validate JSON
         run: |
           npm run validate:topics
+
+      - name: Add GitHub Comment
+        if: github.event_name == 'pull_request' && failure()
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ env.ISSUE_NBR }}
+          body: |
+            Error validating topics. Please check the output of the validation task for details.
     
       - name: Report Success
         run: echo "topics.json validation ran successfully!"
