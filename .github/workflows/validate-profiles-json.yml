@@ -68,4 +68,5 @@ jobs:
 
       - name: Display Validation Errors
         if: env.JSON_VALIDATION_RESULT != ''
-        run: echo "Validation error: $JSON_VALIDATION_RESULT"
+        run: |
+          echo "Validation error: $JSON_VALIDATION_RESULT"
