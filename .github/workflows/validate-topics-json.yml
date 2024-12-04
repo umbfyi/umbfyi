@@ -25,7 +25,20 @@ jobs:
 
       - name: Validate JSON
         run: |
-          node scripts/validate-json.mjs topics
+
+          # Don't exit on first error
+          set +e
+
+          # Run validation and capture the output
+          npm run validate:topics 2> error.log 
+
+          # Output the validation result to an environment variable
+          if [[ -s error.log ]]; then
+            echo "Error = $(cat error.log)"
+            echo "JSON_VALIDATION_RESULT=$(cat error.log)" >> $GITHUB_ENV
+            exit 1
+          fi
+
 
       - name: Add GitHub Comment
         if: github.event_name == 'pull_request' && failure()
@@ -36,5 +49,10 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `\`topics.json\` failed validation, see the validation rule results for more details.`
+              body: `\`topics.json\` failed validation with the following error:
+
+                  ${{ env.JSON_VALIDATION_RESULT }}
+              `
             })
+        env:
+          JSON_VALIDATION_RESULT: ${{ env.JSON_VALIDATION_RESULT }}
