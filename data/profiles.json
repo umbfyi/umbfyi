@@ -1,5 +1,16 @@
 [
   {
+    "alias": "24daysinumbraco",
+    "name": "24 Days In Umbraco",
+    "description": "The daily (in December) Christmas calendar by and for Umbraco people all over the world",
+    "url": "https://24days.in/umbraco-cms/",
+    "avatar": "https://github.com/24DaysIn.png",
+    "sources": [
+      "https://24days.in/umbraco-cms/",
+      "https://umbracocommunity.social/@24DaysInUmbraco"
+    ]
+  },
+  {
     "alias": "aaronsadleruk",
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
@@ -85,17 +96,6 @@
       "https://github.com/dKumarmj",
       "https://medium.com/@dev.mjdhanesh",
       "https://umbracocommunity.social/@dkumarmj"
-    ]
-  },
-  {
-    "alias": "greystate",
-    "name": "Chriztian Steinmeier",
-    "description": "",
-    "url": "https://greystate.dk",
-    "avatar": "https://github.com/greystate.png",
-    "sources": [
-      "https://mastodon.social/@greystate",
-      "https://github.com/greystate"
     ]
   },
   {
