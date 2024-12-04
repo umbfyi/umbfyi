@@ -27,8 +27,7 @@ try
     // Output the message
     if (!isValid) {
         console.log(`${type}.json is invalid`);
-        console.error(ajv.errorsText(validate.errors));
-        process.exit(1);
+        throw Error(ajv.errorsText(validate.errors))
     } else {
         // You don't need to print anything when it passes.
     }
