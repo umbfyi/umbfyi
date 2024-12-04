@@ -27,10 +27,11 @@ jobs:
         run: |
 
           # Run validation and capture the output
-          npm run validate:profiles 2>&1 | tee /tmp/error.log 
+          npm run validate:profiles 2> /tmp/error.log 
 
           # Output the validation result to an environment variable
           if [[ -s /tmp/error.log ]]; then
+            echo "Error: $(cat /tmp/error.log)"
             echo "JSON_VALIDATION_RESULT=$(cat /tmp/error.log)" >> $GITHUB_ENV
             exit 1
           fi
