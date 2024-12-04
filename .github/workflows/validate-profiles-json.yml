@@ -25,7 +25,13 @@ jobs:
 
       - name: Validate JSON
         run: |
-          node scripts/validate-json.mjs profiles
+          # Run validation and capture the output
+          (npm run validate:profiles 2>&1) | tee /tmp/output.log
+
+          # Output the validation result to an environment variable
+          if [[ -s output.log ]]; then
+            echo "JSON_VALIDATION_RESULT=$(cat output.log)" >> $GITHUB_ENV
+          fi
 
       - name: Add GitHub Comment
         if: github.event_name == 'pull_request' && failure()
@@ -36,5 +42,9 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `\`profiles.json\` failed validation, see the validation rule results for more details.`
+              body: `\`profiles.json\` failed validation, see the validation rule results for more details.
+                ${{ env.JSON_VALIDATION_RESULT }}
+              `
             })
+        env:
+          JSON_VALIDATION_RESULT: ${{ env.JSON_VALIDATION_RESULT }}
