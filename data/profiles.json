@@ -1,5 +1,15 @@
 [
   {
+    "alias": "24days",
+    "name": "24 Days in Umbraco",
+    "description": "An annual Christmas Calendar sharing articles throughout December from the Umbraco community, offering tips and insights since 2012",
+    "url": "https://24days.in/umbraco-cms",
+    "avatar": "https://24days.in/assets/I01/24days-180.png",
+    "sources": [
+      "https://24days.in/umbraco-cms"
+    ]
+  },
+  {
     "alias": "aaronsadleruk",
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
