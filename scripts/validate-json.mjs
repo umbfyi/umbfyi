@@ -10,7 +10,7 @@ const type = args[0];
 const ajv = new Ajv({ strict: false, allErrors: true });
 
 // Define custom formats
-ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/gi)
+ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/i)
 
 try
 {
@@ -28,7 +28,7 @@ try
     // Validate the json against the schema
     const validate = ajv.compile(schema);
     const isValid = validate(json);
-    
+
     console.log(`Is Valid: ${isValid}`);
 
     // Output the message
