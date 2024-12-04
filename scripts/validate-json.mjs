@@ -26,8 +26,8 @@ try
     const isValid = validate(json);
 
     console.log(`Validating ${type}.json`);
-    console.log(`Shchema = ${schema}`);
-    console.log(`Json = ${json}`);
+    console.log(`Shchema:`, schema);
+    console.log(`Json:`, json);
     console.log(`Validation result = ${isValid}`);
 
     // Output the message
