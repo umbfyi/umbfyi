@@ -99,6 +99,17 @@
     ]
   },
   {
+    "alias": "greystate",
+    "name": "Chriztian Steinmeier",
+    "description": "",
+    "url": "https://greystate.dk",
+    "avatar": "https://github.com/greystate.png",
+    "sources": [
+      "https://mastodon.social/@greystate",
+      "https://github.com/greystate"
+    ]
+  },
+  {
     "alias": "jemayn",
     "name": "Jesper Mayntzhusen",
     "description": "Umbraco developer at Ecreo",
