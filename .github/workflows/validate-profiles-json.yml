@@ -8,6 +8,6 @@ on:
 
 jobs:
   validate-json:
-    uses: ./.github/workflows/validate-json.yml@validate-json
+    uses: ./.github/workflows/validate-json.yml
     with:
       type: profiles
