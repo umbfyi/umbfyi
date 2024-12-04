@@ -21,14 +21,15 @@ try
     const json = JSON.parse(jsonRaw);
     const schema = JSON.parse(schemaRaw);
 
+    console.log(`Validating ${type}.json`);
+    console.log(`Shchema: ${schemaRaw}`);
+    console.log(`Json: ${jsonRaw}`);
+
     // Validate the json against the schema
     const validate = ajv.compile(schema);
     const isValid = validate(json);
-
-    console.log(`Validating ${type}.json`);
-    console.log(`Shchema:`, schema);
-    console.log(`Json:`, json);
-    console.log(`Validation result = ${isValid}`);
+    
+    console.log(`Is Valid: ${isValid}`);
 
     // Output the message
     if (!isValid) {
