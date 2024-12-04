@@ -6,7 +6,7 @@ import path from "node:path";
 const args = process.argv.slice(2);
 const type = args[0];
 
-const ajv = new Ajv({ strict: false });
+const ajv = new Ajv({ strict: false, allErrors: true });
 
 try
 {
@@ -27,7 +27,7 @@ try
     // Output the message
     if (!isValid) {
         console.log(`${type}.json is invalid`);
-        console.error(prettify(validate, { data: json }));
+        console.error(ajv.errorsText(validate.errors));
         process.exit(1);
     } else {
         // You don't need to print anything when it passes.
