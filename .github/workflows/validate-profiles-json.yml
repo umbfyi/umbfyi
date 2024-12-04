@@ -33,7 +33,6 @@ jobs:
 
           # Output the validation result to an environment variable
           if [[ -s /tmp/error.log ]]; then
-            echo "Error = $(cat /tmp/error.log)"
             echo "JSON_VALIDATION_RESULT=$(cat /tmp/error.log)" >> $GITHUB_ENV
             exit 1
           fi
@@ -48,8 +47,11 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `\`profiles.json\` failed validation, see the validation rule results for more details.
+              body: `\`profiles.json\` failed validation with the following error:
+
+                ```
                 ${{ env.JSON_VALIDATION_RESULT }}
+                ```
               `
             })
         env:
