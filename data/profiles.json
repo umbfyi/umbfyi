@@ -1,12 +1,13 @@
 [
   {
     "alias": "24daysinumbraco",
-    "name": "24 Days in Umbraco",
-    "description": "An annual Christmas Calendar sharing articles throughout December from the Umbraco community, offering tips and insights since 2012",
-    "url": "https://24days.in/umbraco-cms",
-    "avatar": "https://24days.in/assets/I01/24days-180.png",
+    "name": "24 Days In Umbraco",
+    "description": "The daily (in December) Christmas calendar by and for #Umbraco people all over the world",
+    "url": "https://24days.in/umbraco-cms/",
+    "avatar": "https://github.com/24DaysIn.png",
     "sources": [
-      "https://24days.in/umbraco-cms"
+      "https://24days.in/umbraco-cms/feed/",
+      "https://umbracocommunity.social/@24DaysInUmbraco"
     ]
   },
   {
@@ -95,6 +96,17 @@
       "https://github.com/dKumarmj",
       "https://medium.com/@dev.mjdhanesh",
       "https://umbracocommunity.social/@dkumarmj"
+    ]
+  },
+  {
+    "alias": "greystate",
+    "name": "Chriztian Steinmeier",
+    "description": "",
+    "url": "https://greystate.dk",
+    "avatar": "https://github.com/greystate.png",
+    "sources": [
+      "https://mastodon.social/@greystate",
+      "https://github.com/greystate"
     ]
   },
   {
