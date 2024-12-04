@@ -25,8 +25,10 @@ jobs:
 
       - name: Validate JSON
         run: |
+          set +e
+
           # Run validation and capture the output
-          (npm run validate:profiles 2>&1) | tee /tmp/output.log 
+          npm run validate:profiles 2>&1 | tee /tmp/output.log 
           
           exitcode="$?"
 
