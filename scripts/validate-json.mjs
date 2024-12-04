@@ -25,6 +25,9 @@ try
     const validate = ajv.compile(schema);
     const isValid = validate(json);
 
+    console.log(`Validating ${type}.json`);
+    console.log(`Validation result = ${isValid}`);
+
     // Output the message
     if (!isValid) {
         console.log(`${type}.json is invalid`);
