@@ -1,18 +1,19 @@
 import Ajv from "ajv";
-import { prettify } from "awesome-ajv-errors";
 import fs from "node:fs/promises";
 import path from "node:path";
 
+// Process args
 const args = process.argv.slice(2);
 const type = args[0];
 
+// Setup validator
 const ajv = new Ajv({ strict: false, allErrors: true });
+
+// Define custom formats
+ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/gi)
 
 try
 {
-    // Define custom formats
-    ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/gi)
-
     // Load json + schema
     const jsonRaw = await fs.readFile(path.resolve(`./data/${type}.json`), "utf8");
     const schemaRaw = await fs.readFile(path.resolve(`./schemas/${type}.schema.json`), "utf8");
