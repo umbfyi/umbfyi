@@ -22,8 +22,8 @@ try
     const schema = JSON.parse(schemaRaw);
 
     console.log(`Validating ${type}.json`);
-    console.log(`Shchema: ${schemaRaw}`);
-    console.log(`Json: ${jsonRaw}`);
+    //console.log(`Shchema: ${schemaRaw}`);
+    //console.log(`Json: ${jsonRaw}`);
 
     // Validate the json against the schema
     const validate = ajv.compile(schema);
@@ -33,7 +33,6 @@ try
 
     // Output the message
     if (!isValid) {
-        console.log(`${type}.json is invalid`);
         throw Error(ajv.errorsText(validate.errors))
     } else {
         // You don't need to print anything when it passes.
