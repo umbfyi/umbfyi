@@ -1,10 +1,13 @@
 name: validate-json
 
-inputs:
-  type:
-    description: 'The type of json date file to process'
-    required: true
-    default: 'profiles'
+on:
+  workflow_call:
+    inputs:
+      type:
+        description: 'The type of json date file to process'
+        required: true
+        type: string
+        default: 'profiles'
 
 permissions:
   contents: read
@@ -31,7 +34,7 @@ jobs:
           set +e
 
           # Run validation and capture the output
-          npm run validate:${{ github.event.inputs.environment }} 2> error.log 
+          npm run validate:${{ inputs.type }} 2> error.log 
 
           # Output the validation result to an environment variable
           if [[ -s error.log ]]; then
@@ -50,7 +53,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `\`${{ github.event.inputs.environment }}.json\` failed validation with the following error:
+              body: `\`${{ inputs.type }}.json\` failed validation with the following error:
 
                   ${{ env.JSON_VALIDATION_RESULT }}
               `
