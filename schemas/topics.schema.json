@@ -1,37 +1,35 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "array",
-    "items": [
-      {
-        "type": "object",
-        "properties": {
-          "alias": {
-            "type": "string",
-            "format": "url_safe"
-          },
-          "name": {
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "alias": {
+        "type": "string",
+        "format": "url_safe"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": [
+          {
             "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          },
-          "tags": {
-            "type": "array",
-            "items": [
-              {
-                "type": "string"
-              }
-            ]
           }
-        },
-        "required": [
-          "alias",
-          "name",
-          "tags"
         ]
       }
+    },
+    "required": [
+      "alias",
+      "name",
+      "tags"
     ]
   }
+}
