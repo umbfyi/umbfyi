@@ -10,7 +10,7 @@ const type = args[0];
 const ajv = new Ajv({ strict: false, allErrors: true });
 
 // Define custom formats
-ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/i)
+ajv.addFormat('url_safe', /^[a-z0-9\-\_]*$/)
 
 try
 {
