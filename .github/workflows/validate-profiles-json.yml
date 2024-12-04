@@ -6,6 +6,10 @@ on:
      - 'data/profiles.json'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   validate-json:
     uses: ./.github/workflows/validate-json.yml
