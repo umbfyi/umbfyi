@@ -1,15 +1,5 @@
 [
   {
-    "alias": "24daysinumbraco",
-    "name": "24 Days In Umbraco",
-    "description": "The daily (in December) Christmas calendar by and for Umbraco people all over the world",
-    "url": "https://24days.in/umbraco-cms/",
-    "avatar": "https://github.com/24DaysIn.png",
-    "sources": [
-      "https://24days.in/umbraco-cms/"
-    ]
-  },
-  {
     "alias": "aaronsadleruk",
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
