@@ -3,7 +3,7 @@
     "alias": "aaronsadleruk",
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
-    "url": "https://aaronsadler.dev",
+    "url": false,
     "avatar": {
       "url": "https://github.com/AaronSadlerUK.png" 
     },
