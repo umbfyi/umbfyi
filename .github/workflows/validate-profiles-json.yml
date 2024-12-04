@@ -30,8 +30,8 @@ jobs:
           npm run validate:profiles 2> /tmp/error.log 
 
           # Output the validation result to an environment variable
-          if [[ -s error.log ]]; then
-            echo "JSON_VALIDATION_RESULT=$(cat error.log)" >> $GITHUB_ENV
+          if [[ -s /tmp/error.log ]]; then
+            echo "JSON_VALIDATION_RESULT=$(cat /tmp/error.log)" >> $GITHUB_ENV
             exit 1
           fi
 
