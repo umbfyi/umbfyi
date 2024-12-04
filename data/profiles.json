@@ -4,9 +4,7 @@
     "name": "Aaron Sadler",
     "description": "Umbraco Certified Master | Umbraco MVP (2x) | UmbHost Master Mind",
     "url": false,
-    "avatar": {
-      "url": "https://github.com/AaronSadlerUK.png" 
-    },
+    "avatar": "https://github.com/AaronSadlerUK.png",
     "sources": [
       "https://github.com/AaronSadlerUK",
       "https://x.com/AaronSadlerUK",
