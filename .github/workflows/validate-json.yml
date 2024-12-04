@@ -4,10 +4,8 @@ on:
   workflow_call:
     inputs:
       type:
-        description: 'The type of json date file to process'
         required: true
         type: string
-        default: 'profiles'
 
 jobs:
   validate-json:
