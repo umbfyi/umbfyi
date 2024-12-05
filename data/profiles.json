@@ -238,10 +238,10 @@
     "alias": "owainjones",
     "name": "Owain Jones",
     "description": "I make Umbraco do stuff and things!",
-    "url": "https://www.owainjones.dev/",
+    "url": "https://www.owainjones.dev",
     "avatar": "https://github.com/OwainJ.png",
     "sources": [
-      "https://www.owainjones.dev/rss/",
+      "https://www.owainjones.dev",
       "https://umbracocommunity.social/@ojodev",
       "https://bsky.app/profile/owainjones.dev",
       "https://www.linkedin.com/in/owain-jones-08414b108/",
