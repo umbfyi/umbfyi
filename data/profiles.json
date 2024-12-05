@@ -86,6 +86,24 @@
     ]
   },
   {
+    "alias": "deanleigh",
+    "name": "Dean Leigh",
+    "description": "Dean Leigh Limited | Freelance Frontender | Umbraco MVP",
+    "url": "https://deanleigh.co.uk/",
+    "avatar": "https://github.com/deanleigh.png",
+    "sources": [
+      "https://deanleigh.co.uk/",
+      "https://twitter.com/deanleigh",
+      "https://www.instagram.com/dean.leigh/",
+      "https://bsky.app/profile/deanleigh.bsky.social",
+      "https://www.threads.net/@dean.leigh",
+      "https://mastodon.social/@deanleigh",
+      "https://github.com/deanleigh",
+      "https://www.linkedin.com/in/deanleigh/",
+      "https://24days.in/umbraco-cms/2024/structured-data-markup-magic-and-microdata-myths"
+    ]
+  },
+  {
     "alias": "dkumarmj",
     "name": "Dhanesh Kumar MJ",
     "description": "Umbraco MVP, Umbraco India Users Group organiser, working at Phases.io",
