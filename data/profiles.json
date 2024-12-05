@@ -346,5 +346,31 @@
       "https://bsky.app/profile/warrenbuckley.bsky.social",
       "https://www.skrift.io/issues/how-to-create-custom-umbraco-user-permissions-in-belissima"
     ]
+  },
+  {
+    "alias": "owainjones",
+    "name": "Owain Jones",
+    "description": "I make Umbraco do stuff and things!",
+    "url": "https://www.owainjones.dev/",
+    "avatar": "https://github.com/OwainJ.png",
+    "sources": [
+      "https://www.owainjones.dev/rss/",
+      "https://umbracocommunity.social/@ojodev",
+      "https://bsky.app/profile/owainjones.dev",
+      "https://www.linkedin.com/in/owain-jones-08414b108/",
+      "https://archive.24days.in/umbraco-cms/2020/umbraco-8-content-apps/"
+    ]
+  },
+  {
+    "alias": "umbracymru",
+    "name": "UmbraCymru",
+    "description": "The Wales Umbraco meetup!",
+    "url": "hhttps://www.meetup.com/umbracymru/",
+    "avatar": "https://cdn.masto.host/umbracocommunitysocial/accounts/avatars/111/930/769/801/292/577/original/c9d3bc4cec646d56.png",
+    "sources": [
+      "https://www.meetup.com/umbracymru/",
+      "https://umbracocommunity.social/@umbracymru",
+      "https://bsky.app/profile/umbracymru.bsky.social"
+    ]
   }
 ]
