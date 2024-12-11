@@ -117,6 +117,18 @@
     ]
   },
   {
+    "alias": "erikjanwestendorp",
+    "name": "Erik-Jan Westendorp",
+    "description": "Umbraco MVP working at ilionx",
+    "url": "https://github.com/erikjanwestendorp",
+    "avatar": "https://github.com/erikjanwestendorp.png",
+    "sources": [
+      "https://github.com/erikjanwestendorp",
+      "https://dev.to/erikjanwestendorp",
+      "https://umbracocommunity.social/@ewestendorp"
+    ]
+  },
+  {
     "alias": "greystate",
     "name": "Chriztian Steinmeier",
     "description": "",
@@ -371,18 +383,6 @@
       "https://umbracocommunity.social/@warrenbuckley",
       "https://bsky.app/profile/warrenbuckley.bsky.social",
       "https://www.skrift.io/issues/how-to-create-custom-umbraco-user-permissions-in-belissima"
-    ]
-  },
-    {
-    "alias": "erikjanwestendorp",
-    "name": "Erik-Jan Westendorp",
-    "description": "Umbraco MVP working at ilionx",
-    "url": "https://github.com/erikjanwestendorp",
-    "avatar": "https://github.com/erikjanwestendorp.png",
-    "sources": [
-      "https://github.com/erikjanwestendorp",
-      "https://dev.to/erikjanwestendorp",
-      "https://umbracocommunity.social/@ewestendorp"
     ]
   }
 ]
