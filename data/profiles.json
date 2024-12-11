@@ -384,5 +384,15 @@
       "https://bsky.app/profile/warrenbuckley.bsky.social",
       "https://www.skrift.io/issues/how-to-create-custom-umbraco-user-permissions-in-belissima"
     ]
+  },
+  {
+    "alias": "yinzy00",
+    "name": "Yari Mariën",
+    "description": "Umbraco Master | Team Lead at Numble",
+    "url": "https://linkedin.com/in/yari-mariën",
+    "avatar": "https://github.com/yinzy00.png",
+    "sources": [
+      "https://dev.to/yinzy00/"
+    ]
   }
 ]
