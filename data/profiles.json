@@ -192,6 +192,18 @@
     ]
   },
   {
+    "alias": "liamgold",
+    "name": "Liam Goldfinch",
+    "description": "Principal Systems Developer at IDHL and Kentico MVP",
+    "url": "https://www.goldfinch.me",
+    "avatar": "https://github.com/liamgold.png",
+    "sources": [
+      "https://www.goldfinch.me/blog",
+      "https://umbracocommunity.social/@LiamGoldfinch",
+      "https://24days.in/umbraco-cms/2024/outsider-insights/"
+    ]
+  },
+  {
     "alias": "limbo",
     "name": "Limbo",
     "description": "Digital Design Agency located in Vejle, Denmark.",
@@ -394,17 +406,6 @@
     "sources": [
       "https://dev.to/yinzy00/",
       "https://24days.in/umbraco-cms/2024/extending-new-backoffice/"
-    ]
-  },
-  {
-    "alias": "liamgold",
-    "name": "Liam Goldfinch",
-    "description": "Principal Systems Developer at IDHL and Kentico MVP",
-    "url": "https://www.goldfinch.me",
-    "avatar": "https://github.com/liamgold.png",
-    "sources": [
-      "https://www.goldfinch.me/blog",
-      "https://umbracocommunity.social/@LiamGoldfinch"
     ]
   }
 ]
