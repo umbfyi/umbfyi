@@ -242,6 +242,20 @@
     ]
   },
   {
+    "alias": "mttblss",
+    "name": "Matt Bliss",
+    "description": "Umbraco old-timer, Umbraco Master, CMS Advisory Board, Umbraco Cloud Advisory Board",
+    "url": "https://mattbliss.uk",
+    "avatar": "https://github.com/mttblss.png",
+    "sources": [
+      "https://mattbliss.uk",
+      "https://mastodonapp.uk/@mttblss",
+      "https://bsky.app/profile/mttblss.bsky.social",
+      "https://github.com/mttblss",
+      "https://www.linkedin.com/in/mbliss"
+    ]
+  },
+  {
     "alias": "nikrimington",
     "name": "Nik Rimington",
     "description": "Lead Developer @ Moriyama | Package Producer | Umbraco MVP | Class of 2018",
