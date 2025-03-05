@@ -225,7 +225,8 @@
     "avatar": "https://github.com/limbo-works.png",
     "sources": [
       "https://github.com/limbo-works",
-      "https://packages.limbo.works/lists/umbraco/"
+      "https://packages.limbo.works/lists/umbraco/",
+      "https://marketplace.umbraco.com/package/limbo."
     ]
   },
   {
