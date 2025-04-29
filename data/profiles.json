@@ -293,7 +293,8 @@
     "url": "https://www.owainjones.dev",
     "avatar": "https://github.com/OwainJ.png",
     "sources": [
-      "https://www.owainjones.dev",
+      "https://www.owainjones.dev/blog",
+      "https://www.owainjones.dev/rss/",
       "https://umbracocommunity.social/@ojodev",
       "https://bsky.app/profile/owainjones.dev",
       "https://www.linkedin.com/in/owain-jones-08414b108/",
