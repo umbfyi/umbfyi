@@ -2,6 +2,7 @@
   "product": {
     "bellissima": ["\\bbellissima\\b", "new backoffice"],
     "umbracocloud": ["umbraco cloud"],
+    "umbraco$1": ["umbraco\\s+v?(\\d+)", "umbraco\\s+version\\s+(\\d+)"],
     "umbracocms": ["umbraco cms", "umbraco\\.cms"],
     "umbracocommerce": ["umbraco commerce", "umbraco\\.commerce", "\\bvendr\\b"],
     "umbracodeploy": ["umbraco deploy", "umbraco\\.deploy", "\\bdeploy\\b"],
@@ -36,10 +37,10 @@
   "events": {
     "codecabin": ["code cabin", "codecabin"],
     "codegarden": ["codegarden", "code garden", "\\bcg\\b"],
-    "codegarden$0": ["codegarden\\s+(\\d+)", "code garden\\s+(\\d+)", "\\bcg(\\d+)\\b"],
+    "codegarden$1": ["codegarden\\s+(?:20)?(\\d+)", "code garden\\s+(?:20)?(\\d+)", "\\bcg(?:20)?(\\d+)\\b"],
     "duug": ["\\bduug\\b", "danish umbraco user group"],
     "festivals": ["\\bfestival\\b", "umbraco fest", "community fest"],
-    "$0fest": ["(\\w+)fest", "(\\w+)\\s+fest", "(\\w+)\\s+festival"],
+    "$1fest": ["(\\w+)fest", "(\\w+)\\s+fest", "(\\w+)\\s+festival"],
     "hackathons": ["\\bhackathon\\b", "hack day", "hackday"],
     "hacktoberfest": ["\\bhacktoberfest\\b", "hacktober"],
     "keynotes": ["\\bkeynote\\b", "opening talk"],
@@ -108,13 +109,13 @@
     "eol": ["\\beol\\b", "end of life"],
     "industry": ["\\bindustry\\b", "market trends"],
     "marketing": ["\\bmarketing\\b", "promotion", "campaign"],
-    "releases": ["umbraco release", "version release", "product release", "been released"],
+    "releases": ["umbraco release", "version release", "product release", "been released", "is out"],
     "roadmap": ["\\broadmap\\b", "future plans", "upcoming"],
     "whyumbraco": ["why umbraco", "choosing umbraco"]
   },
   "learning": {
     "documentation": ["\\bdocumentation\\b", "\\bdocs\\b"],
-    "guides": ["\\bguide\\b", "walkthrough", "step by step"],
+    "guides": ["\\bguide\\b", "walkthrough", "step by step", "quickstart"],
     "reviews": ["\\breview\\b", "feedback", "rating"],
     "tips": ["\\btips?\\b", "trick", "quick tip", "pro tip", "hint"],
     "tutorial": ["\\btutorial\\b", "how to", "walkthrough", "step by step"],
