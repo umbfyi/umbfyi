@@ -115,7 +115,6 @@
   "learning": {
     "documentation": ["\\bdocumentation\\b", "\\bdocs\\b"],
     "guides": ["\\bguide\\b", "walkthrough", "step by step", "quickstart"],
-    "reviews": ["\\breview\\b", "feedback", "rating"],
     "tips": ["\\btips?\\b", "trick", "quick tip", "pro tip", "hint"],
     "tutorial": ["\\btutorial\\b", "how to", "walkthrough", "step by step"],
     "unboxing": ["\\bunboxing\\b", "first look", "review"]
