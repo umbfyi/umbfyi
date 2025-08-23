@@ -2,8 +2,7 @@
   "product": {
     "bellissima": ["\\bbellissima\\b", "new backoffice"],
     "umbracocloud": ["umbraco cloud"],
-    "umbraco$1": ["umbraco\\s+v?(\\d+)", "umbraco\\s+version\\s+(\\d+)"],
-    "umbracocms": ["umbraco cms", "umbraco\\.cms"],
+    "umbracocms": ["umbraco cms", "umbraco\\.cms", "umbraco\\s+v?(\\d+)", "umbraco\\s+version\\s+(\\d+)"],
     "umbracocommerce": ["umbraco commerce", "umbraco\\.commerce", "\\bvendr\\b"],
     "umbracodeploy": ["umbraco deploy", "umbraco\\.deploy", "\\bdeploy\\b"],
     "umbracoengage": ["umbraco engage", "umbraco\\.engage", "\\bengage\\b", "\\bumarketingsuite\\b"],
