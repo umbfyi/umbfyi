@@ -8,6 +8,7 @@
     "umbracoengage": ["umbraco engage", "umbraco\\.engage", "\\bengage\\b", "\\bumarketingsuite\\b"],
     "umbracoforms": ["umbraco forms", "umbraco.forms", "\\bforms\\b"],
     "umbracoheartcore": ["umbraco heartcore", "\\bheartcore\\b", "headless"],
+    "umbracomcp": ["umbraco mcp", "umbraco model context protocol"],
     "umbracouibuilder": ["umbraco ui builder", "umbraco\\.uibuilder", "ui builder", "\\bkonstrukt\\b"],
     "umbracoworkflow": ["umbraco workflow", "umbraco\\.workflow", "\\bworkflow\\b", "\\bplumber\\b"],
     "uui": ["\\buui\\b", "backoffice ui"],
