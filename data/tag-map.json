@@ -44,7 +44,7 @@
     "hacktoberfest": ["\\bhacktoberfest\\b", "hacktober"],
     "keynotes": ["\\bkeynote\\b", "opening talk"],
     "roadshow": ["\\broadshow\\b", "tour"],
-    "social": ["umbraco drinks", "umbraco bowling", "community social"],
+    "social": ["umbraco drinks", "umbraco bowling", "community social", "lunchtime chat"],
     "uduf": ["\\buduf\\b"],
     "umbraad": ["\\bumbraad\\b"],
     "umbracointhecity": ["umbraco in the city"],
