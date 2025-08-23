@@ -13,7 +13,7 @@
   },
   "technology": {
     "ai": ["\\bai\\b", "\\bmcp\\b", "artificial intelligence", "machine learning", "\\bml\\b", "claude", "openai", "chatgpt", "gpt-4", "\\bllm\\b", "large language model"],
-    "api": ["\\bapi\\b", "rest api", "\\bgraphql\\b", "web api", "microservices", "\\brest\\b"]
+    "api": ["\\bapi\\b", "rest api", "\\bgraphql\\b", "web api", "microservices", "\\brest\\b"],
     "azure": ["azure"],
     "cloud": ["\\bcloud\\b", "\\baws\\b", "amazon web services", "\\bgcp\\b", "google cloud", "cloud computing", "serverless"],
     "csharp": ["\\bc#\\b", "\\bcsharp\\b", "\\bdotnet\\b", "\\.net\\b", "asp\\.net"],
