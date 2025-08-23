@@ -1,0 +1,52 @@
+{
+  "product": {
+    "umbraco": ["umbraco cms"],
+    "umbraco$0": ["umbraco\\s+v?(\\d+)"],
+    "umbracocommerce": ["umbraco commerce", "\\bvendr\\b"],
+    "umbracouibuilder": ["umbraco ui builder", "ui builder", "\\bkonstrukt\\b"],
+    "umbracoforms": ["umbraco forms", "\\bforms\\b"],
+    "umbracodeploy": ["umbraco deploy", "\\bdeploy\\b"],
+    "umbracoengage": ["umbraco engage", "\\bengage\\b", "\\bumarketingsuite\\b"],
+    "umbracoworkflow": ["umbraco workflow", "\\bworkflow\\b", "\\bplumber\\b"],
+    "umbracoheartcore": ["umbraco heartcore", "\\bheartcore\\b"],
+    "umbracocompose": ["umbraco compose", "umbraco orchestration"]
+  },
+  "technology": {
+    "ai": ["\\bai\\b", "\\bmcp\\b", "artificial intelligence", "machine learning", "\\bml\\b", "claude", "openai", "chatgpt", "gpt-4", "\\bllm\\b", "large language model"],
+    "api": ["\\bapi\\b", "rest api", "\\bgraphql\\b", "web api", "microservices", "\\brest\\b"]
+    "azure": ["azure"],
+    "cloud": ["\\bcloud\\b", "\\baws\\b", "amazon web services", "\\bgcp\\b", "google cloud", "cloud computing", "serverless"],
+    "csharp": ["\\bc#\\b", "\\bcsharp\\b", "\\bdotnet\\b", "\\.net\\b", "asp\\.net"],
+    "csharp$0": ["c#\\s+(\\d+)", "csharp\\s+(\\d+)"],
+    "database": ["\\bdatabase\\b", "\\bdb\\b", "\\bsql\\b", "\\bnosql\\b", "mongodb", "postgresql", "mysql", "sqlite"],
+    "docker": ["docker", "containerization", "containers"],
+    "dotnet$0": ["\\.net\\s+(\\d+)", "dotnet\\s+(\\d+)", "net(\\d+)"],
+    "javascript": ["\\bjavascript\\b", "\\bjs\\b", "node\\.?js", "nodejs", "ecmascript"],
+    "kubernetes": ["kubernetes", "kubectl", "container orchestration"],
+    "typescript": ["\\btypescript\\b", "\\bts\\b"],
+  },
+  "events": {
+    "codegarden": ["codegarden", "code garden", "\\bcg\\b"],
+    "codegarden$0": ["codegarden\\s+(\\d+)", "code garden\\s+(\\d+)", "\\bcg(\\d+)\\b"],
+    "meetup": ["\\bmeetup\\b", "user group", "community event", "\\bug\\b"],
+    "hackathon": ["\\bhackathon\\b", "hack day", "hackday"],
+    "umbracospark": ["umbraco spark"]
+  },
+  "practices": {
+    "devrel": ["\\bdevrel\\b", "developer relations", "dev rel", "developer advocacy", "community management"],
+    "testing": ["\\btesting\\b", "\\btests\\b", "unit test", "integration test", "\\btdd\\b", "test driven"],
+    "security": ["\\bsecurity\\b", "cybersecurity", "authentication", "authorization", "\\boauth\\b", "vulnerability", "\\binfosec\\b"],
+    "accessibility": ["\\baccessibility\\b", "\\ba11y\\b", "\\bwcag\\b", "screen reader", "inclusive design"],
+    "performance": ["\\bperformance\\b", "optimization", "\\bperf\\b", "benchmark", "profiling", "\\bspeed\\b"],
+    "automation": ["\\bautomation\\b", "ci/cd", "pipeline", "workflow", "github actions", "azure devops"]
+  },
+  "community": {
+    "24days": ["24 days", "24days", "advent calendar", "advent"],
+    "devreldeepdives": ["devrel deep dive", "developer relations deep dive", "dev rel deep dive"],
+    "announcement": ["\\bannouncement\\b", "announce", "\\bnews\\b", "update", "release"],
+    "awards": ["\\bawards?\\b", "winner", "recognition", "achievement", "mvp"],
+    "contribution": ["contribution", "contributor", "open source", "\\boss\\b", "pull request", "\\bpr\\b"],
+    "tutorial": ["\\btutorial\\b", "how to", "\\bguide\\b", "walkthrough", "step by step"],
+    "tips": ["\\btips?\\b", "trick", "quick tip", "pro tip"]
+  }
+}
