@@ -11,6 +11,7 @@
     "umbracomcp": ["umbraco mcp", "umbraco model context protocol"],
     "umbracouibuilder": ["umbraco ui builder", "umbraco\\.uibuilder", "ui builder", "\\bkonstrukt\\b"],
     "umbracoworkflow": ["umbraco workflow", "umbraco\\.workflow", "\\bworkflow\\b", "\\bplumber\\b"],
+    "umbracosearch": ["umbraco search"],
     "uui": ["\\buui\\b", "backoffice ui"],
     "uskinned": ["\\buskinned\\b"],
     "usync": ["\\busync\\b"],
