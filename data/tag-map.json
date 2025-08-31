@@ -81,7 +81,7 @@
     "sustainability": ["\\bsustainability\\b", "green", "carbon"],
     "testing": ["\\btesting\\b", "\\btests\\b", "unit test", "integration test", "\\btdd\\b", "test driven"],
     "theming": ["\\btheming\\b", "theme", "styling"],
-    "troubleshooting": ["\\btroubleshooting\\b", "debugging", "\\bbug\\b", "issue"],
+    "troubleshooting": ["\\btroubleshooting\\b", "debugging", "\\bbug\\b"],
     "upgrades": ["\\bupgrade\\b", "version update"]
   },
   "cms": {
