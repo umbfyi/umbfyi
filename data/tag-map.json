@@ -91,7 +91,7 @@
     "examine": ["\\bexamine\\b", "search indexing"],
     "extensionsapi": ["extensions api"],
     "managementapi": ["management api"],
-    "media": ["\\bmedia\\b", "images", "files"],
+    "media": ["media files", "media section"],
     "membership": ["\\bmembership\\b", "user management", "members"],
     "modelsbuilder": ["models builder", "\\bmodelsbuilder\\b", "code generation"],
     "multilingual": ["\\bmultilingual\\b", "multi language", "localization", "\\bi18n\\b"],
