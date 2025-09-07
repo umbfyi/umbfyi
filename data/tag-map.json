@@ -41,7 +41,7 @@
     "codegarden$1": ["codegarden\\s+(?:20)?(\\d+)", "code garden\\s+(?:20)?(\\d+)", "\\bcg(?:20)?(\\d+)\\b"],
     "duug": ["\\bduug\\b", "danish umbraco user group"],
     "festivals": ["\\bfestival\\b", "umbraco fest", "community fest"],
-    "$1fest": ["(\\w+)fest", "(\\w+)\\s+fest", "(\\w+)\\s+festival"],
+    "$1fest": ["(?<!mani)(\\w+)fest", "(?<!mani)(\\w+)\\s+fest", "(\\w+)\\s+festival"],
     "hackathons": ["\\bhackathon\\b", "hack day", "hackday"],
     "hacktoberfest": ["\\bhacktoberfest\\b", "hacktober"],
     "keynotes": ["\\bkeynote\\b", "opening talk"],
