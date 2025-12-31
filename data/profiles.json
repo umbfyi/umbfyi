@@ -122,6 +122,7 @@
     "sources": [
       "https://24days.in/umbraco-cms/2023/automatons/umbraco-aws",
       "https://24days.in/umbraco-cms/2024/google-cloud",
+      "https://24days.in/umbraco-cms/2025/forms-extensions",
       "https://github.com/erikjanwestendorp",
       "https://dev.to/erikjanwestendorp",
       "https://umbracocommunity.social/@ewestendorp",
@@ -177,7 +178,8 @@
     "sources": [
       "https://www.johanreitsma.com",
       "http://github.com/johanReitsma83",
-      "https://bsky.app/profile/cloudweb.bsky.social"
+      "https://bsky.app/profile/cloudweb.bsky.social",
+      "https://24days.in/umbraco-cms/2025/forms-extensions"
     ]
   },
   {
@@ -440,3 +442,5 @@
     ]
   }
 ]
+
+
