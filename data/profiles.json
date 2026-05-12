@@ -289,6 +289,21 @@
     ]
   },
   {
+    "alias": "owaincodes",
+    "name": "Owain Williams",
+    "description": "Senior Umbraco Dev at Initials Labs, Umbraco MVP",
+    "url": "https://owain.codes",
+    "avatar": "https://github.com/owainwilliams.png",
+    "sources": [
+      "https://owain.codes",
+      "https://owain.codes/rss",
+      "https://umbracocommunity.social/@owaincodes",
+      "https://bsky.app/profile/owain.codes",
+      "https://www.linkedin.com/in/owainwilliams",
+      "https://24days.in/umbraco-cms/2025/passion-isnt-enough"
+    ]
+  },
+  {
     "alias": "owainjones",
     "name": "Owain Jones",
     "description": "I make Umbraco do stuff and things!",
