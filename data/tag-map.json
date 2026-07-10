@@ -14,6 +14,7 @@
     "umbracosearch": ["umbraco search"],
     "umbracoai": ["umbraco ai", "umbraco\\.ai"],
     "umbracoautomate": ["umbraco automate", "umbraco\\.automate"],
+    "umbracocompose": ["umbraco compose"],
     "uui": ["\\buui\\b", "backoffice ui"],
     "uskinned": ["\\buskinned\\b"],
     "usync": ["\\busync\\b"],
