@@ -38,6 +38,17 @@
     ]
   },
   {
+    "alias": "bernadetgoey",
+    "name": "Bernadet Goey",
+    "description": "Umbraco developer at ilionx",
+    "url": "https://www.linkedin.com/in/bernadet-goey-70893649",
+    "avatar": "https://github.com/bernadetgoey.png",
+    "sources": [
+      "https://dev.to/bernadet",
+      "https://bsky.app/profile/bernadetgoey.bsky.social"
+    ]
+  },
+  {
     "alias": "candidcontributions",
     "name": "Candid Contributions",
     "description": "A podcast where developers Carole Logan, Emma Burstow, Laura Weatherhead and Lotte Pitcher talk all things open source",
