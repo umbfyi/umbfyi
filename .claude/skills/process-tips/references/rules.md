@@ -46,7 +46,7 @@ This is the hardest call. Getting to the content is step one; deciding whether t
 
 **Step two: link the content, or the post?**
 
-- **Editorial content** (a blog post, article, write-up, video): link the content directly. E.g. a Bluesky post sharing a nevitech.co.uk blog post links to the blog post.
+- **Editorial content** (a blog post, article, write-up, video): link the content directly. E.g. a Bluesky post sharing an example.co.uk blog post links to the blog post.
 - **The post explains it better than where it points**: link the post, and let readers click through. This is the common case for announcements. E.g. "OC.PowerSort has been updated" linking to a NuGet page, a new site launch, a store refresh, a package or tool linking to GitHub. The NuGet or GitHub page says less than the post does.
 - **No outside link**: the post is the content. Link the post.
 - In the past, 30 of 31 kept social items linked to the post itself, so lean towards the post unless the destination is clearly editorial.
@@ -72,7 +72,7 @@ Audience: people already using Umbraco. Developers, agencies, editors, active co
 
 **Drop:**
 
-- Sales and buyer-facing marketing: "How much does an upgrade cost?", "Why modern enterprises are switching to Umbraco", "Future-ready DXP", "How Umbraco Cloud keeps your site fast and secure". Addact went 0 for 7 in the history, all of this kind.
+- Sales and buyer-facing marketing: "How much does an upgrade cost?", "Why modern enterprises are switching to Umbraco", "Future-ready DXP", "How Umbraco Cloud keeps your site fast and secure". One agency went 0 for 7 in the history, all of this kind.
 - Vague, generic, SEO-driven posts with no real insight.
 - Not about Umbraco at all (e.g. general tech opinion posts).
 - Noise: empty "@UMB.FYI tip" messages with nothing to point at, links to UMB.FYI itself (the site, an issue, the Chrome extension), test tips, bare home pages like `docs.umbraco.com`.
@@ -80,7 +80,7 @@ Audience: people already using Umbraco. Developers, agencies, editors, active co
 
 **Bulk sends from one company:**
 
-- Agencies sometimes tip several posts at once (Arroact sent 6 in one day, and 6 again another day). Keep at most one or two: the most hands-on, specific and technical (e.g. "Building an AI Content Generator App Plugin for Umbraco 17", "Test-Driven Development & Clean Architecture in Umbraco"). Drop the rest, reason "bulk send, kept [title]".
+- Agencies sometimes tip several posts at once (one sent 6 in one day, and 6 again another day). Keep at most one or two: the most hands-on, specific and technical (e.g. "Building an AI Content Generator App Plugin for Umbraco 17", "Test-Driven Development & Clean Architecture in Umbraco"). Drop the rest, reason "bulk send, kept [title]".
 - Even technical-sounding posts in a bulk send get dropped if a better one from the same batch is kept.
 
 **Signals that don't matter:**
@@ -133,14 +133,14 @@ Tag sets seen in the history:
 The source is the root of where the post came from. UMB.FYI uses it to attribute posts to people and organisations (Pulse Check, community voices, author lookup), so it has to be right and consistent.
 
 - **Check the profiles first.** `umbfyi.sh profiles` lists known people and organisations. Each one has `sources`. If the link starts with one of them, or the author clearly matches a profile, use that `sources` entry exactly as written. Exact matches are what make attribution work.
-- **Then copy what came before.** If an earlier item from the same site or account exists (`umbfyi.sh featured` or `umbfyi.sh search` by domain), use its source exactly, trailing slash and all. Past items are mixed (e.g. `https://umbraco.com/blog/` vs `https://www.nevitech.co.uk/blog`), so consistency with the same site beats any general rule.
-- **Blog post:** the root URL of their blog section, e.g. `https://www.nevitech.co.uk/blog`, `https://cornehoskam.com/posts`. Not the article URL and not the site home page, unless the blog is the home page. If the blog has an RSS feed, use the channel's `<link>` value. That's what feed imports use, so a tip and a feed item from the same blog end up with the same source.
+- **Then copy what came before.** If an earlier item from the same site or account exists (`umbfyi.sh featured` or `umbfyi.sh search` by domain), use its source exactly, trailing slash and all. Past items are mixed (e.g. `https://umbraco.com/blog/` vs `https://www.example.co.uk/blog`), so consistency with the same site beats any general rule.
+- **Blog post:** the root URL of their blog section, e.g. `https://www.example.co.uk/blog`, `https://example.dev/posts`. Not the article URL and not the site home page, unless the blog is the home page. If the blog has an RSS feed, use the channel's `<link>` value. That's what feed imports use, so a tip and a feed item from the same blog end up with the same source.
 - **Hashnode:** the blog URL, e.g. `https://<name>.hashnode.dev`.
 - **Social post (LinkedIn, Bluesky, Mastodon, X):** the profile URL of the account that posted it.
   - LinkedIn: `https://www.linkedin.com/in/<name>/` (company pages: `https://www.linkedin.com/company/<name>/`)
   - Bluesky: `https://bsky.app/profile/<handle>`
   - Mastodon: `https://<server>/@<name>`
-- **Linked content from a social post:** the source of the content, not the social account. A Bluesky post sharing a nevitech.co.uk blog post gets `https://www.nevitech.co.uk/blog`.
+- **Linked content from a social post:** the source of the content, not the social account. A Bluesky post sharing an example.co.uk blog post gets `https://www.example.co.uk/blog`.
 - **Platforms with author pages:** the author's page. dev.to: `https://dev.to/<name>`. Medium: `https://medium.com/@<name>` or `https://<name>.medium.com`. GitHub: `https://github.com/<owner>`. YouTube: the channel URL (`https://www.youtube.com/channel/<id>`).
 - **Events:** the organiser's page (e.g. the Meetup group URL, or the festival site).
 - Never leave it empty. The newsletter workflow will guess it from the link if it's empty, and its guess is often wrong (e.g. it misses `/blogs`).
