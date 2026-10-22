@@ -1,15 +1,15 @@
 ---
 name: minute-cryptic
-description: Write and mechanically verify single "minute cryptic" style cryptic crossword clues themed on Umbraco, .NET, web tech and coding, e.g. for a weekly puzzle slot in the UMB.FYI Umbraco community newsletter. Use whenever the user asks for a cryptic clue, minute cryptic, newsletter puzzle, wordplay clue, or wants this week's puzzle, even if they don't say "cryptic". Also use when the user gives a word and asks to "clue it".
+description: Write and mechanically verify single "minute cryptic" style cryptic crossword clues themed on Umbraco, .NET, web tech and coding, e.g. for a weekly newsletter puzzle slot. Returns the chosen clue as JSON for the caller to use. Use whenever the user asks for a cryptic clue, minute cryptic, newsletter puzzle, wordplay clue, or wants this week's puzzle, even if they don't say "cryptic". Also use when the user gives a word and asks to "clue it".
 ---
 
 # Minute Cryptic
 
-Produces one publishable cryptic clue plus hints and an explained answer. Language models are poor at letter-level wordplay (they see tokens, not letters), so every candidate clue goes through `scripts/verify_clue.py` before the user sees it. Never present a clue that hasn't passed the verifier.
+Produces one publishable cryptic clue plus hints and an explained answer, and hands it back as JSON (see "Result"). Language models are poor at letter-level wordplay (they see tokens, not letters), so every candidate clue goes through `scripts/verify_clue.py` before the user sees it. Never present a clue that hasn't passed the verifier.
 
 ## Workflow
 
-1. **Pick the answer.** Use the user's word if given. Otherwise read `references/wordbank.md` and propose 3 answers an Umbraco developer would know: one Umbraco-specific term, one wider tech/coding term, and one everyday word with a tech double life (CACHE, BRANCH, MERGE, TOKEN). Double-life words are the sweet spot: they clue as easily as ordinary English but still land with this audience. Any of the three can be a phrase instead of a single word (PULL REQUEST, I REMEMBER BEING DIRTY); include a phrase in most sets of suggestions. Phrases give anagrams more letters to play with and long hidden spans. Avoid repeating recent answers if the user mentions them. Ask the user to choose if they're around; otherwise pick one.
+1. **Pick the answer.** Use the user's word if given. Otherwise read `references/wordbank.md` and propose 3 answers an Umbraco developer would know: one Umbraco-specific term, one wider tech/coding term, and one everyday word with a tech double life (CACHE, BRANCH, MERGE, TOKEN). Double-life words are the sweet spot: they clue as easily as ordinary English but still land with this audience. Any of the three can be a phrase instead of a single word (PULL REQUEST, I REMEMBER BEING DIRTY); include a phrase in most sets of suggestions. Phrases give anagrams more letters to play with and long hidden spans. Never use an answer from the avoid list (see "Inputs"). Ask the user to choose if they're around; otherwise pick one.
 
 2. **Plan the theme.** The whole clue should feel like it belongs to the Umbraco/dev world, not just the answer:
    - **Definition:** prefer the tech sense of the answer ("version control step" for COMMIT, "fast store" for CACHE). It must still be accurate; a developer reading the answer should nod, not wince.
@@ -46,28 +46,21 @@ For each shortlisted clue:
 
 Solvers reveal hints one at a time, from least to most help. Take each hint straight from the verified JSON (`definition`, `indicator`, `fodder`) so hints can never disagree with the checked clue. For a charade, which has no indicator, use "No indicator: the parts sit side by side" and list each part's clue words as the fodder. For a container, list the outer and inner words as the fodder. For a deletion, give the word being cut down, plus the named letters' clue words if `drop` is an object. For a double definition, give both definitions as the definition hint, use "No indicator: both halves are definitions", and "No fodder: there's no wordplay" for the fodder. For a two-device clue, list both indicators and say what each signals (e.g. "holding (one part inside another) / wild (an anagram)"), and list the fodder in clue order, separated by " / ".
 
-### CMS fields
+## Inputs
 
-After the user picks a clue, also give it as a copy-paste block for the Umbraco "Minute Cryptic" element type:
+- **Answer** (optional): a word or phrase to clue. Without one, step 1 suggests answers.
+- **Avoid list** (optional): answers already used, e.g. past puzzles. The caller supplies it; this skill doesn't look anything up.
 
-```
-clue:         <clue without the enumeration>
-enumeration:  <e.g. 5 or 1,8,5,5>
-definition:   <definition words; for a double definition, both, in clue order: "Hoard / fast memory">
-indicator:    <indicator words, or blank for a plain charade; two-device clues: "holding / wild">
-device:       <anagram | hidden | reversal | hidden reversal | charade | container | first letters | dropped letters | double definition; two-device clues: "container / anagram">
-fodder:       <fodder words, or blank for a double definition>
-answer:       <ANSWER>
-explanation:  <one-line explanation>
-```
+## Result
 
-### Past puzzles
+After the user picks a clue, give it back as one JSON object: the chosen clue's verified object from `candidates.json`, unchanged, plus two fields:
 
-Before picking answers in step 1, check `https://umb.fyi/puzzles` for answers already used and don't reuse them. Each past puzzle's answer is in the page HTML, in the hidden answer box (the `<p>` with `data-part="answer"`), as the bold word before the explanation.
+- `enumeration`: the number in brackets at the end of `clue`, e.g. `"5"` or `"1,8,5,5"`.
+- `explanation`: the one-line explanation from the Answer hint.
 
-This skill only writes and verifies clues. It never updates the site or the newsletter; the `weekly-cryptic` skill handles that.
+Copy the object; don't retype it. It passed the verifier, so every word in it matches the clue.
 
-When `weekly-cryptic` (or another skill) called this one, finish by handing back the chosen clue's CMS fields block and stop. The calling skill carries on from there.
+This skill only writes and verifies clues. It never updates a site or a newsletter. When another skill called this one, finish by handing back the result JSON and stop. The calling skill decides how to store it.
 
 ## Example
 
