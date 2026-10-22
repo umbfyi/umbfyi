@@ -116,7 +116,7 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 When a festival or big event (Spark, Codegarden, US Fest, UMBRAAD, UK Conference, Umbraco in the City, Umbraco India) falls inside the event window, it gets its own section at the very top of the issue, usually for the issue or two before it.
 
 - What goes in it: all its events (pre-party, hackathon, the event itself, after party, runs) and the posts and social posts about it. They come out of Events, Community, Social and so on. The server puts the events first, soonest first, then the posts, newest first.
-- The heading: reuse the alias, title and emoji from the last time that event had a section (`umbfyi.sh featured-all <date>` shows past groups; `inspect-blocks` on that issue shows the emoji). Known ones: `spark` "Umbraco Spark" ⚡, `codegarden` "Codegarden" 🌷, `umbraad` "UMBRAAD" ⌨️, `uk-conf` "UK Conference" 🎉. For a new event, pick an emoji that fits it and say so in the table.
+- The heading: reuse the alias, title and emoji from the last time that event had a section (`umbfyi.sh featured-all <date>` shows past groups; `umbfyi.sh get-newsletter <id>` on that issue shows the emoji). Known ones: `spark` "Umbraco Spark" ⚡, `codegarden` "Codegarden" 🌷, `umbraad` "UMBRAAD" ⌨️, `uk-conf` "UK Conference" 🎉. For a new event, pick an emoji that fits it and say so in the table.
 - Items keep their own emoji (📆 for events, 💬 for social).
 - Tag them with the event's tag (e.g. `codegarden26`, `umbracospark`, `ukconf`), as well as the usual tags.
 - Propose the section in the review table, and create it only once Matt agrees.

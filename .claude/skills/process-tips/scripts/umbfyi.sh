@@ -31,6 +31,11 @@
 #   umbfyi.sh tidy <newsletter-id>        remove placeholder poll and empty headings, place signup blocks (saves a draft)
 #   umbfyi.sh upload-pdf <name> <file>    upload a PDF to the Pulse Reports media folder as an Article, prints its id
 #   umbfyi.sh source-status [days]        health of each scheduled source over the last N days (default 30, max 60)
+#   umbfyi.sh newsletters [n]             the newest n newsletters under Archive (default 4): id, name, state, publishDate, preheader
+#   umbfyi.sh get-newsletter <id>         one newsletter with its blocks in page order (type, contentKey, values)
+#   umbfyi.sh set-preheader <id> "<text>" [--dry-run]   save the preheader (saves a draft)
+#   umbfyi.sh set-puzzle <id> <json-file> [--dry-run]   fill the Minute Cryptic block from {clue, enumeration, ...} (saves a draft)
+#   umbfyi.sh publish-newsletter <id> [--dry-run]       publish a newsletter (syncs it to the mailing system). Only on Matt's word.
 
 set -euo pipefail
 
@@ -126,6 +131,107 @@ upload_pdf() {
   echo "$id"
 }
 
+doc() { curl -s --fail-with-body "$MGMT/document/$1" -H "Authorization: Bearer $(token)"; }
+
+# Block element types in a newsletter's content property, by key.
+BLOCK_TYPES='{"c00d9369-6b0e-439b-8847-61e0d1067e83":"group","808cbd76-e16f-44cb-93ca-f2b207771514":"item",
+  "f78699d6-a74b-41d5-b0b7-7d3d1e5efe6a":"signup","122f1a69-fa4c-44f3-ab12-f4f023d30706":"puzzle","6a7044a5-3466-489f-b09d-f62d921f2541":"poll"}'
+
+# The newsletter fields the skills need, from a full document. publishDate is the send time (UTC), not when it was last published.
+summary() {
+  jq '{id, name: .variants[0].name, state: .variants[0].state,
+    publishDate: ((.values[] | select(.alias == "publishDate") | .value) // null),
+    preheader: ((.values[] | select(.alias == "preheader") | .value) // null)}'
+}
+
+# Newest first by name (names are dates). The collection view leaves out values, so each one is read in full.
+newsletters() {
+  local n=${1:-4} id
+  for id in $(curl -s --fail-with-body "$MGMT/collection/document/$NEWSLETTER_ARCHIVE?orderBy=name&orderDirection=Descending&skip=0&take=$n" \
+      -H "Authorization: Bearer $(token)" | jq -r '.items[].id'); do
+    doc "$id" | summary
+  done | jq -s .
+}
+
+get_newsletter() {
+  local d
+  d=$(doc "$1")
+  jq --argjson types "$BLOCK_TYPES" --argjson s "$(summary <<<"$d")" '
+    (.values[] | select(.alias == "content") | .value) as $c
+    | ($c.contentData | map({key: .key, value: .}) | from_entries) as $byKey
+    | $s + {blocks: [$c.layout["Umbraco.BlockList"] | to_entries[] | $byKey[.value.contentKey] as $b
+        | {n: (.key + 1), type: ($types[$b.contentTypeKey] // $b.contentTypeKey), contentKey: $b.key,
+           values: ($b.values | map({key: .alias, value: .value}) | from_entries)}]}' <<<"$d"
+}
+
+# Same save the backoffice makes: send the whole document back with one change. Saves a draft, never publishes.
+save_document() {
+  local id=$1 json=$2 body
+  body=$(jq '{template, values: [.values[] | {alias, culture, segment, value}], variants: [.variants[] | {culture, segment, name}]}' <<<"$json")
+  curl -s --fail-with-body -X PUT "$MGMT/document/$id" -H "Authorization: Bearer $(token)" \
+    -H "Content-Type: application/json" --data-binary "$body" >/dev/null
+}
+
+set_preheader() {
+  local id=${1:-} text=${2:-} dry=${3:-} before after saved
+  [[ -n $id && $# -ge 2 ]] || { echo 'Usage: set-preheader <id> "<text>" [--dry-run]' >&2; exit 1; }
+  before=$(doc "$id")
+  after=$(jq --arg t "$text" 'if any(.values[]; .alias == "preheader")
+    then .values |= map(if .alias == "preheader" then .value = $t else . end)
+    else .values += [{alias: "preheader", culture: null, segment: null, value: $t}] end' <<<"$before")
+  jq -n --argjson b "$(summary <<<"$before")" --arg t "$text" '{name: $b.name, state: $b.state, before: $b.preheader, after: $t}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  saved=$(doc "$id" | summary | jq -r '.preheader // ""')
+  [[ $saved == "$text" ]] || { echo "Saved, but the preheader reads back as: $saved" >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
+# Fills the one Minute Cryptic block. Only the eight puzzle fields are accepted; any not in the file are left as they are.
+set_puzzle() {
+  local id=$1 file=$2 dry=${3:-} before after key saved
+  [[ -n $id && -f $file ]] || { echo "Usage: set-puzzle <id> <json-file> [--dry-run]" >&2; exit 1; }
+  jq -e 'type == "object" and (keys - ["clue","enumeration","definition","indicator","device","fodder","answer","explanation"] | length == 0)' "$file" >/dev/null \
+    || { echo "The file must be an object with only: clue, enumeration, definition, indicator, device, fodder, answer, explanation" >&2; exit 1; }
+  before=$(doc "$id")
+  key=$(jq -r '[.values[] | select(.alias == "content") | .value.contentData[] | select(.contentTypeKey == "122f1a69-fa4c-44f3-ab12-f4f023d30706") | .key]
+    | if length == 1 then .[0] else error("expected one puzzle block, found \(length)") end' <<<"$before") || exit 1
+  after=$(jq --arg k "$key" --slurpfile f "$file" '
+    def editor($a): if $a == "explanation" then "Umbraco.TextArea" else "Umbraco.TextBox" end;
+    (.values[] | select(.alias == "content") | .value.contentData[] | select(.key == $k) | .values) |=
+      (reduce ($f[0] | to_entries[]) as $e (.;
+        if any(.[]; .alias == $e.key) then map(if .alias == $e.key then .value = $e.value else . end)
+        else . + [{editorAlias: editor($e.key), culture: null, segment: null, alias: $e.key, value: $e.value}] end))' <<<"$before")
+  jq -n --argjson b "$(summary <<<"$before")" --arg k "$key" --argjson old "$(jq --arg k "$key" '[.values[] | select(.alias == "content") | .value.contentData[] | select(.key == $k) | .values[] | {key: .alias, value}] | from_entries' <<<"$before")" \
+    --slurpfile f "$file" '{name: $b.name, state: $b.state, puzzleBlock: $k, before: $old, after: ($old + $f[0])}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  saved=$(doc "$id" | jq --arg k "$key" '[.values[] | select(.alias == "content") | .value.contentData[] | select(.key == $k) | .values[] | {key: .alias, value}] | from_entries')
+  jq -e --slurpfile f "$file" --argjson s "$saved" -n '$f[0] | to_entries | all(.value == $s[.key])' >/dev/null \
+    || { echo "Saved, but the puzzle reads back differently: $saved" >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
+NEWSLETTER_TYPE=119ae1bc-9453-455a-ab66-f53c5455a50d
+
+# Same call as the backoffice's Publish button. Refuses anything that isn't a newsletter, or one with nothing new to publish.
+publish_newsletter() {
+  local id=${1:-} dry=${2:-} before s state
+  [[ -n $id ]] || { echo "Usage: publish-newsletter <id> [--dry-run]" >&2; exit 1; }
+  before=$(doc "$id")
+  [[ $(jq -r .documentType.id <<<"$before") == "$NEWSLETTER_TYPE" ]] || { echo "Not a newsletter. Nothing published." >&2; exit 1; }
+  s=$(summary <<<"$before")
+  echo "$s"
+  state=$(jq -r .state <<<"$s")
+  [[ $state == Published ]] && { echo "Already published with no unpublished changes. Nothing to do." >&2; return; }
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing published." >&2; return; }
+  curl -s --fail-with-body -X PUT "$MGMT/document/$id/publish" -H "Authorization: Bearer $(token)" \
+    -H "Content-Type: application/json" -d '{"publishSchedules":[{"culture":null}]}' >/dev/null
+  state=$(doc "$id" | summary | jq -r .state)
+  [[ $state == Published ]] || { echo "Publish sent, but the state reads back as: $state" >&2; exit 1; }
+  echo "Published."
+}
+
 cmd=${1:-}; shift || true
 case "$cmd" in
   tips)     call GET "/tips${1:+?from=$1}" ;;
@@ -153,5 +259,10 @@ case "$cmd" in
   workflow-start)  wf POST "/$1/start" ;;
   workflow-status) wf GET "/$1" ;;
   workflow-model)  wf GET "/$1/model" ;;
-  *) sed -n '2,33p' "$0"; exit 1 ;;
+  newsletters) newsletters "${1:-4}" ;;
+  get-newsletter) get_newsletter "${1:?Usage: get-newsletter <id>}" ;;
+  set-preheader) set_preheader "$@" ;;
+  set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
+  publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
+  *) sed -n '2,38p' "$0"; exit 1 ;;
 esac

@@ -7,12 +7,12 @@ description: Write the preheader for this week's UMB.FYI newsletter on the live 
 
 The preheader is the short line shown after the email subject, and it's also the text drawn on the issue's social images (LinkedIn and other social, and Instagram). It's always three of the issue's items and a fixed ending: `<Item 1>, <Item 2>, <Item 3> and much more...`
 
-Calls: the hosted `umbraco-editor-mcp` to read the issue and save the preheader (LIVE site), and `.claude/skills/process-tips/scripts/umbfyi.sh og-measure "<text>"` to check the fit. Reads and measuring need no sign-off; the one write (step 6) happens only after Matt picks.
+Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` on the LIVE site: `newsletters` and `get-newsletter` to read the issue, `og-measure "<text>"` to check the fit, and `set-preheader` to save. Reads and measuring need no sign-off; the one write (step 6) happens only after Matt picks.
 
 ## Run
 
 1. **Find the issue.** As in `weekly-cryptic` step 1: the newsletter under Archive whose `publishDate` is still in the future. Note whether it's already published, and whether it already has a preheader (show it, and ask whether to replace it).
-2. **Read the items.** `inspect-blocks` on the issue (`propertyAlias: "content"`). Note each item's group, title and link. If the issue has few or no items yet, stop: the preheader comes last, once the items are in.
+2. **Read the items.** `umbfyi.sh get-newsletter <id>`. Blocks come in page order, so each `item` belongs to the `group` above it. Note each item's group, title (`itemTitle`) and link (`itemLink`). If the issue has few or no items yet, stop: the preheader comes last, once the items are in.
 3. **Pick three.** Strongest first. In rough order:
    - Security advisories and patches (HQ). Always in, and usually first. Several in one week become one phrase: "Umbraco CMS, Forms & AI Security Advisories".
    - A festival or big event with its own section this week (Codegarden, Spark, US Fest, UK Conference...). Can lead in its week.
@@ -25,7 +25,7 @@ Calls: the hosted `umbraco-editor-mcp` to read the issue and save the preheader 
    - **Instagram (`image1080`): 7 lines at most.** At 8 the text runs into the logo (`gapBelowLogo` under about 100 is too close).
    - **No single word alone on a line** in the social image (`singleWordLines`). On Instagram it's better avoided ("more..." alone on the last line is the usual case), but not required.
    - If a version breaks a hard rule, shorten a phrase and measure again. Only show versions that pass.
-6. **Show and save.** Show the three versions, each with its line counts (`social 4 lines, Instagram 6 lines`) and any soft issue. Recommend one, in one line. Once Matt picks (or edits one, which you measure again before saving), save it with `edit-page` on the issue: property `preheader`, the text as the value. Then `get-page` and confirm it saved exactly.
+6. **Show and save.** Show the three versions, each with its line counts (`social 4 lines, Instagram 6 lines`) and any soft issue. Recommend one, in one line. Once Matt picks (or edits one, which you measure again before saving), save it with `umbfyi.sh set-preheader <id> "<text>"`. It shows the old and new text, saves a draft and checks it reads back exactly. Add `--dry-run` to see the change without saving.
 7. **Never publish.** If the issue was already published (step 1), tell Matt to publish it again so the new preheader reaches the mailing system and the images. Finish with one line: the saved preheader, and whether it needs republishing.
 
 ## Past preheaders

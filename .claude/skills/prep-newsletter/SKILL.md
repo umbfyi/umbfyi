@@ -25,7 +25,7 @@ All five talk to the LIVE site. Nothing is ever published: the issue stays a dra
    - What each step did, one line each (e.g. "Tips: 4 kept, 2 dropped", "Sweep: 2 added from Bluesky", "Items: 31 added, 2 skipped, Deadlines heading added", "Puzzle: CACHE").
    - Anything still open: unsure rows Matt deferred, workflow warnings not resolved.
    - The preheader as saved, and the check result (ready, or what's still to fix).
-   - What's left for Matt: look over the draft in the backoffice, and publish.
+   - What's left for Matt: look over the draft in the backoffice, and publish (in the backoffice, or by telling Claude to publish, which runs `publish-newsletter`).
    - Any rule or tag corrections offered during the run that Matt hasn't answered yet.
 
 ## Rules

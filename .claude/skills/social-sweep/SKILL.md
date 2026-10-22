@@ -25,7 +25,7 @@ Both return the same shape: `url`, `author`, `authorName`, `text`, `createdAt`, 
    - Job adverts, sales pitches and ads with nothing new in them.
    - The same post on both platforms, or the same link posted twice: keep one, preferring the version with the better link (rule 3 of the tips rules).
 4. **Drop what's covered.** Check each remaining post, and each link in it:
-   - Already in this week's issue (`inspect-blocks` on it), if items are in yet. If the items aren't in yet, compare against the workflow's results instead (`items.json`, or `items-raw.json`, from `newsletter-items`).
+   - Already in this week's issue (`.claude/skills/process-tips/scripts/umbfyi.sh get-newsletter <id>`), if items are in yet. If the items aren't in yet, compare against the workflow's results instead (`items.json`, or `items-raw.json`, from `newsletter-items`).
    - Already a tip this week, handled or not (`umbfyi.sh tips-all <window start>`).
    - Already a media item (`umbfyi.sh search`) or in a past issue (`umbfyi.sh featured`).
 5. **Judge.** For what's left, use the tips rules (`.claude/skills/process-tips/references/rules.md`): which link to use (rule 3), and keep or drop (rule 4). Only news-type posts are worth it: releases, launches, new posts and videos, announcements, events, programmes opening. Not chat, opinions, or "had a great time at...".

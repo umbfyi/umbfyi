@@ -7,11 +7,11 @@ description: Look over this week's UMB.FYI newsletter draft on the live site bef
 
 A final look over the draft before Matt publishes. **Read-only: never change anything.** Report what's wrong and which skill or step would fix it; Matt decides.
 
-Calls: the hosted `umbraco-editor-mcp` (`get-page`, `inspect-blocks`) and `.claude/skills/process-tips/scripts/umbfyi.sh` (`og-measure`, `featured`). All on the LIVE site, all reads.
+Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-newsletter`, `og-measure`, `featured`). All on the LIVE site, all reads.
 
 ## Run
 
-1. **Find the issue.** As in `weekly-cryptic` step 1: the newsletter whose `publishDate` is still in the future. `get-page` it and `inspect-blocks` (`propertyAlias: "content"`). Note whether it's published already (then anything fixed needs a republish).
+1. **Find the issue.** As in `weekly-cryptic` step 1: the newsletter whose `publishDate` is still in the future. `umbfyi.sh get-newsletter <id>` gives its fields and every block in page order. Note whether it's published already (then anything fixed needs a republish).
 2. **Check, in this order.** For each, pass or a one-line problem.
    - **Name and send time.** The name is its Wednesday (`YYYY-MM-DD`); `publishDate` is 9am UK on that day, stored as UTC (`08:00:00` in British Summer Time, `09:00:00` in winter). Say how long until it goes out.
    - **Preheader.** Set, in the `A, B, C and much more...` form, and `umbfyi.sh og-measure` gives 4 lines or fewer on the social image (`image1200x627`), 7 or fewer on Instagram (`image1080`), and no word alone on a social line. Fix: `newsletter-preheader`.
