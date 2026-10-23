@@ -136,6 +136,8 @@ Release announcements and notable posts on the Umbraco forum (forum.umbraco.com)
 - Source: the poster's forum profile (`https://forum.umbraco.com/u/<user>`).
 - A short summary of what was released or announced, and tags as usual (`packages` for a package release).
 - Ordinary questions and support threads don't go in.
+- Forum posts now come in automatically (the Announcements category feed), so expect most weeks to have some. The source comes through as the category page (`https://forum.umbraco.com/c/announcements/31`); replace it with the poster's profile as above.
+- **A new package in both Forum and Packages** (the Marketplace item): keep the Marketplace one and drop the forum post, reason "duplicate of [package] (Packages)". The forum is for what the Marketplace misses: package updates, tools that aren't packages, and write-ups.
 
 ## 11. Training
 

@@ -28,6 +28,7 @@
 #   umbfyi.sh create-newsletter <date>    create the newsletter for a Wednesday (YYYY-MM-DD) from the Newsletter Starter blueprint (draft)
 #   umbfyi.sh og-measure "<text>"         how a preheader wraps in the social images (lines, gap below logo, line texts)
 #   umbfyi.sh bluesky-sweep [days] [query]   recent Bluesky posts matching a search (default: umbraco, 7 days)
+#   umbfyi.sh linkedin-sweep [days]       recent LinkedIn posts mentioning Umbraco, collected by Umbraco Sphere (default 7 days)
 #   umbfyi.sh tidy <newsletter-id>        remove placeholder poll and empty headings, place signup blocks (saves a draft)
 #   umbfyi.sh upload-pdf <name> <file>    upload a PDF to the Pulse Reports media folder as an Article, prints its id
 #   umbfyi.sh source-status [days]        health of each scheduled source over the last N days (default 30, max 60)
@@ -247,6 +248,7 @@ case "$cmd" in
   add-items) call POST "/newsletter/$1/items" -H "Content-Type: application/json" --data-binary "@$2" ;;
   tidy)     call POST "/newsletter/$1/tidy" ;;
   bluesky-sweep) call GET "/social-sweep/bluesky" -G --data-urlencode "days=${1:-7}" --data-urlencode "q=${2:-umbraco}" ;;
+  linkedin-sweep) call GET "/social-sweep/linkedin" -G --data-urlencode "days=${1:-7}" ;;
   source-status) call GET "/source-status${1:+?days=$1}" ;;
   og-measure) call GET "/og-measure" -G --data-urlencode "text=$1" ;;
   create-newsletter) create_newsletter "${1:-}" ;;
@@ -264,5 +266,5 @@ case "$cmd" in
   set-preheader) set_preheader "$@" ;;
   set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
   publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
-  *) sed -n '2,38p' "$0"; exit 1 ;;
+  *) sed -n '2,39p' "$0"; exit 1 ;;
 esac

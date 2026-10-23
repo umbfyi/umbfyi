@@ -48,7 +48,7 @@ What the workflow returns per item, and what each becomes in the block:
 | `summary` | Description | For events: date, time, time zone and venue. |
 | `source` | Source | Author or site URL. |
 | `emoji` | Emoji | Defaults to 🔗 if empty. |
-| `category` | (which heading) | `Hq`, `Community`, `WatchAndListen`, `Packages`, `Events`, `Deadlines` (the server adds a ⏰ Deadlines heading after the Events items if there isn't one), `Training`, `Social`, `Misc` (goes under Miscellaneous), or any existing `groupAlias`. `Uncategorized` is never accepted. |
+| `category` | (which heading) | `Hq`, `Community`, `WatchAndListen`, `Packages`, `Events`, `Deadlines` (the server adds a ⏰ Deadlines heading after the Events items if there isn't one), `Training`, `Social`, `Forum` (forum announcements: package releases, tools, community news), `Misc` (goes under Miscellaneous), or any existing `groupAlias`. `Uncategorized` is never accepted. |
 | `date` | (sort order only) | Required. Upcoming items (events, deadlines) sort first, soonest first; past items (posts) after, newest first. |
 | `consumptionTimeMinutes` | Read time | 0 for events and packages. |
 | `contentTags` | Tags | Lowercased by the server. |
