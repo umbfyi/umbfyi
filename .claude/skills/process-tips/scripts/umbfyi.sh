@@ -19,6 +19,7 @@
 #   umbfyi.sh create <json-file>          create a media item from a JSON body
 #   umbfyi.sh dismiss <tip-id>            soft delete a tip
 #   umbfyi.sh profiles                    known people/orgs and their source URLs (public, no login)
+#   umbfyi.sh puzzle-answers              every past minute cryptic answer, newest first, from umb.fyi/puzzles (public, no login)
 #   umbfyi.sh workflow-create [alias]     create a workflow run (default newsletter-generator), prints its JSON (workflowId)
 #   umbfyi.sh workflow-start <id>         start a created run
 #   umbfyi.sh workflow-status <id>        a run's full state (status, stages, tasks)
@@ -42,6 +43,17 @@ set -euo pipefail
 
 if [[ ${1:-} == profiles ]]; then
   curl -sf https://raw.githubusercontent.com/umbfyi/umbfyi/HEAD/data/profiles.json
+  exit
+fi
+
+# The puzzles page shows 10 puzzles a page (?p=2 and on), each answer in a hidden
+# <p data-part="answer"><span class="font-bold">ANSWER</span>. Reads pages until one has none.
+if [[ ${1:-} == puzzle-answers ]]; then
+  for (( p = 1; p <= 100; p++ )); do
+    page=$(curl -sf "https://umb.fyi/puzzles?p=$p" | grep -o 'data-part="answer"[^>]*><span class="font-bold">[^<]*' | sed 's/.*>//') || true
+    [[ -n $page ]] || break
+    echo "$page"
+  done | jq -R . | jq -s .
   exit
 fi
 
@@ -266,5 +278,5 @@ case "$cmd" in
   set-preheader) set_preheader "$@" ;;
   set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
   publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
-  *) sed -n '2,39p' "$0"; exit 1 ;;
+  *) sed -n '2,40p' "$0"; exit 1 ;;
 esac
