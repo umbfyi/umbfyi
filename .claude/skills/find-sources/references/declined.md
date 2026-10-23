@@ -9,3 +9,4 @@ Sources Matt has chosen not to add. Don't suggest these again unless something b
 | SaM Solutions (blog, YouTube, podcasts) | https://sam-solutions.com/blog/category/umbraco/ | 23-10-2026 | Marketing-style posts. |
 | Umbraco Users Group India YouTube | https://www.youtube.com/channel/UCD3T_cLJZRL5ECO1MaWM4ag | 23-10-2026 | Too quiet: nothing since 17-08-2026. |
 | Code .NET, Umbraco & AI vlog | https://www.youtube.com/channel/UCtNwprGwjpoTaaQdanNqlZw | 23-10-2026 | Batch uploads that look low effort. |
+| DXTalk podcast | https://feeds.simplecast.com/kzA4I9yY | 23-10-2026 | Removed as a source: no episode since 02-07-2024. |
