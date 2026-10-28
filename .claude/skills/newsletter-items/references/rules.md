@@ -141,7 +141,9 @@ When a festival or big event (Spark, Codegarden, US Fest, UMBRAAD, UK Conference
 Release announcements and notable posts on the Umbraco forum (forum.umbraco.com) go under the Forum heading (category `forum`), not Community or Social. Past examples: "God Mode v17 now available", "GitHub Action for Umbraco Cloud Deployments Released".
 
 - Source: the poster's forum profile (`https://forum.umbraco.com/u/<user>`).
-- A short summary of what was released or announced, and tags as usual (`packages` for a package release).
+- No summary and a read time of 0 for a release or announcement, like a social post: the title already says it all. Only a real write-up (a how-to, a long post) gets a one-line summary of what's in it, and its read time.
+- Tags as usual (`packages` for a package release).
+- Write-ups go above release posts. Give every release or announcement post the cluster `Releases`: the server moves a cluster to the bottom of its group, so the write-ups stay on top, newest first.
 - Ordinary questions and support threads don't go in.
 - Forum posts now come in automatically (the Announcements category feed), so expect most weeks to have some. The source comes through as the category page (`https://forum.umbraco.com/c/announcements/31`); replace it with the poster's profile as above.
 - **A new package in both Forum and Packages** (the Marketplace item): keep the Marketplace one and drop the forum post, reason "duplicate of [package] (Packages)". The forum is for what the Marketplace misses: package updates, tools that aren't packages, and write-ups.
