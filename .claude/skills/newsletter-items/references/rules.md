@@ -33,6 +33,7 @@ Not every miss is flagged. When no read-time extractor exists for a site, the wo
 
 - Published issues keep the workflow's summaries mostly as written. Only change a summary when it is wrong, broken or unreadable: cut off mid-sentence, in the wrong language, about the wrong page (a cookie banner, a login wall, a 404 page), or plainly marketing copy.
 - Don't change wording just for style.
+- One exception: summaries are always in the third person, as UMB.FYI is telling readers about someone else's news. Rewrite any "we", "our", "us", "I" or "my" to name who it is. Titles stay as the author wrote them, first person and all.
 - When you write a summary yourself (section 0), match the house style: 2 or 3 sentences, about 50 to 60 words, third person, naming the author ("In this post, Jane Doe explores..."), saying what the post covers and why it's useful. Plain words, no hype.
 - No em dashes in anything you write.
 - Use people's current names. The workflow can pick up an old one from a page or byline. Known changes: Shannon Deminick is now Shannon Thompson.
