@@ -35,6 +35,7 @@ Not every miss is flagged. When no read-time extractor exists for a site, the wo
 - Don't change wording just for style.
 - When you write a summary yourself (section 0), match the house style: 2 or 3 sentences, about 50 to 60 words, third person, naming the author ("In this post, Jane Doe explores..."), saying what the post covers and why it's useful. Plain words, no hype.
 - No em dashes in anything you write.
+- Use people's current names. The workflow can pick up an old one from a page or byline. Known changes: Shannon Deminick is now Shannon Thompson.
 
 ## 2. Category
 
@@ -42,6 +43,8 @@ Not every miss is flagged. When no read-time extractor exists for a site, the wo
 - HQ is Umbraco HQ's own blog posts, RFCs and announcements. Community is everyone else's blog posts.
 - Video and podcast items go in Watch & Listen, even when they're from HQ.
 - If Matt has added a one-off heading this week (like a conference or "24 Days"), items about it go there. Use its `groupAlias` as the category.
+- Social posts go under Social, even from HQ accounts. Only blog posts and real editorial content go in the named sections.
+- Security advisories and security heads-ups get the ⚠️ emoji, not the workflow's 📰.
 
 ## 3. Titles
 
@@ -79,6 +82,7 @@ Skrift (skrift.io) is a monthly online magazine. Never feature its articles one 
 - Check every event's page, flagged or not. The workflow only drops events whose page says "this event has been cancelled" (or "was cancelled"), and only if the page loaded; it doesn't catch postponed or rescheduled events, or a missing location.
   - Cancelled or postponed: **drop**, reason "cancelled" or "postponed".
   - Moved to a new date: update the date and summary, and recheck it's still in the window.
+  - Always compare the date, time and venue with the page, even when nothing looks wrong. The workflow's event data can be stale: on 28-10-2026 UmbraCymru came through as 29-10 at Method4, but the page said 28-10 at Aspire Systems. The page wins.
   - No venue and not marked online in the summary: add the venue from the page, or "Online". Can't find one: mark **unsure**.
   - Page won't load: mark **unsure**.
 - The workflow removes cancelled events without saying so. Compare `umbfyi.sh events <from> <to>` for the window against the workflow's events and list any it dropped in the table header ("removed by workflow: ..."), so Matt can see them. Only bring one back if its page shows it's still on.
@@ -99,6 +103,7 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 - Use tags from the tag map (all listed in `references/tags.md`, with their patterns). One-off tags outside the map are allowed for something specific that matters that week, like a conference, campaign or release (past ones are under "other" in `references/tags.md`; reuse one if it fits). Propose any new one-off tag in the table, marked **new**, and only use it once Matt agrees. If it's something that will keep coming up, suggest adding it to `tag-map.json` with patterns instead (a PR to umbfyi/umbfyi, with Matt's OK), so the workflow assigns it from then on.
 - If the same wrong tag keeps coming up from a loose pattern, say which pattern in the table. Fixing it in `tag-map.json` (a PR to umbfyi/umbfyi, with Matt's OK) stops it at the source.
 - Watch the pairs: a specific product tag usually comes with its broader one where past items show that (e.g. `umbracoai` with `ai`), but not always. Follow the examples, not a habit.
+- `umbracocms` only goes on actual product posts (HQ releases, advisories, product updates). Not on community posts that just use or mention the CMS.
 - Lowercase, no spaces.
 - When you're not sure, say so in the table row. Don't guess quietly.
 
@@ -106,6 +111,8 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 
 - Description: one short sentence only. Cut everything after the first sentence, and shorten that if it runs long. "Live frontend previews for Umbraco 17/18 Block List blocks in the backoffice." is the right length.
 - If one developer or company has two or more packages in the batch, give them the same `cluster` (the developer's or company's name, from the package page or the shared name prefix like `Esatto.` or `DigitalWonderlab.`). The server puts each cluster together at the bottom of Packages. Don't cluster on a shared prefix alone when it's a generic one like `Umbraco.Community.`; check the package owner.
+- The same package more than once (different versions): keep only the highest version. Drop the rest, reason "older version of [package]".
+- Limbo packages (`Limbo.`, from packages.limbo.works) go at the bottom of Packages: they're mostly automated version-release announcements. Give them the cluster `Limbo`. The server only moves a cluster down when it has two or more items, so with a single Limbo package, say in the table that Matt needs to drag it to the bottom by hand.
 
 ## 9. Social
 
@@ -113,7 +120,7 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 
 ## 10. Festivals and big events
 
-When a festival or big event (Spark, Codegarden, US Fest, UMBRAAD, UK Conference, Umbraco in the City, Umbraco India) falls inside the event window, it gets its own section at the very top of the issue, usually for the issue or two before it.
+When a festival or big event (Spark, Codegarden, US Fest, UMBRAAD, UK Conference, Umbraco in the City, Umbraco India) falls inside the event window (section 5: from the send time to the Friday of the following week), it gets its own section at the very top of the issue. These events run Wednesday to Friday, so that's always two issues: the week before, and the week of (even if it's on the send day itself). It's the main event's date that counts. A pre-party, hackathon or run in the window on its own doesn't start a section. Outside the window, no section: its posts and events stay in their usual groups.
 
 - What goes in it: all its events (pre-party, hackathon, the event itself, after party, runs) and the posts and social posts about it. They come out of Events, Community, Social and so on. The server puts the events first, soonest first, then the posts, newest first.
 - The heading: reuse the alias, title and emoji from the last time that event had a section (`umbfyi.sh featured-all <date>` shows past groups; `umbfyi.sh get-newsletter <id>` on that issue shows the emoji). Known ones: `spark` "Umbraco Spark" ⚡, `codegarden` "Codegarden" 🌷, `umbraad` "UMBRAAD" ⌨️, `uk-conf` "UK Conference" 🎉. For a new event, pick an emoji that fits it and say so in the table.
