@@ -112,7 +112,7 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 - Description: one short sentence only. Cut everything after the first sentence, and shorten that if it runs long. "Live frontend previews for Umbraco 17/18 Block List blocks in the backoffice." is the right length.
 - If one developer or company has two or more packages in the batch, give them the same `cluster` (the developer's or company's name, from the package page or the shared name prefix like `Esatto.` or `DigitalWonderlab.`). The server puts each cluster together at the bottom of Packages. Don't cluster on a shared prefix alone when it's a generic one like `Umbraco.Community.`; check the package owner.
 - The same package more than once (different versions): keep only the highest version. Drop the rest, reason "older version of [package]".
-- Limbo packages (`Limbo.`, from packages.limbo.works) go at the bottom of Packages: they're mostly automated version-release announcements. Give them the cluster `Limbo`. The server only moves a cluster down when it has two or more items, so with a single Limbo package, say in the table that Matt needs to drag it to the bottom by hand.
+- Limbo packages (`Limbo.`, from packages.limbo.works) go at the bottom of Packages: they're mostly automated version-release announcements. Give them the cluster `Limbo`, even when there's only one: the server moves a cluster of any size to the bottom.
 
 ## 9. Social
 
