@@ -24,7 +24,7 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` on the LIVE site: `newsle
    • <item>
    • <item>
 
-   ...and much more in this week's issue: https://umb.fyi/archive/<YYYY-MM-DD>
+   ...and much more in this week's issue: https://umb.fyi/<YYYY-MM-DD>
 
    Get UMB.FYI in your inbox every Wednesday: https://umb.fyi
 
