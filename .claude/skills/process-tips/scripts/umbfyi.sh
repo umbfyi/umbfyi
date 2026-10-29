@@ -36,6 +36,7 @@
 #   umbfyi.sh newsletters [n]             the newest n newsletters under Archive (default 4): id, name, state, publishDate, preheader
 #   umbfyi.sh get-newsletter <id>         one newsletter with its blocks in page order (type, contentKey, values)
 #   umbfyi.sh set-preheader <id> "<text>" [--dry-run]   save the preheader (saves a draft)
+#   umbfyi.sh set-linkedin <id> <text-file> [--dry-run]   save the LinkedIn post from a text file (saves a draft)
 #   umbfyi.sh set-puzzle <id> <json-file> [--dry-run]   fill the Minute Cryptic block from {clue, enumeration, ...} (saves a draft)
 #   umbfyi.sh publish-newsletter <id> [--dry-run]       publish a newsletter (syncs it to the mailing system). Only on Matt's word.
 
@@ -154,7 +155,8 @@ BLOCK_TYPES='{"c00d9369-6b0e-439b-8847-61e0d1067e83":"group","808cbd76-e16f-44cb
 summary() {
   jq '{id, name: .variants[0].name, state: .variants[0].state,
     publishDate: ((.values[] | select(.alias == "publishDate") | .value) // null),
-    preheader: ((.values[] | select(.alias == "preheader") | .value) // null)}'
+    preheader: ((.values[] | select(.alias == "preheader") | .value) // null),
+    linkedInPost: ((.values[] | select(.alias == "linkedInPost") | .value) // null)}'
 }
 
 # Newest first by name (names are dates). The collection view leaves out values, so each one is read in full.
@@ -197,6 +199,24 @@ set_preheader() {
   save_document "$id" "$after"
   saved=$(doc "$id" | summary | jq -r '.preheader // ""')
   [[ $saved == "$text" ]] || { echo "Saved, but the preheader reads back as: $saved" >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
+# The LinkedIn post is several lines, so it comes from a file. Make.com reads it from the published page
+# ({url}?altTemplate=LinkedIn) when the issue is sent.
+set_linkedin() {
+  local id=${1:-} file=${2:-} dry=${3:-} text before after saved
+  [[ -n $id && -f $file ]] || { echo "Usage: set-linkedin <id> <text-file> [--dry-run]" >&2; exit 1; }
+  text=$(cat "$file")
+  before=$(doc "$id")
+  after=$(jq --arg t "$text" 'if any(.values[]; .alias == "linkedInPost")
+    then .values |= map(if .alias == "linkedInPost" then .value = $t else . end)
+    else .values += [{alias: "linkedInPost", culture: null, segment: null, value: $t}] end' <<<"$before")
+  jq -n --argjson b "$(summary <<<"$before")" --arg t "$text" '{name: $b.name, state: $b.state, before: $b.linkedInPost, after: $t}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  saved=$(doc "$id" | summary | jq -r '.linkedInPost // ""')
+  [[ $saved == "$text" ]] || { echo "Saved, but the LinkedIn post reads back differently: $saved" >&2; exit 1; }
   echo "Saved as a draft."
 }
 
@@ -276,7 +296,8 @@ case "$cmd" in
   newsletters) newsletters "${1:-4}" ;;
   get-newsletter) get_newsletter "${1:?Usage: get-newsletter <id>}" ;;
   set-preheader) set_preheader "$@" ;;
+  set-linkedin) set_linkedin "${1:-}" "${2:-}" "${3:-}" ;;
   set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
   publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
-  *) sed -n '2,40p' "$0"; exit 1 ;;
+  *) sed -n '2,41p' "$0"; exit 1 ;;
 esac

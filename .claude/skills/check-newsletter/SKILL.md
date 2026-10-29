@@ -15,6 +15,7 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-news
 2. **Check, in this order.** For each, pass or a one-line problem.
    - **Name and send time.** The name is its Wednesday (`YYYY-MM-DD`); `publishDate` is 9am UK on that day, stored as UTC (`08:00:00` in British Summer Time, `09:00:00` in winter). Say how long until it goes out.
    - **Preheader.** Set, in the `A, B, C and much more...` form, and `umbfyi.sh og-measure` gives 4 lines or fewer on the social image (`image1200x627`), 7 or fewer on Instagram (`image1080`), and no word alone on a social line. Fix: `newsletter-preheader`.
+   - **LinkedIn post.** `linkedInPost` is set, links to this issue's own address, and is 1,300 characters or fewer. If it's empty, that's a soft problem, not a blocker: a plain post is built from the preheader. Fix: `newsletter-linkedin`.
    - **Puzzle.** The minute cryptic block is filled, or Matt skipped it this week (an empty one is hidden, so that's fine, just say so). Fix: `weekly-cryptic`.
    - **Placeholders.** No poll still saying `[CHANGE ME]`, no heading with nothing under it. Fix: `umbfyi.sh tidy`.
    - **Signup blocks.** The first one is 3 to 6 items in, but judge by length, not count: it should sit above the fold, so after long items (HQ posts with long summaries) it goes nearer 3 than 6. Tidy now judges this by length too, so it should be right; if it still looks too low, say how many items higher it should go (a drag in the backoffice). The last block in the issue is a signup block. Fix: `umbfyi.sh tidy`.
