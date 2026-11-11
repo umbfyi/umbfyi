@@ -1,0 +1,19 @@
+# Preheader picks
+
+What Matt was offered each week and what he chose, newest first. The skill reads this before writing (step 3) and adds to it after saving (step 8). Look for patterns in what he picks and passes on.
+
+## 2026-11-11
+
+Offered (first round):
+1. Forms Workflows to Automate RFC, Upgrading 13 to 18 with AI, Mitchell Nortje uProfile and much more...
+2. Forms Workflows to Automate RFC, uSkinned Visual Editor Reimagined, Umbraco Compose CMS Integrations and much more...
+3. Have Your Say on Forms Workflows, Mitchell Nortje uProfile, Give Your Editors a Handbook and much more...
+
+Offered (second round, Matt asked for 3 more):
+4. Have Your Say on Forms Workflows, Upgrading Umbraco with AI, Umbraco Compose Integrations and much more...
+5. Forms Workflows RFC, uSkinned Site Builder 7.3, Individual Page Icons in Umbraco and much more...
+6. Umbraco Training Goes On Demand, Forms Workflows RFC, Give Your Editors a Handbook and much more...
+
+Picked: 4, unedited.
+
+Suggests: he liked the HQ RFC phrased as an invitation ("Have Your Say"), a theme across two posts ("Upgrading Umbraco with AI") over one post's title, and an HQ product item (Compose integrations) over the uProfile. The first round's three were too alike.
