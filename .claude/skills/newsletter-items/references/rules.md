@@ -21,6 +21,7 @@ The workflow flags problems but keeps the item. Fix or decide every flag before 
 | `contains TBD/TBC placeholder description` | Event details not set yet. | Check the event page for a venue or time. Found: update the summary. Not found: keep as is. |
 | `Failed to check TBD status` | Couldn't check. | Check the event page as above. |
 | `Failed to process tags` | No tags. | Pick tags from `umbfyi.sh tags` (section 7). |
+| `No package description found` | Nothing on the Marketplace, NuGet or the README said what the package does, so the description is empty. | Look at the package page or its repo and write the line yourself (section 8). If nothing explains it, mark **unsure**. |
 
 Any other flag: say what it is and mark the item **unsure**.
 
@@ -110,8 +111,8 @@ Tags come from `data/tag-map.json` in the [umbfyi/umbfyi repo](https://github.co
 
 ## 8. Packages
 
-- Description: one short sentence only. Cut everything after the first sentence, and shorten that if it runs long. "Live frontend previews for Umbraco 17/18 Block List blocks in the backoffice." is the right length.
-- If one developer or company has two or more packages in the batch, give them the same `cluster` (the developer's or company's name, from the package page or the shared name prefix like `Esatto.` or `DigitalWonderlab.`). The server puts each cluster together at the bottom of Packages. Don't cluster on a shared prefix alone when it's a generic one like `Umbraco.Community.`; check the package owner.
+- Description: the shortest line that says what the package is or does. Usually 6 to 12 words, no sales talk, no feature lists. "Live frontend previews for Umbraco 17/18 Block List blocks in the backoffice." is the right length. The workflow writes this line itself with AI (from the Marketplace text, then NuGet, then the README), so check it rather than writing it: fix it if it's wrong, salesy or lists features.
+- If one developer or company has two or more packages in the batch, they share a `cluster` (the developer's or company's name). The workflow sets this from the NuGet package owner and returns it as `cluster`: keep it, and check the label reads well (a shared prefix like `Esatto.`, or a person's name). The server puts each cluster together at the bottom of Packages. If an item has no `cluster` but clearly shares a maker with others (not on NuGet, say), set one yourself. Don't cluster on a shared prefix alone when it's a generic one like `Umbraco.Community.`; check the package owner.
 - The same package more than once (different versions): keep only the highest version. Drop the rest, reason "older version of [package]".
 - Limbo packages (`Limbo.`, from packages.limbo.works) go at the bottom of Packages: they're mostly automated version-release announcements. Give them the cluster `Limbo`, even when there's only one: the server moves a cluster of any size to the bottom.
 
