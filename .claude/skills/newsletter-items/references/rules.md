@@ -20,6 +20,7 @@ The workflow flags problems but keeps the item. Fix or decide every flag before 
 | `URL temporarily failed` / `HTTP error processing` / `Timeout processing` | The link didn't load during the run. | Try it again. Loads: keep. Still broken: **drop**, reason "broken link". |
 | `contains TBD/TBC placeholder description` | Event details not set yet. | Check the event page for a venue or time. Found: update the summary. Not found: keep as is. |
 | `Failed to check TBD status` | Couldn't check. | Check the event page as above. |
+| `Jev tag check failed` | Jev (the model that checks pattern tags) couldn't be reached, so the item has the pattern tags unchecked. | Check its tags extra carefully (section 7). If every item has it, tell Matt: the TypeSafe key may have expired. |
 | `Failed to process tags` | No tags. | Pick tags from `umbfyi.sh tags` (section 7). |
 | `No package description found` | Nothing on the Marketplace, NuGet or the README said what the package does, so the description is empty. | Look at the package page or its repo and write the line yourself (section 8). If nothing explains it, mark **unsure**. |
 

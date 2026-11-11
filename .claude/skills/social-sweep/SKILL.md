@@ -19,6 +19,7 @@ Bluesky and Mastodon return the same shape: `url`, `author`, `authorName`, `text
 1. **The window.** From the last issue's send time (its `publishDate`) to now. Days for Bluesky = whole days since then, rounded up.
 2. **Fetch all three.** Save each to the scratchpad. If one returns 503 (Bluesky's rate limit, or Sphere being down), say so and carry on with the others.
 3. **Drop the noise.**
+   - First, let Jev (a fast yes/no model) take out most of it: `python3 -I .claude/skills/process-tips/scripts/jev.py "This post shares Umbraco community news worth adding to a weekly Umbraco newsletter: a release, a launch, a new blog post or video, an announcement, an event, or a programme opening." <the three files> --min 0.35 > jev.json`. It takes seconds and keeps about 4 in 10 posts, best first (`jev` is its score, `sourceFile` the platform's file). Read only those from here on. The cut-off is set low on purpose: in testing, the weakest real pick scored 0.43. If it fails (no `TYPESAFE_API_KEY` in `~/.umbfyi-tips.env`, or Jev is down), say so and read every post instead.
    - Replies, reposts and boosts.
    - UMB.FYI's own accounts (`umb.fyi`, `umbfyi`, and Matt's own posts about UMB.FYI).
    - Bots and automated feeds: outage and status monitors, RSS auto-posters, job boards.
@@ -34,4 +35,4 @@ Bluesky and Mastodon return the same shape: `url`, `author`, `authorName`, `text
    - **In prep** (the items aren't in yet): add them to `items.json`, so they go into the review table and in with everything else.
    - **On its own** (the items are in): send them with `umbfyi.sh add-items <newsletter-id> <file>`. If it returns `422` with `missingGroups` (tidy already removed that heading), tell Matt which heading, and offer another group.
    - Never publish.
-8. **Learn.** If Matt picks something you ranked low, or skips something you ranked high, say what it suggests about what's worth flagging.
+8. **Learn.** If Matt picks something you ranked low, or skips something you ranked high, say what it suggests about what's worth flagging. If you spot a good post Jev scored under 0.35 (you'd only see it by chance), say so: the cut-off may need lowering.
