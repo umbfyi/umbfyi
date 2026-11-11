@@ -29,7 +29,7 @@
 #   umbfyi.sh create-newsletter <date>    create the newsletter for a Wednesday (YYYY-MM-DD) from the Newsletter Starter blueprint (draft)
 #   umbfyi.sh og-measure "<text>"         how a preheader wraps in the social images (lines, gap below logo, line texts)
 #   umbfyi.sh bluesky-sweep [days] [query]   recent Bluesky posts matching a search (default: umbraco, 7 days)
-#   umbfyi.sh linkedin-sweep [days]       recent LinkedIn posts mentioning Umbraco, collected by Umbraco Sphere (default 7 days)
+#   umbfyi.sh linkedin-sweep [days]       recent LinkedIn posts mentioning Umbraco, collected by Umbraco Sphere (default 7 days), with lnkd.in links expanded in `links`
 #   umbfyi.sh tidy <newsletter-id>        remove placeholder poll and empty headings, place signup blocks (saves a draft)
 #   umbfyi.sh upload-pdf <name> <file>    upload a PDF to the Pulse Reports media folder as an Article, prints its id
 #   umbfyi.sh source-status [days]        health of each scheduled source over the last N days (default 30, max 60)
@@ -126,6 +126,20 @@ create_newsletter() {
 # Pulse Reports media folder and the Article media type (used for PDFs).
 PULSE_REPORTS_FOLDER=d6bd4328-a019-4732-975c-69d40a49e49f
 ARTICLE_MEDIA_TYPE=a43e3414-9599-4230-a7d3-943a21b20122
+
+# LinkedIn shortens every link to lnkd.in, and those don't redirect (they serve a "you're leaving
+# LinkedIn" page). Expand each one from that page, and add a links array like the other sweeps have.
+linkedin_sweep() {
+  local json map
+  json=$(call GET "/social-sweep/linkedin" -G --data-urlencode "days=${1:-7}") || exit 1
+  map=$(jq -r '[.[].text // "" | scan("https://lnkd\\.in/[A-Za-z0-9_-]+")] | unique[]' <<<"$json" |
+    xargs -P 8 -I{} sh -c 't=$(curl -sL -m 15 -A "Mozilla/5.0" "$1" | grep -oE "href=\"https?://[^\"]+\"" |
+      grep -vE "linkedin\.com|lnkd\.in|licdn\.com" | head -1 | sed -E "s/^href=\"//; s/\"$//; s/&amp;/\&/g")
+      printf "%s\t%s\n" "$1" "${t:-$1}"' _ {})
+  jq --arg map "$map" '
+    ($map | split("\n") | map(select(length > 0) | split("\t") | {key: .[0], value: .[1]}) | from_entries) as $m
+    | map(. + {links: ([.text // "" | scan("https://lnkd\\.in/[A-Za-z0-9_-]+")] | unique | map($m[.] // .))})' <<<"$json"
+}
 
 # Same two calls the backoffice makes: upload the file as a temporary file, then create the media item from it.
 upload_pdf() {
@@ -280,7 +294,7 @@ case "$cmd" in
   add-items) call POST "/newsletter/$1/items" -H "Content-Type: application/json" --data-binary "@$2" ;;
   tidy)     call POST "/newsletter/$1/tidy" ;;
   bluesky-sweep) call GET "/social-sweep/bluesky" -G --data-urlencode "days=${1:-7}" --data-urlencode "q=${2:-umbraco}" ;;
-  linkedin-sweep) call GET "/social-sweep/linkedin" -G --data-urlencode "days=${1:-7}" ;;
+  linkedin-sweep) linkedin_sweep "${1:-}" ;;
   source-status) call GET "/source-status${1:+?days=$1}" ;;
   og-measure) call GET "/og-measure" -G --data-urlencode "text=$1" ;;
   create-newsletter) create_newsletter "${1:-}" ;;
