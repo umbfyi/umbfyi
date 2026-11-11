@@ -14,9 +14,11 @@ All of them talk to the LIVE site. Nothing is ever published: the issue stays a 
 1. **Tips.** Run `process-tips` first, as Matt does. If the inbox is empty, say so in one line and move on. The workflow reads the media items that kept tips become, so this step must finish (approved and applied) before step 3 starts.
 2. **The issue.** Run `create-newsletter`. If this week's issue already exists, that's fine: note its id and carry on with it. If it goes out today (the run started on send day), say so up front with the time left, and again more firmly if it's less than an hour away.
 3. **Start the workflow.** Run `newsletter-items` up to and including its step 3: the workflow is now running in the background. Its tips check (its step 2) will pass, since step 1 here just cleared them.
-4. **Puzzle, while the workflow runs.** Run `weekly-cryptic` now, rather than waiting. The workflow takes several minutes, and the puzzle needs Matt's pick anyway. If the puzzle is already filled, skip it unless Matt wants a new one. If the workflow finishes mid-puzzle, finish the puzzle first.
+4. **Puzzle and sweep, while the workflow runs.** The workflow takes a few minutes, so use them:
+   - Start `social-sweep` steps 1 to 3 (fetch Bluesky, Mastodon and LinkedIn, and drop the noise) in the background, so they're done by the time the items are.
+   - Run `weekly-cryptic` now, rather than waiting. The puzzle needs Matt's pick anyway. If the puzzle is already filled, skip it unless Matt wants a new one. If the workflow finishes mid-puzzle, finish the puzzle first.
 5. **Items.** Carry on with `newsletter-items` from its step 4: save the results and review them (its steps 4 and 5, which write `items.json`).
-   - Then run `social-sweep`. Its picks, once Matt approves them, go into `items.json`, so they appear in the review table and go in with everything else. It covers Bluesky, Mastodon and LinkedIn.
+   - Then finish `social-sweep` from its step 4: drop what the workflow's results or past issues already cover, and show the list. Its picks, once Matt approves them, go into `items.json`, so they appear in the review table and go in with everything else.
    - Then carry on from `newsletter-items` step 6: show the table, wait for Matt's go, add the items, tidy, check. Tidy goes last on purpose: once the puzzle and items are in, no more blocks are coming.
 6. **Preheader.** Run `newsletter-preheader`, now that the items are in.
 7. **LinkedIn post.** Run `newsletter-linkedin`. It builds on the preheader picks, so it comes straight after.

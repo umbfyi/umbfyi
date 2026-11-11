@@ -146,7 +146,7 @@ Release announcements and notable posts on the Umbraco forum (forum.umbraco.com)
 - Tags as usual (`packages` for a package release).
 - Write-ups go above release posts. Give every release or announcement post the cluster `Releases`: the server moves a cluster to the bottom of its group, so the write-ups stay on top, newest first.
 - Ordinary questions and support threads don't go in.
-- Forum posts now come in automatically (the Announcements category feed), so expect most weeks to have some. The source comes through as the category page (`https://forum.umbraco.com/c/announcements/31`); replace it with the poster's profile as above.
+- Forum posts now come in automatically (the Announcements category feed), so expect most weeks to have some. The feed sets the source to the poster's profile. If one still comes through as the category page (`https://forum.umbraco.com/c/announcements/31`), the poster lookup failed: replace it with the poster's profile as above.
 - **A new package in both Forum and Packages** (the Marketplace item): keep the Marketplace one and drop the forum post, reason "duplicate of [package] (Packages)". The forum is for what the Marketplace misses: package updates, tools that aren't packages, and write-ups.
 
 ## 11. Training
