@@ -2,6 +2,17 @@
 
 What Matt was offered each week and what he chose, newest first. The skill reads this before writing (step 3) and adds to it after saving (step 8). Look for patterns in what he picks and passes on.
 
+## 2026-11-18
+
+Offered:
+1. Security Advisory Nov 17, 26, Umbraco 19 RC Out Now, Scheduled Upgrades on Umbraco Cloud and much more...
+2. Security Advisory Nov 17, 26, Umbraco 19 RC Ready to Test, Moving Your Blog to Umbraco and much more...
+3. Security Advisory Nov 17, 26, Umbraco 19 RC Out Now, The Great Umbraco Search Shake-up and much more...
+
+Picked: 3, unedited.
+
+Suggests: with two HQ items locked in, he chose a standout community post (a hands-on search comparison) over an HQ Cloud video or a two-post theme.
+
 ## 2026-11-11
 
 Offered (first round):
