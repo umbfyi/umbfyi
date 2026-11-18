@@ -15,6 +15,11 @@ All calls go through `.claude/skills/process-tips/scripts/umbfyi.sh`. It talks t
 2. **Quick check.** `umbfyi.sh get-newsletter <id>`. Note, each in one line: the name, the send time in UK time (`publishDate` is UTC), the state, the preheader (or that it's empty), the number of items, and whether the puzzle is filled. If the send time has already passed, say so up front: publishing now may send it straight away. If `check-newsletter` hasn't been run in this session, offer it, but don't insist.
 3. **Wait for go.** Show the lines from step 2 and ask "Publish now?". Matt's earlier "publish" counts as the request, not the go: wait for a clear yes to this.
 4. **Publish.** `umbfyi.sh publish-newsletter <id>`. It refuses anything that isn't a newsletter, does nothing if there are no unpublished changes, and checks the state reads back as published.
-5. **Finish.** One line: which issue is now published and when it goes out in UK time. If it failed (for example the API user isn't allowed to publish), say what the error was and that the issue is still unpublished, and suggest publishing from the backoffice.
+5. **Finish.** Get "now" from `date -u` again. Then, one line each:
+   - Which issue is now published and when it goes out in UK time.
+   - Its address: `https://umb.fyi/<name>` (e.g. `https://umb.fyi/2026-11-18`). It shows on the site from the send time.
+   - How long the prep took: from the prep run's start time (noted by `prep-newsletter` at its start, or else the first `date -u` of the prep in this session) to now, in minutes. If prep didn't run in this session, leave this line out rather than guess.
+
+   If it failed (for example the API user isn't allowed to publish), say what the error was and that the issue is still unpublished, and suggest publishing from the backoffice.
 
 Never unpublish, schedule or delete. If Matt wants one of those, he does it in the backoffice.

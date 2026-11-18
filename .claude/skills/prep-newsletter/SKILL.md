@@ -11,6 +11,7 @@ All of them talk to the LIVE site. Nothing is ever published: the issue stays a 
 
 ## Run
 
+0. **Note the start time.** Run `date -u` and keep the time: `publish-newsletter` uses it to say how long the prep took.
 1. **Tips.** Run `process-tips` first, as Matt does. If the inbox is empty, say so in one line and move on. The workflow reads the media items that kept tips become, so this step must finish (approved and applied) before step 3 starts.
 2. **The issue.** Run `create-newsletter`. If this week's issue already exists, that's fine: note its id and carry on with it. If it goes out today (the run started on send day), say so up front with the time left, and again more firmly if it's less than an hour away.
 3. **Start the workflow.** Run `newsletter-items` up to and including its step 3: the workflow is now running in the background. Its tips check (its step 2) will pass, since step 1 here just cleared them.
