@@ -71,7 +71,8 @@ Every phone message follows this exactly. Don't improvise a different layout.
 ```
 
 - **One row = one numbered list item.** Numbers run on through the whole message (not restarting per section), so a reply like `drop 4` is never ambiguous.
-- **Every row starts with exactly one emoji: your call.** ✅ yes (keep, add, pick, fix) · ❌ no (drop, skip, leave) · ✏️ keep, with changes. Always make a call, even when unsure: give your best guess and add a `- Not sure: …` sub-bullet saying why. No other emoji.
+- **Every row starts with exactly one emoji: your call.** ✅ yes (keep, add, pick, fix) · ❌ no (drop, skip, leave) · ✏️ keep, with changes. Always make a call, even when unsure: give your best guess and add a `- Not sure: …` sub-bullet saying why. No other emoji to start a row.
+- **⚠️ marks a real problem the workflow flagged** (a warning or error in its run, `newsletter-items` step 4), never your own doubts. On the item: a sub-bullet `- ⚠️ <flag>: <what you did about it>`, e.g. `- ⚠️ No read time: set 14 from the video length`. For run-level warnings (no item): one line under the heading, `⚠️ Workflow: <warning>`.
 - **Every title is a link** to exactly what would go in the issue (for a drop, the link you looked at). If you weighed two links (tips rule 3), add a sub-bullet `- Other link: [<site>](<url>)`.
 - **Details go on indented sub-bullets,** one fact each, never on the title line.
 - **Sections in this order,** leaving out empty ones: Needs you (the unsure ones, then drops), Changed (✏️), Keep (✅). Items: put a group sub-heading (`**Umbraco HQ** (5)`) inside Keep. No markdown tables: they're cramped on a phone.
