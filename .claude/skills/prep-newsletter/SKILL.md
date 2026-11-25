@@ -52,6 +52,8 @@ Every phone message follows this exactly. Don't improvise a different layout.
 
 **Before every line, ask: do I need to bother Matt with this?** If he'd just say "fine", leave it out. Things you handled, checks that passed, and how you got there stay out. What stays in: calls he can overrule, anything you're not sure of, and anything blocking the run.
 
+**Anything that does go in must be complete,** so he can decide in one look without opening anything else: your call (the emoji), the link, what you need from him, and just enough context to decide (why, what's at stake, what happens if he says nothing). As short as possible, but plain and easy to follow: whole words, no shorthand he'd have to work out.
+
 ```
 **<Step> · <issue>** · <counts, e.g. 6 tips: 3 keep, 2 drop, 1 unsure>
 
