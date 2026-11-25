@@ -43,15 +43,46 @@ The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer T
 - **Start:** `git pull -q`. No site code here (`../UMB.FYI.v17` isn't in the cloud): skip code steps and say so.
 - **Automatic steps:** the scorecard's `Automatic:` line lists steps that have earned it. For those, don't wait: apply what you proposed, log an `auto` row, and say what you did in the sum-up. Unsure things in them still need his answer. If he says one got something wrong, it comes off the list (scorecard rules).
 - **Where the message goes:** the whole message goes in your chat reply, as that's what Matt reads when he opens the app. If you also send a push notification, it's only a short heads-up ("Tips ready: 6 to check"), and the chat must never say "details above" or point at the notification: its text can't be read once opened.
-- **Asking:** one message per approval, readable on a phone. No tables, no files, no scratchpad paths, no backoffice steps. Number every row so he can answer by number. One line per row: an icon, the title, a few words in brackets. Show what needs his eyes first (unsure, then drops and changes), plain keeps last. End with the replies you understand. Shapes:
-  - **Tips:** `1. ✅ <title> (<source>)`, `2. ❌ <title>: old`, `3. ❓ <title>: <reason>`. Reply `go`, `flip 2`, `3 keep`, or new wording for a row.
-  - **Items:** a count line per group, then unsure, drops, changes (`7. ✏️ <title>: tags ai → umbracoai`) and flags, then plain keeps as `<n>. <title>` under a group line. Reply `go`, `drop 12`, `keep 4`, or a fix in words.
-  - **Social:** `1. ⭐ <summary> (<platform>, <author>)` for ones you'd add, no star for the rest. Reply `go` (the starred ones), `add 1 3`, or `none`.
-  - **Puzzle, preheader:** the three options, your pick first, marked ⭐. Reply `1`, `2`, `3`, or edited text.
-  - **LinkedIn:** the post as it will read. Reply `go` or an edit.
-  - **Fixes:** `1. <problem>: <fix>`. Reply `fix all`, `fix 1 3` or `none`.
+- **Asking:** one message per approval, in the strict format below. No files, no scratchpad paths, no backoffice steps.
+- **Sum-up:** step 9, in the same format: a bold heading, then one numbered row per step, details as sub-bullets.
+
+### Message format (strict)
+
+Every phone message follows this exactly. Don't improvise a different layout.
+
+```
+**<Step> · <issue>** · <counts, e.g. 6 tips: 3 keep, 2 drop, 1 unsure>
+
+**Needs you**
+1. ❓ [<title>](<link>)
+   - Why: <reason>, lean <keep|drop>
+2. ❌ [<title>](<link>)
+   - Why: <reason>
+
+**Changed**
+3. ✏️ [<title>](<link>)
+   - <field>: <old> → <new>
+
+**Keep**
+4. ✅ [<title>](<link>)
+   - <group> · <source name>
+
+**Reply:** `go` · `flip 2` · `drop 4` · `1 keep`
+```
+
+- **One row = one numbered list item.** Numbers run on through the whole message (not restarting per section), so a reply like `drop 4` is never ambiguous.
+- **Every row starts with exactly one emoji: your recommendation.** ✅ keep or add · ❌ drop · ✏️ keep, with changes · ❓ needs his call (say which way you lean in its Why) · ⭐ your pick among options · ➖ not recommended (an option or social post you wouldn't use) · ⚠️ a problem to fix.
+- **Every title is a link** to exactly what would go in the issue (for a drop, the link you looked at). If you weighed two links (tips rule 3), add a sub-bullet `- Other link: [<site>](<url>)`.
+- **Details go on indented sub-bullets,** one fact each, never on the title line.
+- **Sections in this order,** leaving out empty ones: Needs you (❓, then ❌), Changed (✏️), Keep (✅). Items: put a group sub-heading (`**Umbraco HQ** (5)`) inside Keep. No markdown tables: they're cramped on a phone.
+- **Options** (puzzle, preheader): one row per option, your pick first with ⭐, the others ➖. Puzzle sub-bullets: `- Answer: <ANSWER>` and `- How: <one-line explanation>`. Preheader sub-bullets: `- Angle: <news|theme|community>` and `- Fits: social <n> lines, Instagram <n>`.
+- **Social:** ⭐ for ones you'd add, ➖ for the rest, each title linked to the post, sub-bullets `- <platform> · <author>` and `- Why: <reason>`.
+- **LinkedIn:** one row, `1. ⭐ LinkedIn post · <n> characters`, then the post as it will read in a quote block (`>`) under it.
+- **Fixes:** `1. ⚠️ [<item title>](<item link>)` with sub-bullets `- Problem: …` and `- Fix: …` and `- I'd: fix | leave`.
+- **Always end with a bold `Reply:` line** listing the replies you understand, as code spans.
+- **The preview link,** once the issue is published, goes as the last line before Reply: `Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)`.
+
 - **Waiting:** after asking, end your turn. His reply comes back into this session. If it hasn't come by Wednesday 06:45 UK, stop: the 7am top-up will see prep didn't finish and tell him.
-- **Sum-up:** step 9, as short lines, no table.
 - **End:** save the logs to main: `git add .claude/skills/*/references .claude/skills/newsletter-items/history`, commit ("Prep <issue>: logs"), `git push origin HEAD:main`. Only log files, never other changes. If the push fails, say so in one line.
 
 ## Keep the scorecard

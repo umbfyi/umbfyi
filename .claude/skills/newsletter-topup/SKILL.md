@@ -23,17 +23,28 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
 6. **Message Matt.** One message, in your chat reply (see "Where the message goes" in phone mode), in this shape, and nothing else:
 
    ```
-   UMB.FYI <issue>: <n> new since last night.
+   **Top-up · <issue>** · <n> new since last night
 
-   1. <title> (<group>, <source name>)
-   2. ...
+   **Needs you**
+   1. ❓ [<title>](<link>)
+      - Why: <reason>, lean <keep|drop>. Left out unless you say keep.
 
-   Left out, unsure: <title> (<reason>); ...
-   Check: ready. | Check: <problem, one line each>
-   Preview: https://umb.fyi/<issue>
+   **New**
+   2. ✅ [<title>](<link>)
+      - <group> · <source name>
 
-   Reply yes to add them, drop 2 4 to add the rest, or no to add none. No reply by 8:45 and it goes out as it is.
+   **Check**
+   3. ⚠️ [<item title>](<item link>)
+      - Problem: <…>
+      - Fix: <…>
+   (or one row: `✅ Check: ready`)
+
+   Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
+
+   **Reply:** `yes` adds the ✅ ones · `drop 2` adds the rest · `no` adds none · `1 keep` adds an unsure one. No reply by 8:45 and it goes out as it is.
    ```
+
+   This follows the strict "Message format" in `prep-newsletter` (one emoji per row, linked titles, numbers running on).
 
    If the issue isn't published (Tuesday's prep didn't get that far), say so in place of the preview line: "Not published yet: reply publish to send it as it is", and treat `yes` or `drop` as also publishing it, if it's complete (`publish-newsletter` limits).
 
