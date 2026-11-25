@@ -2,6 +2,17 @@
 
 What Matt was offered each week and what he chose, newest first. The skill reads this before writing (step 3) and adds to it after saving (step 8). Look for patterns in what he picks and passes on.
 
+## 2026-11-25
+
+Offered:
+1. Editor & Developer MCP Live on Umbraco Cloud, Umbraco 19 Lands 10 December, Ekom Goes Open Source and much more...
+2. Editor & Developer MCP Live on Umbraco Cloud, From Examine to Umbraco Search, Umbraco 19 Lands 10 December and much more...
+3. Editor & Developer MCP Live on Umbraco Cloud, Ekom Goes Free & Open Source, Kentico to Umbraco Migration Tool and much more...
+
+Picked: 2, unedited.
+
+Suggests: again a theme across several items (four Examine to Search pieces) beat single community items, with two HQ items around it.
+
 ## 2026-11-18
 
 Offered:
