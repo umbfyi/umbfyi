@@ -38,7 +38,7 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
    If the issue isn't published (Tuesday's prep didn't get that far), say so in place of the preview line: "Not published yet: reply publish to send it as it is", and treat `yes` or `drop` as also publishing it, if it's complete (`publish-newsletter` limits).
 
    Nothing new: "UMB.FYI <issue>: nothing new since last night. Check: ready. Preview: <link>". No question then, unless there's a check problem to fix: then "Reply fix to fix it."  Leave out lines that would be empty.
-7. **Wait for his reply.** When it comes, get the UK time first. After 08:45: don't act. Say "Too late to change it safely. It goes out as it is." and stop.
+7. **Wait for his reply.** When it comes, get the UK time first. From 08:45 on, nothing happens on its own any more: say "Too close to the send to change it on a reply. Tell me exactly what to change and I'll check with you first." From then on, each change needs his yes for that change (after the send it only updates the web version).
    - `yes`, or `drop <numbers>`: for kept tips, create the media item and dismiss the tip (`process-tips` step 6). Add the items (`newsletter-items` step 7, then `tidy` and its step 9 checks). Fix any check problems that `edit-item`, `move-block` or `remove-block` can fix (a cancelled event comes out). Then republish (below).
    - `no`: add nothing, and leave the new tips open (they roll to next week). Nothing to republish.
    - `fix`: fix what you can, then republish.
