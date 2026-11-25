@@ -39,4 +39,5 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` on the LIVE site: `newsle
    - No em dashes, no exclamation marks, nothing over 1,300 characters.
    - Brackets and symbols are fine: the view escapes them for LinkedIn.
 4. **Show and save.** Show the post as it will read, with its character count. Once Matt approves (or edits it), write it to a file in the scratchpad and save it with `umbfyi.sh set-linkedin <id> <file>`. It shows the old and new text, saves a draft and checks it reads back exactly. Add `--dry-run` to see the change without saving.
-5. **Never publish.** If the issue was already published (step 1), tell Matt to publish it again, or Make.com will post the old text. Finish with one line: saved, and whether it needs republishing.
+5. **Score it.** Add this issue's `linkedin` row to `.claude/skills/prep-newsletter/references/scorecard.md` (format there): approved as drafted, or what he changed. Also when run outside prep.
+6. **Never publish.** If the issue was already published (step 1), tell Matt to publish it again, or Make.com will post the old text. Finish with one line: saved, and whether it needs republishing.

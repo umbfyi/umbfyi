@@ -35,4 +35,5 @@ Bluesky and Mastodon return the same shape: `url`, `author`, `authorName`, `text
    - **In prep** (the items aren't in yet): add them to `items.json`, so they go into the review table and in with everything else.
    - **On its own** (the items are in): send them with `umbfyi.sh add-items <newsletter-id> <file>`. If it returns `422` with `missingGroups` (tidy already removed that heading), tell Matt which heading, and offer another group.
    - Never publish.
-8. **Learn.** If Matt picks something you ranked low, or skips something you ranked high, say what it suggests about what's worth flagging. If you spot a good post Jev scored under 0.35 (you'd only see it by chance), say so: the cut-off may need lowering.
+8. **Score it.** In step 6, mark which ones you'd add. Once Matt answers, add this issue's `social` row to `.claude/skills/prep-newsletter/references/scorecard.md` (format there), also when run outside prep.
+9. **Learn.** If Matt picks something you ranked low, or skips something you ranked high, say what it suggests about what's worth flagging. If you spot a good post Jev scored under 0.35 (you'd only see it by chance), say so: the cut-off may need lowering.

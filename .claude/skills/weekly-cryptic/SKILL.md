@@ -33,7 +33,8 @@ If a key doesn't match, look it up with `umbfyi.sh get-newsletter` on a recent n
 4. **Map it to the eight fields** (see "Fields" below). Matt's pick in step 3 is his go: don't ask again. Run `set-puzzle --dry-run` (step 5) to check the mapping, then save. Only stop to show the eight fields first if Matt asks to see them, or if the block already had a clue (step 1).
 5. **Fill the block.** Write the eight fields to `puzzle.json` in the scratchpad as one object keyed by alias (`clue`, `enumeration`, `definition`, `indicator`, `device`, `fodder`, `answer`, `explanation`). Then `umbfyi.sh set-puzzle <id> puzzle.json`. It finds the one puzzle block, shows the old and new fields, saves a draft and checks every field reads back exactly. Add `--dry-run` to see the change without saving.
 6. **Check it.** If `set-puzzle` stops with an error, tell Matt what it says, and what was and wasn't saved.
-7. **Never publish.** Never publish, schedule or unpublish the newsletter. `set-puzzle` saves the change as a draft. If the newsletter was already published (step 1), tell Matt to publish it again so the puzzle syncs to the newsletter system. Finish with one line: which newsletter now has which clue, and whether it needs republishing.
+7. **Score it.** Add this issue's `puzzle` row to `.claude/skills/prep-newsletter/references/scorecard.md` (format there): the three answers offered, recommended first, and which Matt took. Also when run outside prep.
+8. **Never publish.** Never publish, schedule or unpublish the newsletter. `set-puzzle` saves the change as a draft. If the newsletter was already published (step 1), tell Matt to publish it again so the puzzle syncs to the newsletter system. Finish with one line: which newsletter now has which clue, and whether it needs republishing.
 
 ## Fields
 

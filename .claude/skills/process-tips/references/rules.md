@@ -20,6 +20,7 @@ Many past drops were things already featured from a feed (package releases, blog
 - A miss in media items proves nothing for older content. Always check past newsletters too.
 - Search both by the canonical link, then by a distinctive chunk of the title.
 - **Packages:** search by the package name (e.g. `Initials.Autolink`, `Articulate`). Package feeds import releases under the package name, so a social post or blog announcing the same release is a duplicate.
+  - Except a real write-up: a blog post or video that explains the problem, how the package works or how to use it. Keep it, even if the package entry was already sent or is in the same issue (both go in). Only a post that just announces the release ("v1.3 is out, here's what changed") is a duplicate. Confirmed by Matt on 25-11-2026, after the SafeMedia write-up was dropped as a duplicate of its package.
 - Also compare against the other open tips in the same batch. Same article, different links: tracking params, `www`, trailing slash, Medium `?source=`, LinkedIn re-shares.
 - **Same post, different platform.** Many people post to their own blog and cross-post to dev.to, Medium, LinkedIn articles or Hashnode. A link or exact-title search won't always catch this, so also:
   - Read the page's `<link rel="canonical">` and `og:url`. Cross-posts on dev.to, Medium and Hashnode often point at the original. Search for that URL too.

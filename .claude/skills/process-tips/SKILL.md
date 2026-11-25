@@ -29,9 +29,10 @@ Judgement rules live in `references/rules.md`. Read it before every run. It wins
    - If keeping, draft the media item fields (rules 5 to 8).
    - Note a confidence: `sure` or `unsure`. Anything `unsure` gets a one-line reason.
 4. **Show one table.** Write it as a markdown file in the scratchpad and print it. Columns: `#`, decision (keep / drop / unsure), reason, title, author, source, date, tags, link. Put the description on a line under each kept row. Sort drops to the bottom.
-5. **Wait for Matt.** He may edit rows, flip decisions or say "go". Unsure rows need a decision from him before anything is written. Do nothing to the live site until he approves.
+5. **Wait for Matt.** He may edit rows, flip decisions or say "go". Unsure rows need a decision from him before anything is written. If he says go without deciding them, leave those tips open (neither converted nor dismissed) and list them as left out. Do nothing to the live site until he approves.
 6. **Apply, all in one go.** For each keep: write the JSON body to the scratchpad, run `umbfyi.sh create`, then `umbfyi.sh dismiss <tip-id>`. For each drop: `umbfyi.sh dismiss`. Create before dismiss, so a failure never loses a tip. Stop on the first error and report what was and wasn't done.
-7. **Learn.** If Matt changed any decision or rewrote any field, say which rule it suggests and offer to update `references/rules.md`. Don't edit it without his OK.
+7. **Score it.** Add this issue's `tips` row to `.claude/skills/prep-newsletter/references/scorecard.md` (format there), also when run outside prep.
+8. **Learn.** If Matt changed any decision or rewrote any field, say which rule it suggests and offer to update `references/rules.md`. Don't edit it without his OK.
 
 Media item JSON body:
 

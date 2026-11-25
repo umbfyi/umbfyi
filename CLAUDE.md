@@ -27,7 +27,7 @@ Skills read and write the live site through `.claude/skills/process-tips/scripts
 `.claude/skills/process-tips/scripts/jev.py` asks Jev (TypeSafe's fast yes/no model) one question about every item in a JSON file, for cheap first-pass filtering. It reads `TYPESAFE_API_KEY` from the environment or `~/.umbfyi-tips.env`.
 
 - Everything is LIVE. Never test writes on a published issue. Saves go to a draft.
-- Never publish anything unless Matt says "publish" in his own words. Then use the `publish-newsletter` skill.
+- Publishing the upcoming issue early is safe: the site keeps it out of listings until its `publishDate`, and each republish before then just updates the mailing system. So `prep-newsletter` (once the issue is complete) and `newsletter-topup` publish and republish it themselves, and send Matt the preview link (`https://umb.fyi/<issue>`). Hard limits: only the upcoming issue, only before 08:45 UK on send day, never once its `publishDate` has passed, never a half-built issue (no items, or no preheader). Anything else is published only when Matt says "publish" in his own words, with the `publish-newsletter` skill.
 - Never delete anything on the live site.
 
 ## Newsletter facts

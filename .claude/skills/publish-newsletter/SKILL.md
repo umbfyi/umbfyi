@@ -5,7 +5,13 @@ description: Publish this week's UMB.FYI newsletter on the live site, which sync
 
 # Publish newsletter
 
-Publishing is what syncs the issue to the mailing system, which sends it at its `publishDate` (the site hides it until then). That's outward-facing, so this only ever runs when Matt says "publish" in his own words. Other skills never call it, and never offer to as a next step.
+Publishing is what syncs the issue to the mailing system, which sends it at its `publishDate` (the site hides it until then). That's outward-facing, so this runs when Matt says "publish" in his own words. The exception is the early publish: before the send time the site keeps the issue out of listings (only its own address shows it), and each republish just updates the mailing system. So `prep-newsletter` and `newsletter-topup` run steps 2, 4 and 5 themselves (no step 3), within these limits:
+
+- Only the upcoming issue (the one whose `publishDate` is later than now).
+- Only before 08:45 UK on send day, and never once `publishDate` has passed.
+- Only a complete issue: items in, `tidy` done, preheader set. A half-built issue is never published, as it would go out at 9am if prep stopped there.
+
+Other skills never call it, and never offer to as a next step.
 
 All calls go through `.claude/skills/process-tips/scripts/umbfyi.sh`. It talks to the LIVE site. If credentials are missing, stop and tell Matt to set up `~/.umbfyi-tips.env`, or on Claude on the web the environment variables (see the script header).
 
