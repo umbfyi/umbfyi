@@ -1,6 +1,6 @@
 ---
 name: prep-newsletter
-description: Prep this week's UMB.FYI newsletter end to end on the live site, in one go. Processes the tips inbox, creates the draft from the blueprint, runs the newsletter workflow, sweeps Bluesky, Mastodon and LinkedIn for anything tips missed, adds the reviewed items, sets the minute cryptic, writes the preheader and LinkedIn post, and checks the draft, stopping for Matt's approval at each step. Publishes early once the issue is complete, and sends the preview link. Use when asked to prep, set up, build or do this week's newsletter, or "do the newsletter".
+description: Prep this week's UMB.FYI newsletter end to end on the live site, in one go. Processes the tips inbox, creates the draft from the blueprint, runs the newsletter workflow, sweeps Bluesky, Mastodon and LinkedIn for anything tips missed, adds the reviewed items, sets the minute cryptic, writes the preheader and LinkedIn post, and checks the draft, stopping for Matt's approval at each step (in phone mode, it runs straight through and asks only what it's unsure of). Publishes early once the issue is complete, and sends the preview link. Use when asked to prep, set up, build or do this week's newsletter, or "do the newsletter".
 ---
 
 # Prep newsletter
@@ -34,65 +34,67 @@ All of them talk to the LIVE site. Nothing is published until the issue is compl
    - What's left for Matt: look over the preview. Any change he asks for is made and republished, up to 08:45 UK on send day.
    - Any rule or tag corrections offered during the run that Matt hasn't answered yet.
    - The asks logged this run (see below), each with where it could be automated. One line each.
-   - The scorecard: each step's result this week and its streak (e.g. "Tips: clean, 3 in a row"). Automatic steps: one line each on what they did. Any step that just qualified: put it on the `Automatic:` line and say so (scorecard rules).
+   - The scorecard: each step's result this week and its streak (e.g. "Tips: clean, 3 in a row"). Any step that just came off the `Ask:` line: say so (scorecard rules).
 
 ## Phone mode
 
 The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer Time) runs this skill in phone mode in the cloud, and Matt answers from the Claude phone app. Also use phone mode whenever Matt says he's on his phone. The rest of this skill still applies; this changes how you ask, and what you do at the start and end.
 
+Matt only wants to hear about what needs his approval (25-11-2026). Everything you're sure of goes straight in. It's normal, and fine, for a run to need nothing from him.
+
 - **Start:** `git pull -q`. No site code here (`../UMB.FYI.v17` isn't in the cloud): skip code steps and say so.
-- **Automatic steps:** the scorecard's `Automatic:` line lists steps that have earned it. For those, don't wait: apply what you proposed, log an `auto` row, and say what you did in the sum-up. Unsure things in them still need his answer. If he says one got something wrong, it comes off the list (scorecard rules).
-- **Where the message goes:** the whole message goes in your chat reply, as that's what Matt reads when he opens the app. If you also send a push notification, it's only a short heads-up ("Tips ready: 6 to check"), and the chat must never say "details above" or point at the notification: its text can't be read once opened.
-- **Asking:** one message per approval, in the strict format below. No files, no scratchpad paths, no backoffice steps.
-- **Sum-up:** step 9, in the same format: a bold heading, then one numbered row per step, details as sub-bullets.
+- **Run straight through, no stops.** Do every step in order without waiting. At each skill's approval step, apply your own calls as if Matt had said go: keep and drop tips, add the items and social picks you'd add, take your top pick for the puzzle, preheader and LinkedIn post, and make the check fixes. Log each step's scorecard row as `auto`.
+- **Unsure things get your call too, applied straight away,** then shown to Matt: anything you're not sure of (a tip, item or social post; a fix that's a judgement call), and any step on the scorecard's `Ask:` line. No reply means he agrees (Matt, 25-11-2026), so the issue is always complete as it stands. One exception: an unsure tip you'd drop stays open for now, so a `flip` can still convert it. List these in `.claude/skills/newsletter-items/history/<issue>-open-tips.json` (`[{"id", "link", "title"}]`, nothing about who sent it), and take a tip off the list if Matt flips it. The `newsletter-close` run after the send closes the rest: no flip by then means he agreed, so it dismisses them.
+- **Publish** once the issue is complete (step 6), as usual.
+- **One message at the end,** in your chat reply, in the format below. Nothing else: no per-step messages, no sum-up of what you did. The preview is how he checks the rest.
+- **Where the message goes:** the whole message goes in your chat reply, as that's what Matt reads when he opens the app. If you also send a push notification, it's only a short heads-up ("Prep done: 2 need you"), and the chat must never say "details above" or point at the notification: its text can't be read once opened.
+- **No files, no scratchpad paths, no backoffice steps** in anything he sees.
 
 ### Message format (strict)
 
 Every phone message follows this exactly. Don't improvise a different layout.
 
-**Before every line, ask: do I need to bother Matt with this?** If he'd just say "fine", leave it out. Things you handled, checks that passed, and how you got there stay out. What stays in: calls he can overrule, anything you're not sure of, and anything blocking the run.
+**Before every line, ask: do I need to bother Matt with this?** Only things that need his approval go in. Things you added, dropped, fixed or checked stay out, and so does how you got there.
 
-**Anything that does go in must be complete,** so he can decide in one look without opening anything else: your call (the emoji), the link, what you need from him, and just enough context to decide (why, what's at stake, what happens if he says nothing). As short as possible, but plain and easy to follow: whole words, no shorthand he'd have to work out.
+**When nothing needs him,** the whole message is:
 
 ```
-**<Step> · <issue>** · <counts, e.g. 6 tips: 3 keep, 2 drop, 1 unsure>
+**Prep · <issue>** · nothing needs you
 
-**Needs you**
+Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
+```
+
+**When something does,** each row must be complete, so he can decide in one look without opening anything else: your call (the emoji), the link, and just enough context to decide (why, and what happens if he says nothing). As short as possible, but plain: whole words, no shorthand.
+
+```
+**Prep · <issue>** · <n> to check, already done my way
+
 1. ✅ [<title>](<link>)
    - Not sure: <what you couldn't settle>
 2. ❌ [<title>](<link>)
-   - Why: <reason>
+   - Not sure: <what you couldn't settle>
 
-**Changed**
-3. ✏️ [<title>](<link>)
-   - <field>: <old> → <new>
+Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 
-**Keep**
-4. ✅ [<title>](<link>)
-   - <group> · <source name>
-
-**Reply:** `go` does every call above · `flip 2` · `drop 4` · `1 keep`
+**Reply:** `flip 2` to change one. No reply and it stays as it is.
 ```
 
-- **One row = one numbered list item.** Numbers run on through the whole message (not restarting per section), so a reply like `drop 4` is never ambiguous.
-- **Every row starts with exactly one emoji: your call.** ✅ yes (keep, add, pick, fix) · ❌ no (drop, skip, leave) · ✏️ keep, with changes. Always make a call, even when unsure: give your best guess and add a `- Not sure: …` sub-bullet saying why. No other emoji to start a row.
-- **⚠️ is only for something blocking the run**: a step that failed or can't go on (the workflow failed or vanished, the site or a feed won't answer, a save or publish was refused, the logs couldn't be pushed). One line under the heading, `⚠️ <what's blocked>: <what it means>`, and put it in the next message, don't wait. Data you fixed yourself (a workflow flag, a missing read time, a stale venue) isn't mentioned at all, unless it genuinely needs Matt: then it's a normal row under Needs you.
-- **Every title is a link** to exactly what would go in the issue (for a drop, the link you looked at). If you weighed two links (tips rule 3), add a sub-bullet `- Other link: [<site>](<url>)`.
-- **Details go on indented sub-bullets,** one fact each, never on the title line.
-- **Sections in this order,** leaving out empty ones: Needs you (the unsure ones, then drops), Changed (✏️), Keep (✅). Items: put a group sub-heading (`**Umbraco HQ** (5)`) inside Keep. No markdown tables: they're cramped on a phone.
-- **Options** (puzzle, preheader): one row per option, your pick first with ✅, the others ❌. Puzzle sub-bullets: `- Answer: <ANSWER>` and `- How: <one-line explanation>`. Preheader sub-bullets: `- Angle: <news|theme|community>` and `- Fits: social <n> lines, Instagram <n>`.
-- **Social:** ✅ for ones you'd add, ❌ for the rest, each title linked to the post, sub-bullets `- <platform> · <author>` and `- Why: <reason>`.
-- **LinkedIn:** one row, `1. ✅ LinkedIn post · <n> characters`, then the post as it will read in a quote block (`>`) under it.
-- **Fixes:** `1. ✅ [<item title>](<item link>)` (✅ fix it, ❌ leave it) with sub-bullets `- Problem: …` and `- Fix: …`.
-- **Always end with a bold `Reply:` line** listing the replies you understand, as code spans.
-- **The preview link,** once the issue is published, goes as the last line before Reply: `Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)`.
+- **One row = one numbered list item,** numbers running on through the whole message, so a reply like `flip 2` is never ambiguous.
+- **Every row starts with exactly one emoji: your call.** ✅ yes (keep, add, fix) · ❌ no (drop, leave) · ✏️ yes, with changes. Always make a call, even when unsure, with a `- Not sure: …` sub-bullet saying why. No other emoji to start a row.
+- **⚠️ is only for something blocking the run**: a step that failed or can't go on (the workflow failed, the site or a feed won't answer, a save or publish was refused, the logs couldn't be pushed). One line under the heading, `⚠️ <what's blocked>: <what it means>`. Send it straight away, don't wait for the end.
+- **Every title is a link** to exactly what would go in the issue (for a drop, the link you looked at). If you weighed two links (tips rule 3), add `- Other link: [<site>](<url>)`.
+- **Details go on indented sub-bullets,** one fact each, never on the title line. No markdown tables.
+- **`Ask:` steps** (only if on that line): options (puzzle, preheader) get one row each, the one you put in first with ✅, others ❌, sub-bullets `- Answer:` / `- How:` or `- Angle:` / `- Fits:`; reply `pick 3` swaps. LinkedIn: one ✅ row, then the post as a quote block (`>`); reply `edit: …`. Fixes: `- Problem:` and `- Fix:`.
+- **Always end with the Preview line, then a bold `Reply:` line** listing the replies you understand, as code spans. (Not in the "nothing needs you" message: that ends at the preview.)
 
-- **Waiting:** after asking, end your turn. His reply comes back into this session. If it hasn't come by Wednesday 06:45 UK, stop: the 7am top-up will see prep didn't finish and tell him.
-- **End:** save the logs to main: `git add .claude/skills/*/references .claude/skills/newsletter-items/history`, commit ("Prep <issue>: logs"), `git push origin HEAD:main`. Only log files, never other changes. If the push fails, say so in one line.
+- **Reply:** `flip <numbers>` does the opposite of your call for those rows: a ✅ comes out (`remove-block`), a ❌ goes in (kept tips become media items, items go in, `tidy`, checks), a fix is undone. `pick 3` swaps an option, `edit: …` changes the LinkedIn post. Republish, update that step's scorecard row (what changed), then one line: done, with the preview link. `ok` or no reply: nothing to do, rows stay `auto`.
+- **Waiting:** after the message, end your turn. His reply, if any, comes back into this session. From 08:45 UK on send day, follow the after-send rule (each change needs his yes).
+- **"That's wrong":** if Matt says something you did by yourself was wrong, fix it, republish, and follow the scorecard's "Coming back" rule (that step goes on the `Ask:` line).
+- **End:** save the logs to main: `git add .claude/skills/*/references .claude/skills/newsletter-items/history`, commit ("Prep <issue>: logs"), `git push origin HEAD:main`. Only log files, never other changes. Do this just before sending the end message (no reply may ever come), and again after his reply if anything changed. If the push fails, that's a ⚠️ line.
 
 ## Keep the scorecard
 
-`references/scorecard.md` records, for each approval step, what was proposed and what Matt approved. It decides which steps run without his OK: steps go automatic on their own once they've earned it, and come back the moment he says one got something wrong (rules in the file). Each skill adds its own row at its approval step. At the start of prep, read it. At the end, check all 7 rows are there for this issue, add any missing one, and update the `Automatic:` line.
+`references/scorecard.md` records, for each step, what was proposed and what Matt changed. In phone mode every step runs by itself, except those on its `Ask:` line: a step goes there the moment Matt says it got something wrong, and comes off again once it has earned it (rules in the file). Each skill adds its own row at its approval step. At the start of prep, read it. At the end, check all 7 rows are there for this issue, add any missing one, and update the `Ask:` line.
 
 ## Log Matt's asks
 
@@ -107,8 +109,8 @@ Keep `references/asks.md` as a running log, for learning what prep should do on 
 
 ## Rules
 
-- One step at a time, each to its approval. Never batch two skills' approvals into one message, and never treat a "go" for one step as a "go" for the next.
+- One step at a time, each to its approval (in phone mode, see there instead). Never batch two skills' approvals into one message, and never treat a "go" for one step as a "go" for the next.
 - If a step fails, stop there. Say what's done and what isn't, and which skill to run to pick up from that point. Each skill is safe to re-run: create stops if the issue exists, tips only sees open tips, items skip links already in the issue, and the puzzle, preheader and LinkedIn post ask before replacing what's there.
 - If Matt wants to skip a step ("no puzzle this week"), skip it and note it in the summary.
-- **Unsure never goes in silently.** An unsure tip, item or social pick goes in only on Matt's answer. If a step has to move on without one (he said "go" but skipped it, or the run is unattended), leave it out and list it in the summary under "Left out, unsure". Unsure tips stay open (not converted, not dismissed), so they come back next week; the tips window's 2-day grace and the workflow's 7-day look-back cover that, and the duplicate checks stop repeats.
+- **Unsure never goes in silently.** An unsure tip, item or social pick is always shown to Matt with your call. On a laptop run it goes in only on his answer; if a step has to move on without one (he said "go" but skipped it), leave it out and list it in the summary under "Left out, unsure". In phone mode your call is applied and shown, and no reply means he agrees (see Phone mode). Unsure tips stay open (not converted, not dismissed), so they come back next week; the tips window's 2-day grace and the workflow's 7-day look-back cover that, and the duplicate checks stop repeats.
 - Don't deploy anything during a run. If a skill seems to need a code change, say so and stop that step.
