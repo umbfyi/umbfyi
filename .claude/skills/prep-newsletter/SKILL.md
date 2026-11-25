@@ -34,14 +34,14 @@ All of them talk to the LIVE site. Nothing is published until the issue is compl
    - What's left for Matt: look over the preview. Any change he asks for is made and republished, up to 08:45 UK on send day.
    - Any rule or tag corrections offered during the run that Matt hasn't answered yet.
    - The asks logged this run (see below), each with where it could be automated. One line each.
-   - The scorecard: each step's result this week and its streak (e.g. "Tips: clean, 3 in a row"). Name any step that now qualifies to go automatic, and offer it.
+   - The scorecard: each step's result this week and its streak (e.g. "Tips: clean, 3 in a row"). Automatic steps: one line each on what they did. Any step that just qualified: put it on the `Automatic:` line and say so (scorecard rules).
 
 ## Phone mode
 
 The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer Time) runs this skill in phone mode in the cloud, and Matt answers from the Claude phone app. Also use phone mode whenever Matt says he's on his phone. The rest of this skill still applies; this changes how you ask, and what you do at the start and end.
 
 - **Start:** `git pull -q`. No site code here (`../UMB.FYI.v17` isn't in the cloud): skip code steps and say so.
-- **Automatic steps:** the scorecard's `Automatic:` line lists steps Matt has let go. For those, don't wait: apply what you proposed and say it in the sum-up. Unsure things in them still need his answer.
+- **Automatic steps:** the scorecard's `Automatic:` line lists steps that have earned it. For those, don't wait: apply what you proposed, log an `auto` row, and say what you did in the sum-up. Unsure things in them still need his answer. If he says one got something wrong, it comes off the list (scorecard rules).
 - **Where the message goes:** the whole message goes in your chat reply, as that's what Matt reads when he opens the app. If you also send a push notification, it's only a short heads-up ("Tips ready: 6 to check"), and the chat must never say "details above" or point at the notification: its text can't be read once opened.
 - **Asking:** one message per approval, readable on a phone. No tables, no files, no scratchpad paths, no backoffice steps. Number every row so he can answer by number. One line per row: an icon, the title, a few words in brackets. Show what needs his eyes first (unsure, then drops and changes), plain keeps last. End with the replies you understand. Shapes:
   - **Tips:** `1. ✅ <title> (<source>)`, `2. ❌ <title>: old`, `3. ❓ <title>: <reason>`. Reply `go`, `flip 2`, `3 keep`, or new wording for a row.
@@ -56,7 +56,7 @@ The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer T
 
 ## Keep the scorecard
 
-`references/scorecard.md` records, for each approval step, what was proposed and what Matt approved. It's how we'll decide which steps can run without his OK. Each skill adds its own row at its approval step (format and rules in the file). At the start of prep, read it. At the end, check all 7 rows are there for this issue and add any missing one. Never mark a step automatic without Matt saying so.
+`references/scorecard.md` records, for each approval step, what was proposed and what Matt approved. It decides which steps run without his OK: steps go automatic on their own once they've earned it, and come back the moment he says one got something wrong (rules in the file). Each skill adds its own row at its approval step. At the start of prep, read it. At the end, check all 7 rows are there for this issue, add any missing one, and update the `Automatic:` line.
 
 ## Log Matt's asks
 

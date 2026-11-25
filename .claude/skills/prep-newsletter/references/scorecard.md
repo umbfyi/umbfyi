@@ -4,13 +4,17 @@ How often Matt takes what prep proposes, step by step. This is how we decide whe
 
 ## When a step goes automatic
 
-- **Check steps** (tips, items, social, fixes): after 6 issues in a row marked `clean`.
-- **Taste steps** (puzzle, preheader, LinkedIn): once Matt takes the recommended option, unedited, in at least 5 of the last 6 issues.
-- A step only goes automatic when Matt says so. When one qualifies, say so in the prep sum-up and offer it.
+It's self-running: steps earn their way off Matt's list, and come back on it the moment he says one got something wrong. Matt agreed this on 25-11-2026.
+
+- **Check steps** (tips, items, social, fixes, topup): after 6 issues in a row marked `clean` (`replay`, `unknown` and `skipped` rows don't count, and don't break a streak either).
+- **Taste steps** (puzzle, preheader, LinkedIn): once Matt took the recommended option, unedited, in at least 5 of the last 6 issues.
+- **Going automatic:** at the end of prep, when a step qualifies, add it to the `Automatic:` line with the date, and tell Matt in the sum-up: "From next week I won't ask about <step>. Say if I get one wrong." No need to wait for a yes; he can say "keep asking about <step>" to undo it.
+- **While automatic:** the step still runs and logs a row, with result `auto`. It applies what it proposed without asking, then puts one line in the sum-up saying what it did (e.g. "Tips (auto): kept 4, dropped 2"), so Matt can spot a mistake in the sum-up or the preview. Unsure things in it are still asked, every time. `auto` rows count as clean.
+- **Coming back:** if Matt says an automatic step got something wrong, at any time and in any session: fix it, change that issue's row to `wrong` with what was wrong, take the step off the `Automatic:` line (with the date and why, below it), and tell him in one line it's back on his list. Its streak starts again from zero. If the mistake suggests a rule, offer the rule change too.
 
 Automatic: none yet.
 
-(Add a step here, with the date, only when Matt says so. Prep reads this line.)
+Taken off (newest first): none yet.
 
 ## How to log
 
