@@ -9,9 +9,17 @@ Offered:
 2. Editor & Developer MCP Live on Umbraco Cloud, From Examine to Umbraco Search, Umbraco 19 Lands 10 December and much more...
 3. Editor & Developer MCP Live on Umbraco Cloud, Ekom Goes Free & Open Source, Kentico to Umbraco Migration Tool and much more...
 
-Picked: 2, unedited.
+Picked: 2, unedited. Then, after publishing, Matt asked for options that include the breaking changes.
 
-Suggests: again a theme across several items (four Examine to Search pieces) beat single community items, with two HQ items around it.
+Offered (second round):
+4. Breaking Changes in Umbraco 20 & 21, Editor & Developer MCP Live on Umbraco Cloud, Umbraco 19 Lands 10 December and much more...
+5. Editor & Developer MCP Live on Umbraco Cloud, NPoco to EF Core Breaking Change, From Examine to Umbraco Search and much more...
+6. Breaking Changes: NPoco & Element Picker, Editor & Developer MCP on Umbraco Cloud, From Examine to Umbraco Search and much more...
+7. Umbraco 19 Lands 10 December, Breaking Changes Coming in v20 & v21, Editor & Developer MCP on Umbraco Cloud and much more...
+
+Picked: 4, unedited. Saved over the first pick.
+
+Suggests: breaking changes count as important HQ news, like security advisories, and lead the preheader. The first round should have included them.
 
 ## 2026-11-18
 
