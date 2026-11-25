@@ -42,6 +42,7 @@ The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer T
 
 - **Start:** `git pull -q`. No site code here (`../UMB.FYI.v17` isn't in the cloud): skip code steps and say so.
 - **Automatic steps:** the scorecard's `Automatic:` line lists steps Matt has let go. For those, don't wait: apply what you proposed and say it in the sum-up. Unsure things in them still need his answer.
+- **Where the message goes:** the whole message goes in your chat reply, as that's what Matt reads when he opens the app. If you also send a push notification, it's only a short heads-up ("Tips ready: 6 to check"), and the chat must never say "details above" or point at the notification: its text can't be read once opened.
 - **Asking:** one message per approval, readable on a phone. No tables, no files, no scratchpad paths, no backoffice steps. Number every row so he can answer by number. One line per row: an icon, the title, a few words in brackets. Show what needs his eyes first (unsure, then drops and changes), plain keeps last. End with the replies you understand. Shapes:
   - **Tips:** `1. ✅ <title> (<source>)`, `2. ❌ <title>: old`, `3. ❓ <title>: <reason>`. Reply `go`, `flip 2`, `3 keep`, or new wording for a row.
   - **Items:** a count line per group, then unsure, drops, changes (`7. ✏️ <title>: tags ai → umbracoai`) and flags, then plain keeps as `<n>. <title>` under a group line. Reply `go`, `drop 12`, `keep 4`, or a fix in words.

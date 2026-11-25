@@ -20,7 +20,7 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
    - **Social:** `social-sweep` steps 2 to 5, with the window from Tuesday 18:00 UTC (when prep started, before its own sweep) to now. Its step 4 checks drop what Tuesday already covered. Only posts you'd add.
    - Drop anything already in the issue. Anything `unsure` is left out (it rolls to next week) and listed.
 5. **Check.** Run `check-newsletter` on the draft as it is now. Keep only the problems.
-6. **Message Matt.** One message, in this shape, and nothing else:
+6. **Message Matt.** One message, in your chat reply (see "Where the message goes" in phone mode), in this shape, and nothing else:
 
    ```
    UMB.FYI <issue>: <n> new since last night.
