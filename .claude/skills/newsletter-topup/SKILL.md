@@ -14,10 +14,10 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
 1. **Note the time.** `TZ=Europe/London date +%H:%M` and `date -u`. The schedule fires once, at 06:00 UTC: 6am UK in winter, 7am in British Summer Time. If it's already 08:45 UK or later (a late or manual run), message Matt that it's too late to top up safely, and stop.
 2. **Find the issue.** As in `weekly-cryptic` step 1: the newsletter with a `publishDate` later today. None: message Matt "No issue for today, nothing done" and stop. Note whether it's published: Tuesday's prep publishes it once it's complete.
 3. **Did Tuesday's prep finish?** `.claude/skills/newsletter-items/history/<issue>.json` must exist (pull first: `git pull -q`). If it doesn't, Tuesday's prep didn't get as far as the items. Message Matt one line saying which step it stopped at, if you can tell from the issue (no items, no preheader...), and that you've done nothing. Stop.
-4. **Find what's new.** The record's `savedAt` is when Tuesday's items were saved; anything before it was already seen.
+4. **Find what's new.** Tuesday's record lists every item prep saw (kept, dropped or unsure); none of those is new.
    - **Tips:** `umbfyi.sh tips`. Judge each as `process-tips` does (steps 2 and 3, its rules), but write nothing yet.
    - **Items:** run the workflow as in `newsletter-items` steps 3 and 4. New items are those whose link isn't in the record's `items`. Review only those (step 5 and its rules). Tips you'd keep aren't media items yet, so draft them as items too, the way the workflow would (title, summary, source, emoji, group, date, read time, tags).
-   - **Social:** `social-sweep` steps 2 to 5, with the window from `savedAt` to now. Only posts you'd add.
+   - **Social:** `social-sweep` steps 2 to 5, with the window from Tuesday 18:00 UTC (when prep started, before its own sweep) to now. Its step 4 checks drop what Tuesday already covered. Only posts you'd add.
    - Drop anything already in the issue. Anything `unsure` is left out (it rolls to next week) and listed.
 5. **Check.** Run `check-newsletter` on the draft as it is now. Keep only the problems.
 6. **Message Matt.** One message, in this shape, and nothing else:
