@@ -198,7 +198,7 @@ save_document() {
   local id=$1 json=$2 body
   body=$(jq '{template, values: [.values[] | {alias, culture, segment, value}], variants: [.variants[] | {culture, segment, name}]}' <<<"$json")
   curl -s --fail-with-body -X PUT "$MGMT/document/$id" -H "Authorization: Bearer $(token)" \
-    -H "Content-Type: application/json" --data-binary "$body" >/dev/null
+    -H "Content-Type: application/json" --data-binary @- <<<"$body" >/dev/null
 }
 
 set_preheader() {
