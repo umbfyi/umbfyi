@@ -22,6 +22,10 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-news
    - **Items.** Each has a title, link and source. Posts and videos have a real summary and a read time above 0; social posts and forum release posts have no summary (a forum write-up has one); packages have a one-sentence summary. No summary speaks in the first person ("we", "our", "I", "my"): UMB.FYI tells readers about other people's news, so it names who it is. Titles stay as written. No item has more than 3 tags. No link appears twice.
    - **Leads.** Every security advisory (⚠️) and breaking change (🚨) is first in its group, above everything else in it. Fix: `umbfyi.sh move-block` (after the group heading).
    - **Repeats.** No item's link was in the last issue (`umbfyi.sh featured <link>`). `featured` also matches this issue itself, so ignore results whose `newsletterDate` is this issue's. Events and training sessions still upcoming are fine: events usually run in two issues.
-   - **Events.** Every event (and deadline) is after the send time and no later than the Friday after it.
+   - **Events.** Every event (and deadline) is after the send time and no later than the Friday after it. Then open each event's page again, as details change after prep (`newsletter-items` rules, section 5):
+     - Cancelled or postponed: a problem. Fix: drop it (Matt removes the block in the backoffice; the skills can't delete).
+     - Date, time or venue differs from the summary: a problem. Fix: `edit-item` with the page's details.
+     - Summary has no venue (and doesn't say "Online"), or says TBD or TBC, but the page now has one: a problem. Fix: `edit-item`. Still TBD on the page too: fine, say so in one line.
+     - Page won't load: "couldn't check", not a problem.
    - **Links.** Fetch every item link. Anything that's gone (404, 410, a domain that doesn't resolve) is a problem. Sites that block automated requests (LinkedIn, Meetup and others often do: 403, 429, 999) are "couldn't check", not broken.
 3. **Report.** One checklist: ✅ for each passing check on one line, then each problem as a bullet with the item's title (not its id) and the fix. End with one line: ready to publish, or how many things to fix first. Don't fix anything, even small things, unless Matt then asks.
