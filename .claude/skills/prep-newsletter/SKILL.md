@@ -63,7 +63,6 @@ Every phone message follows this exactly. Don't improvise a different layout.
 
 Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 
-![Social card](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>)
 Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>) · [Instagram](https://umb.fyi/umbraco/api/ogapi/image1080/<issue>?v=<unix time>)
 ```
 
@@ -79,7 +78,6 @@ Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix t
 
 Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 
-![Social card](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>)
 Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>) · [Instagram](https://umb.fyi/umbraco/api/ogapi/image1080/<issue>?v=<unix time>)
 
 **Reply:** `flip 2` to change one. No reply and it stays as it is.
@@ -92,7 +90,7 @@ Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix t
 - **Details go on indented sub-bullets,** one fact each, never on the title line. No markdown tables.
 - **`Ask:` steps** (only if on that line): options (puzzle, preheader) get one row each, the one you put in first with ✅, others ❌, sub-bullets `- Answer:` / `- How:` or `- Angle:` / `- Fits:`; reply `pick 3` swaps. LinkedIn: one ✅ row, then the post as a quote block (`>`); reply `edit: …`. Fixes: `- Problem:` and `- Fix:`.
 - **Always end with the Preview line and the social card, then a bold `Reply:` line** listing the replies you understand, as code spans. (Not in the "nothing needs you" message: that ends at the card.)
-- **The social card** is the image the site draws from the preheader, shown on LinkedIn, Bluesky and the like. Matt can't easily check it otherwise, so it's in every prep end message: the image itself (his phone app shows images in chat), and a `Card:` line with tap links in case it doesn't show. `<unix time>` is `date +%s` when you write the message, so his phone never shows an older cached card. The card only exists once the issue is published; if it isn't, leave both lines out. Check it loads first (`curl -s -o /dev/null -w '%{http_code}'` gives 200); if not, leave it out and add a ⚠️ line.
+- **The social card** is the image the site draws from the preheader, shown on LinkedIn, Bluesky and the like. Matt can't easily check it otherwise, so it's in every prep end message. Download it (`curl -s -o card.png 'https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>'` into the scratchpad, `<unix time>` from `date +%s`) and send it with `SendUserFile` (status `proactive`, display `render`, caption `Social card · <issue>`), just before the message: his phone shows a sent file in the chat, but not a web image in markdown (that only gives a "Load Image" box). Also keep the `Card:` line with tap links. If `SendUserFile` isn't available, the links alone do. The card only exists once the issue is published; if it isn't, leave it out. If the download fails or isn't a PNG (`file card.png`), leave the card out and add a ⚠️ line.
 
 - **Reply:** `flip <numbers>` does the opposite of your call for those rows: a ✅ comes out (`remove-block`), a ❌ goes in (kept tips become media items, items go in, `tidy`, checks), a fix is undone. `pick 3` swaps an option, `edit: …` changes the LinkedIn post. Republish, update that step's scorecard row (what changed), then one line: done, with the preview link. `ok` or no reply: nothing to do, rows stay `auto`.
 - **Waiting:** after the message, end your turn. His reply, if any, comes back into this session. From 08:45 UK on send day, follow the after-send rule (each change needs his yes).
