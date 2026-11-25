@@ -47,7 +47,8 @@ Not every miss is flagged. When no read-time extractor exists for a site, the wo
 - Video and podcast items go in Watch & Listen, even when they're from HQ.
 - If Matt has added a one-off heading this week (like a conference or "24 Days"), items about it go there. Use its `groupAlias` as the category.
 - Social posts go under Social, even from HQ accounts. Only blog posts and real editorial content go in the named sections.
-- Security advisories and security heads-ups get the ⚠️ emoji, not the workflow's 📰.
+- Security advisories and security heads-ups get the ⚠️ emoji, not the workflow's 📰. Breaking change announcements get 🚨.
+- Both always lead their group (in practice HQ), above newer posts. The server puts items with ⚠️ or 🚨, or "breaking change" or "security advisory" in the title, first; so the emoji matters. Matt had to move two breaking changes up by hand in the 25-11-2026 issue.
 
 ## 3. Titles
 

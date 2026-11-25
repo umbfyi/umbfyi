@@ -23,7 +23,7 @@ All of them talk to the LIVE site. Nothing is ever published: the issue stays a 
    - Then carry on from `newsletter-items` step 6: show the table, wait for Matt's go, add the items, tidy, check. Tidy goes last on purpose: once the puzzle and items are in, no more blocks are coming.
 6. **Preheader.** Run `newsletter-preheader`, now that the items are in.
 7. **LinkedIn post.** Run `newsletter-linkedin`. It builds on the preheader picks, so it comes straight after.
-8. **Check.** Run `check-newsletter` on the finished draft. If it finds problems, list them with their fixes and ask Matt which to fix; run only those.
+8. **Check.** Run `check-newsletter` on the finished draft. If it finds problems, list them with their fixes and ask Matt which to fix; run only those. Fix items yourself with `umbfyi.sh edit-item` and `umbfyi.sh move-block`, never by asking Matt to do it in the backoffice.
 9. **Sum up.** One short message:
    - The issue's name and when it goes out (UK time).
    - What each step did, one line each (e.g. "Tips: 4 kept, 2 dropped", "Sweep: 2 added from Bluesky", "Items: 31 added, 2 skipped, Deadlines heading added", "Puzzle: CACHE").
@@ -31,6 +31,18 @@ All of them talk to the LIVE site. Nothing is ever published: the issue stays a 
    - The preheader as saved, the LinkedIn post's hook line, and the check result (ready, or what's still to fix).
    - What's left for Matt: look over the draft in the backoffice, and publish (in the backoffice, or by telling Claude to publish, which runs `publish-newsletter`).
    - Any rule or tag corrections offered during the run that Matt hasn't answered yet.
+   - The asks logged this run (see below), each with where it could be automated. One line each.
+
+## Log Matt's asks
+
+Keep `references/asks.md` as a running log, for learning what prep should do on its own.
+
+- **At the start**, read it. If an ask has come up two or more times with no skill change yet, say so in one line and offer to automate it.
+- **During the run**, log every time Matt asks for something the skills didn't do by themselves: a fix, a change, a reorder, a redo, a one-off. Not his normal approvals, picks or "go"s. Add the entry when it's done, so the outcome is real.
+- Each entry is a few lines under the issue date: what he asked, what you did, how it turned out, and a suggestion (the skill and step it belongs in, or "one-off" if it doesn't).
+- This repo is public. Describe the ask, never paste private data (tips' submitter details, emails, keys).
+- Also log asks from a newsletter skill run on its own, outside full prep.
+- When a suggestion gets built into a skill, mark the entry `Done: <skill>` so it isn't offered again.
 
 ## Rules
 

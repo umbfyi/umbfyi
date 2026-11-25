@@ -20,6 +20,8 @@ Pushing `master` in `../UMB.FYI.v17` deploys straight to live and restarts the s
 
 ## Talking to the live site
 
+During any newsletter work, log each thing Matt asks for that the skills didn't do by themselves in `.claude/skills/prep-newsletter/references/asks.md` (format in `prep-newsletter`), with the outcome and which skill it belongs in.
+
 Skills read and write the live site through `.claude/skills/process-tips/scripts/umbfyi.sh` (run it with no args for the commands). It logs in as an Umbraco API user from `UMBFYI_BASE_URL`, `UMBFYI_CLIENT_ID` and `UMBFYI_CLIENT_SECRET`, set in the environment or in `~/.umbfyi-tips.env`. If they're missing, stop and ask Matt.
 
 `.claude/skills/process-tips/scripts/jev.py` asks Jev (TypeSafe's fast yes/no model) one question about every item in a JSON file, for cheap first-pass filtering. It reads `TYPESAFE_API_KEY` from the environment or `~/.umbfyi-tips.env`.

@@ -38,6 +38,8 @@
 #   umbfyi.sh set-preheader <id> "<text>" [--dry-run]   save the preheader (saves a draft)
 #   umbfyi.sh set-linkedin <id> <text-file> [--dry-run]   save the LinkedIn post from a text file (saves a draft)
 #   umbfyi.sh set-puzzle <id> <json-file> [--dry-run]   fill the Minute Cryptic block from {clue, enumeration, ...} (saves a draft)
+#   umbfyi.sh edit-item <id> <content-key> <json-file> [--dry-run]   change some fields of one item (add-items names; saves a draft)
+#   umbfyi.sh move-block <id> <content-key> before|after <target-key> [--dry-run]   reorder: move a block next to another (saves a draft)
 #   umbfyi.sh publish-newsletter <id> [--dry-run]       publish a newsletter (syncs it to the mailing system). Only on Matt's word.
 
 set -euo pipefail
@@ -182,9 +184,11 @@ newsletters() {
   done | jq -s .
 }
 
-get_newsletter() {
-  local d
-  d=$(doc "$1")
+get_newsletter() { get_newsletter_from "$(doc "$1")"; }
+
+# get-newsletter's view of a document already in hand.
+get_newsletter_from() {
+  local d=$1
   jq --argjson types "$BLOCK_TYPES" --argjson s "$(summary <<<"$d")" '
     (.values[] | select(.alias == "content") | .value) as $c
     | ($c.contentData | map({key: .key, value: .}) | from_entries) as $byKey
@@ -259,6 +263,81 @@ set_puzzle() {
   echo "Saved as a draft."
 }
 
+# Item fields by add-items name: block property alias and the editor the backoffice saves it with.
+ITEM_FIELDS='{"title":["itemTitle","Umbraco.TextBox"],"summary":["itemDescription","Umbraco.TextArea"],
+  "source":["itemSource","Umbraco.TextBox"],"emoji":["itemEmoji","Umbraco.Plain.String"],"link":["itemLink","Umbraco.Plain.String"],
+  "consumptionTimeMinutes":["itemConsumptionTimeMinutes","Umbraco.Integer"],"contentTags":["itemTags","Umbraco.Tags"]}'
+
+# An item block's fields, by add-items name.
+item_fields() {
+  jq --arg k "$1" --argjson f "$ITEM_FIELDS" '($f | to_entries | map({key: .value[0], value: .key}) | from_entries) as $names
+    | [.values[] | select(.alias == "content") | .value.contentData[] | select(.key == $k) | .values[]
+       | select($names[.alias]) | {key: $names[.alias], value}] | from_entries'
+}
+
+# Changes some fields of one Newsletter Item block, in place. Same field names as add-items; fields left out stay as they are.
+edit_item() {
+  local id=${1:-} key=${2:-} file=${3:-} dry=${4:-} before after old saved
+  [[ -n $id && -n $key && -f $file ]] || { echo "Usage: edit-item <newsletter-id> <content-key> <json-file> [--dry-run]" >&2; exit 1; }
+  jq -e --argjson f "$ITEM_FIELDS" 'type == "object" and length > 0 and (keys - ($f | keys) | length == 0)' "$file" >/dev/null \
+    || { echo "The file must be an object with only: $(jq -r 'keys | join(", ")' <<<"$ITEM_FIELDS")" >&2; exit 1; }
+  jq -e '(.contentTags // []) | type == "array" and length <= 3' "$file" >/dev/null || { echo "contentTags must be a list of at most 3 tags" >&2; exit 1; }
+  before=$(doc "$id")
+  [[ $(jq -r .documentType.id <<<"$before") == "$NEWSLETTER_TYPE" ]] || { echo "Not a newsletter. Nothing saved." >&2; exit 1; }
+  jq -e --arg k "$key" 'any(.values[] | select(.alias == "content") | .value.contentData[]; .key == $k and .contentTypeKey == "808cbd76-e16f-44cb-93ca-f2b207771514")' <<<"$before" >/dev/null \
+    || { echo "No newsletter item block with key $key in this newsletter. Nothing saved." >&2; exit 1; }
+  jq -e --arg k "$key" --slurpfile f "$file" '($f[0].link // null) as $l | $l == null or (
+      [.values[] | select(.alias == "content") | .value.contentData[] | select(.key != $k) | .values[] | select(.alias == "itemLink") | .value | ascii_downcase]
+      | index($l | ascii_downcase) | not)' <<<"$before" >/dev/null \
+    || { echo "Another item already has that link. Nothing saved." >&2; exit 1; }
+  after=$(jq --arg k "$key" --slurpfile f "$file" --argjson m "$ITEM_FIELDS" '
+    (.values[] | select(.alias == "content") | .value.contentData[] | select(.key == $k) | .values) |=
+      (reduce ($f[0] | to_entries[]) as $e (.;
+        $m[$e.key] as [$alias, $editor]
+        | (if $e.key == "contentTags" then ($e.value | map(ascii_downcase)) else $e.value end) as $v
+        | if any(.[]; .alias == $alias) then map(if .alias == $alias then .value = $v else . end)
+          else . + [{editorAlias: $editor, culture: null, segment: null, alias: $alias, value: $v}] end))' <<<"$before")
+  old=$(item_fields "$key" <<<"$before")
+  jq -n --argjson b "$(summary <<<"$before")" --arg k "$key" --argjson old "$old" --slurpfile f "$file" \
+    '{name: $b.name, state: $b.state, item: $k, before: ($old | with_entries(select(.key as $x | $f[0] | has($x)))), after: $f[0]}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  saved=$(doc "$id" | item_fields "$key")
+  jq -e -n --slurpfile f "$file" --argjson s "$saved" '$f[0] | to_entries
+    | all(if .key == "contentTags" then (.value | map(ascii_downcase)) == $s[.key] else .value == $s[.key] end)' >/dev/null \
+    || { echo "Saved, but the item reads back differently: $saved" >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
+# Moves one block (an item, a signup block, a heading) to just before or after another block. To put an item
+# first in a group, move it after the group's heading.
+move_block() {
+  local id=${1:-} key=${2:-} where=${3:-} target=${4:-} dry=${5:-} before after
+  [[ -n $id && -n $key && ($where == before || $where == after) && -n $target && $key != "$target" ]] \
+    || { echo "Usage: move-block <newsletter-id> <content-key> before|after <target-content-key> [--dry-run]" >&2; exit 1; }
+  before=$(doc "$id")
+  [[ $(jq -r .documentType.id <<<"$before") == "$NEWSLETTER_TYPE" ]] || { echo "Not a newsletter. Nothing saved." >&2; exit 1; }
+  after=$(jq --arg k "$key" --arg t "$target" --arg w "$where" '
+    (.values[] | select(.alias == "content") | .value.layout["Umbraco.BlockList"]) |= (
+      (map(.contentKey) | index($k)) as $from | (map(.contentKey) | index($t)) as $to
+      | if $from == null or $to == null then error("block not found: \(if $from == null then $k else $t end)") else . end
+      | .[$from] as $b | del(.[$from])
+      | (map(.contentKey) | index($t)) as $at
+      | .[:(if $w == "after" then $at + 1 else $at end)] + [$b] + .[(if $w == "after" then $at + 1 else $at end):])' <<<"$before") || exit 1
+  # Show the moved block with its neighbours, as get-newsletter numbers them.
+  get_newsletter_from "$after" | jq --arg k "$key" '{name, state, moved: $k,
+    around: ([.blocks[] | select(.contentKey == $k) | .n] [0] as $n
+      | [.blocks[] | select(.n >= $n - 2 and .n <= $n + 2)
+         | {n, type, title: (.values.itemTitle // .values.groupTitle // null), moved: (.contentKey == $k)}])}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  doc "$id" | jq -e --arg k "$key" --arg t "$target" --arg w "$where" '
+    (.values[] | select(.alias == "content") | .value.layout["Umbraco.BlockList"] | map(.contentKey)) as $l
+    | ($l | index($k)) - ($l | index($t)) == (if $w == "after" then 1 else -1 end)' >/dev/null \
+    || { echo "Saved, but the order reads back differently. Check with get-newsletter." >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
 NEWSLETTER_TYPE=119ae1bc-9453-455a-ab66-f53c5455a50d
 
 # Same call as the backoffice's Publish button. Refuses anything that isn't a newsletter, or one with nothing new to publish.
@@ -312,6 +391,8 @@ case "$cmd" in
   set-preheader) set_preheader "$@" ;;
   set-linkedin) set_linkedin "${1:-}" "${2:-}" "${3:-}" ;;
   set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
+  edit-item) edit_item "${1:-}" "${2:-}" "${3:-}" "${4:-}" ;;
+  move-block) move_block "${1:-}" "${2:-}" "${3:-}" "${4:-}" "${5:-}" ;;
   publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
-  *) sed -n '2,41p' "$0"; exit 1 ;;
+  *) sed -n '2,43p' "$0"; exit 1 ;;
 esac

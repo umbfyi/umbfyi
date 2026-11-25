@@ -5,7 +5,7 @@ description: Look over this week's UMB.FYI newsletter draft on the live site bef
 
 # Check newsletter
 
-A final look over the draft before Matt publishes. **Read-only: never change anything.** Report what's wrong and which skill or step would fix it; Matt decides.
+A final look over the draft before Matt publishes. **Read-only: never change anything.** Report what's wrong and which skill or step would fix it; Matt decides. For a single item's field or position, the fix is `umbfyi.sh edit-item` or `umbfyi.sh move-block`.
 
 Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-newsletter`, `og-measure`, `featured`). All on the LIVE site, all reads.
 
@@ -20,6 +20,7 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-news
    - **Placeholders.** No poll still saying `[CHANGE ME]`, no heading with nothing under it. Fix: `umbfyi.sh tidy`.
    - **Signup blocks.** The first one is 3 to 6 items in, but judge by length, not count: it should sit above the fold, so after long items (HQ posts with long summaries) it goes nearer 3 than 6. Tidy now judges this by length too, so it should be right; if it still looks too low, say how many items higher it should go (a drag in the backoffice). The last block in the issue is a signup block. Fix: `umbfyi.sh tidy`.
    - **Items.** Each has a title, link and source. Posts and videos have a real summary and a read time above 0; social posts and forum release posts have no summary (a forum write-up has one); packages have a one-sentence summary. No summary speaks in the first person ("we", "our", "I", "my"): UMB.FYI tells readers about other people's news, so it names who it is. Titles stay as written. No item has more than 3 tags. No link appears twice.
+   - **Leads.** Every security advisory (⚠️) and breaking change (🚨) is first in its group, above everything else in it. Fix: `umbfyi.sh move-block` (after the group heading).
    - **Repeats.** No item's link was in the last issue (`umbfyi.sh featured <link>`). `featured` also matches this issue itself, so ignore results whose `newsletterDate` is this issue's. Events and training sessions still upcoming are fine: events usually run in two issues.
    - **Events.** Every event (and deadline) is after the send time and no later than the Friday after it.
    - **Links.** Fetch every item link. Anything that's gone (404, 410, a domain that doesn't resolve) is a problem. Sites that block automated requests (LinkedIn, Meetup and others often do: 403, 429, 999) are "couldn't check", not broken.
