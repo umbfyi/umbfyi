@@ -50,6 +50,8 @@ The Tuesday scheduled task (18:00 UTC: 6pm UK in winter, 7pm in British Summer T
 
 Every phone message follows this exactly. Don't improvise a different layout.
 
+**Before every line, ask: do I need to bother Matt with this?** If he'd just say "fine", leave it out. Things you handled, checks that passed, and how you got there stay out. What stays in: calls he can overrule, anything you're not sure of, and anything blocking the run.
+
 ```
 **<Step> · <issue>** · <counts, e.g. 6 tips: 3 keep, 2 drop, 1 unsure>
 
