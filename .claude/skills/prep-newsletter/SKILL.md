@@ -62,6 +62,9 @@ Every phone message follows this exactly. Don't improvise a different layout.
 **Prep · <issue>** · nothing needs you
 
 Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
+
+![Social card](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>)
+Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>) · [Instagram](https://umb.fyi/umbraco/api/ogapi/image1080/<issue>?v=<unix time>)
 ```
 
 **When something does,** each row must be complete, so he can decide in one look without opening anything else: your call (the emoji), the link, and just enough context to decide (why, and what happens if he says nothing). As short as possible, but plain: whole words, no shorthand.
@@ -76,6 +79,9 @@ Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 
 Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 
+![Social card](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>)
+Card: [social](https://umb.fyi/umbraco/api/ogapi/image1200x627/<issue>?v=<unix time>) · [Instagram](https://umb.fyi/umbraco/api/ogapi/image1080/<issue>?v=<unix time>)
+
 **Reply:** `flip 2` to change one. No reply and it stays as it is.
 ```
 
@@ -85,7 +91,8 @@ Preview: [umb.fyi/<issue>](https://umb.fyi/<issue>)
 - **Every title is a link** to exactly what would go in the issue (for a drop, the link you'd use if it went in). If you weighed two links (tips rule 3), add `- Other link: [<site>](<url>)`.
 - **Details go on indented sub-bullets,** one fact each, never on the title line. No markdown tables.
 - **`Ask:` steps** (only if on that line): options (puzzle, preheader) get one row each, the one you put in first with ✅, others ❌, sub-bullets `- Answer:` / `- How:` or `- Angle:` / `- Fits:`; reply `pick 3` swaps. LinkedIn: one ✅ row, then the post as a quote block (`>`); reply `edit: …`. Fixes: `- Problem:` and `- Fix:`.
-- **Always end with the Preview line, then a bold `Reply:` line** listing the replies you understand, as code spans. (Not in the "nothing needs you" message: that ends at the preview.)
+- **Always end with the Preview line and the social card, then a bold `Reply:` line** listing the replies you understand, as code spans. (Not in the "nothing needs you" message: that ends at the card.)
+- **The social card** is the image the site draws from the preheader, shown on LinkedIn, Bluesky and the like. Matt can't easily check it otherwise, so it's in every prep end message: the image itself (his phone app shows images in chat), and a `Card:` line with tap links in case it doesn't show. `<unix time>` is `date +%s` when you write the message, so his phone never shows an older cached card. The card only exists once the issue is published; if it isn't, leave both lines out. Check it loads first (`curl -s -o /dev/null -w '%{http_code}'` gives 200); if not, leave it out and add a ⚠️ line.
 
 - **Reply:** `flip <numbers>` does the opposite of your call for those rows: a ✅ comes out (`remove-block`), a ❌ goes in (kept tips become media items, items go in, `tidy`, checks), a fix is undone. `pick 3` swaps an option, `edit: …` changes the LinkedIn post. Republish, update that step's scorecard row (what changed), then one line: done, with the preview link. `ok` or no reply: nothing to do, rows stay `auto`.
 - **Waiting:** after the message, end your turn. His reply, if any, comes back into this session. From 08:45 UK on send day, follow the after-send rule (each change needs his yes).

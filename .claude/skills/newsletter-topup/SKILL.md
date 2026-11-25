@@ -48,6 +48,8 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
    **Reply:** `flip 2` to change one, before 8:45. No reply and it goes out as it is.
    ```
 
+   If the preheader changed this morning, add the social card under the Preview line, as in `prep-newsletter` ("The social card"). Otherwise leave it out: Matt saw it last night.
+
    If the issue isn't published (Tuesday's prep didn't get that far), it's a ⚠️ line instead of the preview: "⚠️ Not published yet: reply publish to send it as it is", and treat `yes` as also publishing it, if it's complete (`publish-newsletter` limits).
 
    **When his reply comes,** get the UK time first. From 08:45 on, nothing happens on its own any more: say "Too close to the send to change it on a reply. Tell me exactly what to change and I'll check with you first." From then on, each change needs his yes for that change (after the send it only updates the web version).
