@@ -28,7 +28,7 @@ Skills read and write the live site through `.claude/skills/process-tips/scripts
 
 - Everything is LIVE. Never test writes on a published issue. Saves go to a draft.
 - Publishing the upcoming issue early is safe: the site keeps it out of listings until its `publishDate`, and each republish before then just updates the mailing system. So `prep-newsletter` (once the issue is complete) and `newsletter-topup` publish and republish it themselves, and send Matt the preview link (`https://umb.fyi/<issue>`). Hard limits: only the upcoming issue, only before 08:45 UK on send day, never once its `publishDate` has passed, never a half-built issue (no items, or no preheader). Anything else is published only when Matt says "publish" in his own words, with the `publish-newsletter` skill.
-- Never delete anything on the live site.
+- Never delete anything on the live site. One exception: until an issue's `publishDate`, anything inside it can change, including taking blocks out with `umbfyi.sh remove-block` (a cancelled event, a late drop). The script refuses once the send time has passed.
 
 ## Newsletter facts
 

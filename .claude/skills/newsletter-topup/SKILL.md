@@ -39,7 +39,7 @@ Everything is on the LIVE site, through `.claude/skills/process-tips/scripts/umb
 
    Nothing new: "UMB.FYI <issue>: nothing new since last night. Check: ready. Preview: <link>". No question then, unless there's a check problem to fix: then "Reply fix to fix it."  Leave out lines that would be empty.
 7. **Wait for his reply.** When it comes, get the UK time first. After 08:45: don't act. Say "Too late to change it safely. It goes out as it is." and stop.
-   - `yes`, or `drop <numbers>`: for kept tips, create the media item and dismiss the tip (`process-tips` step 6). Add the items (`newsletter-items` step 7, then `tidy` and its step 9 checks). Fix any check problems that `edit-item` or `move-block` can fix. Then republish (below).
+   - `yes`, or `drop <numbers>`: for kept tips, create the media item and dismiss the tip (`process-tips` step 6). Add the items (`newsletter-items` step 7, then `tidy` and its step 9 checks). Fix any check problems that `edit-item`, `move-block` or `remove-block` can fix (a cancelled event comes out). Then republish (below).
    - `no`: add nothing, and leave the new tips open (they roll to next week). Nothing to republish.
    - `fix`: fix what you can, then republish.
    - Anything else (a change, a question): do or answer it, republish if anything changed, then ask again.

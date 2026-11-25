@@ -5,7 +5,7 @@ description: Look over this week's UMB.FYI newsletter draft on the live site bef
 
 # Check newsletter
 
-A final look over the draft before Matt publishes. **Read-only: never change anything.** Report what's wrong and which skill or step would fix it; Matt decides. For a single item's field or position, the fix is `umbfyi.sh edit-item` or `umbfyi.sh move-block`.
+A final look over the draft before Matt publishes. **Read-only: never change anything.** Report what's wrong and which skill or step would fix it; Matt decides. For a single item's field, position or removal, the fix is `umbfyi.sh edit-item`, `move-block` or `remove-block`.
 
 Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-newsletter`, `og-measure`, `featured`). All on the LIVE site, all reads.
 
@@ -23,7 +23,7 @@ Calls: `.claude/skills/process-tips/scripts/umbfyi.sh` (`newsletters`, `get-news
    - **Leads.** Every security advisory (⚠️) and breaking change (🚨) is first in its group, above everything else in it. Fix: `umbfyi.sh move-block` (after the group heading).
    - **Repeats.** No item's link was in the last issue (`umbfyi.sh featured <link>`). `featured` also matches this issue itself, so ignore results whose `newsletterDate` is this issue's. Events and training sessions still upcoming are fine: events usually run in two issues.
    - **Events.** Every event (and deadline) is after the send time and no later than the Friday after it. Then open each event's page again, as details change after prep (`newsletter-items` rules, section 5):
-     - Cancelled or postponed: a problem. Fix: drop it (Matt removes the block in the backoffice; the skills can't delete).
+     - Cancelled or postponed: a problem. Fix: `umbfyi.sh remove-block`.
      - Date, time or venue differs from the summary: a problem. Fix: `edit-item` with the page's details.
      - Summary has no venue (and doesn't say "Online"), or says TBD or TBC, but the page now has one: a problem. Fix: `edit-item`. Still TBD on the page too: fine, say so in one line.
      - Page won't load: "couldn't check", not a problem.

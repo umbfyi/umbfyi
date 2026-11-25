@@ -40,6 +40,7 @@
 #   umbfyi.sh set-puzzle <id> <json-file> [--dry-run]   fill the Minute Cryptic block from {clue, enumeration, ...} (saves a draft)
 #   umbfyi.sh edit-item <id> <content-key> <json-file> [--dry-run]   change some fields of one item (add-items names; saves a draft)
 #   umbfyi.sh move-block <id> <content-key> before|after <target-key> [--dry-run]   reorder: move a block next to another (saves a draft)
+#   umbfyi.sh remove-block <id> <content-key> [--dry-run]   take one block out of an issue not yet sent (saves a draft)
 #   umbfyi.sh publish-newsletter <id> [--dry-run]       publish a newsletter (syncs it to the mailing system). Only on Matt's word.
 
 set -euo pipefail
@@ -338,6 +339,31 @@ move_block() {
   echo "Saved as a draft."
 }
 
+# Take one block out of an unsent issue (a cancelled event, a late drop). Refuses once the issue's send time has passed.
+remove_block() {
+  local id=${1:-} key=${2:-} dry=${3:-} before after send now
+  [[ -n $id && -n $key ]] || { echo "Usage: remove-block <newsletter-id> <content-key> [--dry-run]" >&2; exit 1; }
+  before=$(doc "$id")
+  [[ $(jq -r .documentType.id <<<"$before") == "$NEWSLETTER_TYPE" ]] || { echo "Not a newsletter. Nothing saved." >&2; exit 1; }
+  send=$(summary <<<"$before" | jq -r '.publishDate // empty' | tr ' ' 'T' | cut -c1-19)
+  now=$(date -u +%Y-%m-%dT%H:%M:%S)
+  [[ -n $send && $now < $send ]] || { echo "This issue's send time ($send UTC) has passed, or it has none. Nothing removed." >&2; exit 1; }
+  after=$(jq --arg k "$key" '
+    (.values[] | select(.alias == "content") | .value) |= (
+      ([.layout["Umbraco.BlockList"][] | select(.contentKey == $k)] | if length == 0 then error("block not found: \($k)") else .[0] end) as $b
+      | .layout["Umbraco.BlockList"] |= map(select(.contentKey != $k))
+      | .contentData |= map(select(.key != $k))
+      | .settingsData |= map(select(.key != ($b.settingsKey // "")))
+      | if has("expose") then .expose |= map(select(.contentKey != $k)) else . end)' <<<"$before") || exit 1
+  get_newsletter_from "$before" | jq --arg k "$key" '{name, state, removing: [.blocks[] | select(.contentKey == $k)
+    | {n, type, title: (.values.itemTitle // .values.groupTitle // null), link: (.values.itemLink // null)}][0]}'
+  [[ $dry == --dry-run ]] && { echo "Dry run: nothing saved." >&2; return; }
+  save_document "$id" "$after"
+  doc "$id" | jq -e --arg k "$key" '[.values[] | select(.alias == "content") | .value.layout["Umbraco.BlockList"][] | select(.contentKey == $k)] | length == 0' >/dev/null \
+    || { echo "Saved, but the block is still there. Check with get-newsletter." >&2; exit 1; }
+  echo "Saved as a draft."
+}
+
 NEWSLETTER_TYPE=119ae1bc-9453-455a-ab66-f53c5455a50d
 
 # Same call as the backoffice's Publish button. Refuses anything that isn't a newsletter, or one with nothing new to publish.
@@ -393,6 +419,7 @@ case "$cmd" in
   set-puzzle) set_puzzle "${1:-}" "${2:-}" "${3:-}" ;;
   edit-item) edit_item "${1:-}" "${2:-}" "${3:-}" "${4:-}" ;;
   move-block) move_block "${1:-}" "${2:-}" "${3:-}" "${4:-}" "${5:-}" ;;
+  remove-block) remove_block "${1:-}" "${2:-}" "${3:-}" ;;
   publish-newsletter) publish_newsletter "${1:-}" "${2:-}" ;;
-  *) sed -n '2,43p' "$0"; exit 1 ;;
+  *) sed -n '2,44p' "$0"; exit 1 ;;
 esac
